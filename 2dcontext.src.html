@@ -1,6 +1,4 @@
-
-
-  <h5 id="2dcontext">The 2D rendering context</h5>
+<h1 id="2dcontext">The 2D rendering context</h1>
 
   <!-- v2: we're on v5. suggestions for subsequent versions are marked v6, v7, v8. -->
 
@@ -650,7 +648,7 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
   <p>If a point is not outside a shape, it is inside the shape.</p>
 
 
-  <h6>Implementation notes</h6>
+  <h2>Implementation notes</h2>
 
   <!-- NON-NORMATIVE SECTION -->
 
@@ -680,7 +678,7 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
 
 
 
-  <h6>The canvas state</h6>
+  <h2>The canvas state</h2>
 
   <p>Each <code>CanvasRenderingContext2D</code> rendering context maintains a stack of drawing
   states. <dfn data-x="drawing state">Drawing states</dfn> consist of:</p>
@@ -752,7 +750,7 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
   </div>
 
 
-  <h6><code>DrawingStyle</code> objects</h6>
+  <h2><code>DrawingStyle</code> objects</h2>
 
   <p>All the line styles (line width, caps, joins, and dash patterns) and text styles (fonts)
   described in the next two sections apply to <code>CanvasRenderingContext2D</code> objects and to
@@ -790,7 +788,7 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
   </div>
 
 
-  <h6>Line styles</h6>
+  <h2>Line styles</h2>
 
   <dl class="domintro">
 
@@ -1238,7 +1236,7 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
   </div>
 
 
-  <h6>Text styles</h6>
+  <h2>Text styles</h2>
 
   <dl class="domintro">
 
@@ -1660,7 +1658,7 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
   </ol>
 
 
-  <h6>Building paths</h6>
+  <h2>Building paths</h2>
 
   <p>Each object implementing the <code>CanvasPathMethods</code> interface has a <span
   data-x="concept-path">path</span>. A <dfn data-x="concept-path">path</dfn> has a list of zero or
@@ -1979,7 +1977,7 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
 
 
 
-  <h6><code>Path2D</code> objects</h6>
+  <h2><code>Path2D</code> objects</h2>
 
   <p><code>Path2D</code> objects can be used to declare paths that are then later used on
   <code>CanvasRenderingContext2D</code> objects. In addition to many of the APIs described in
@@ -2435,7 +2433,7 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
   </div>
 
 
-  <h6><dfn data-x="dom-context-2d-transformation">Transformations</dfn></h6>
+  <h2><dfn data-x="dom-context-2d-transformation">Transformations</dfn></h2>
 
   <p>Each <code>CanvasRenderingContext2D</code> object has a <i>current transformation matrix</i>,
   as well as methods (described in this section) to manipulate it. When a
@@ -2603,7 +2601,7 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
 
 
 
-  <h6>Image sources for 2D rendering contexts</h6>
+  <h2>Image sources for 2D rendering contexts</h2>
 
   <p>Several methods in the <code>CanvasRenderingContext2D</code> API take the union type
   <code>CanvasImageSource</code> as an argument.</p>
@@ -2704,7 +2702,7 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
 
 
 
-  <h6>Fill and stroke styles</h6>
+  <h2>Fill and stroke styles</h2>
 
   <dl class="domintro">
 
@@ -3088,7 +3086,7 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
 
 
 
-  <h6>Drawing rectangles to the bitmap</h6>
+  <h2>Drawing rectangles to the bitmap</h2>
 
   <p>There are three methods that immediately draw rectangles to the bitmap. They each take four
   arguments; the first two give the <var data-x="">x</var> and <var data-x="">y</var> coordinates of
@@ -3199,7 +3197,7 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
 
 
 
-  <h6>Drawing text to the bitmap</h6>
+  <h2>Drawing text to the bitmap</h2>
 
   <dl class="domintro">
 
@@ -3458,7 +3456,7 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
 
 
 
-  <h6>Drawing paths to the canvas</h6>
+  <h2>Drawing paths to the canvas</h2>
 
   <p>The context always has a <dfn>current default path</dfn>. There is only one <span>current
   default path</span>, it is not part of the <span>drawing state</span>. The <span>current default
@@ -3927,7 +3925,7 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
 
 
 
-  <h6>Drawing images</h6>
+  <h2>Drawing images</h2>
 
   <p>To draw images, the <dfn data-x="dom-context-2d-drawImage"><code>drawImage</code></dfn> method
   can be used.</p>
@@ -4084,7 +4082,7 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
   </div>
 
 
-  <h6>Hit regions</h6>
+  <h2>Hit regions</h2>
 
   <p>A <dfn>hit region list</dfn> is a list of <span data-x="hit region">hit regions</span> for a
   bitmap.</p>
@@ -4938,7 +4936,7 @@ partial dictionary <span>MouseEventInit</span> {
   </div>
 
 
-  <h6><dfn>Pixel manipulation</dfn></h6>
+  <h2><dfn>Pixel manipulation</dfn></h2>
 
   <dl class="domintro">
 
@@ -5353,7 +5351,7 @@ function AddCloud(data, x, y) { ... }</pre>
 
 
 
-  <h6>Compositing</h6>
+  <h2>Compositing</h2>
 
   <dl class="domintro">
 
@@ -5423,7 +5421,7 @@ function AddCloud(data, x, y) { ... }</pre>
 
 
 
-  <h6>Image smoothing</h6>
+  <h2>Image smoothing</h2>
 
   <dl class="domintro">
 
@@ -5451,7 +5449,7 @@ function AddCloud(data, x, y) { ... }</pre>
   </div>
 
 
-  <h6><dfn>Shadows</dfn></h6>
+  <h2><dfn>Shadows</dfn></h2>
 
   <p>All drawing operations are affected by the four global shadow attributes.</p>
 
@@ -5598,7 +5596,7 @@ function AddCloud(data, x, y) { ... }</pre>
 
   <div class="impl">
 
-  <h6><dfn>Drawing model</dfn></h6>
+  <h2><dfn>Drawing model</dfn></h2>
 
   <p>When a shape or image is painted, user agents must follow these steps, in the order given (or
   act as if they do):</p>
@@ -5636,7 +5634,7 @@ function AddCloud(data, x, y) { ... }</pre>
 
 
 
-  <h6>Best practices</h6>
+  <h2>Best practices</h2>
 
   <!-- NON-NORMATIVE SECTION -->
 
@@ -5703,7 +5701,7 @@ function AddCloud(data, x, y) { ... }</pre>
   <code data-x="attr-contenteditable">contenteditable</code> attribute.</p>
 
 
-  <h6>Examples</h6>
+  <h2>Examples</h2>
 
   <!-- NON-NORMATIVE SECTION -->
 
