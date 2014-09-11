@@ -26,6 +26,26 @@ a[data-link-type=element]::before,span[data-link-type=element]::before {
 a[data-link-type=element]::after,span[data-link-type=element]::after {
   content: '>';
 }
+dl.domintro {
+padding: 0.5em 1em;
+border: none;
+background: #E9FBE9;
+border: 1px solid lightgray;
+}
+dl.domintro:before {
+display: table;
+margin: -1.5em -0.5em -0em auto;
+width: auto;
+content: 'This definition is non-normative. Implementation requirements are given below this definition.';
+color: #606060;
+border: 1px solid lightgray;
+background: white;
+padding: 0 0.25em;
+font-size: .9em;
+}
+.h-entry {
+  max-width: 65em;
+}
 </style>
 
 <h2 id="2dcontext" title="IDL of the 2D graphics context">The 2D rendering context</h2>
@@ -61,8 +81,10 @@ interface CanvasRenderingContext2D {
   void scale(unrestricted double x, unrestricted double y);
   void rotate(unrestricted double angle);
   void translate(unrestricted double x, unrestricted double y);
-  void transform(unrestricted double a, unrestricted double b, unrestricted double c, unrestricted double d, unrestricted double e, unrestricted double f);
-  void setTransform(unrestricted double a, unrestricted double b, unrestricted double c, unrestricted double d, unrestricted double e, unrestricted double f);
+  void transform(unrestricted double a, unrestricted double b, unrestricted double c, 
+                 unrestricted double d, unrestricted double e, unrestricted double f);
+  void setTransform(unrestricted double a, unrestricted double b, unrestricted double c, 
+                    unrestricted double d, unrestricted double e, unrestricted double f);
   void resetTransform();
 
   // compositing
@@ -76,8 +98,10 @@ interface CanvasRenderingContext2D {
   attribute (DOMString or CanvasGradient or CanvasPattern) strokeStyle; // (default black)
   attribute (DOMString or CanvasGradient or CanvasPattern) fillStyle; // (default black)
   CanvasGradient createLinearGradient(double x0, double y0, double x1, double y1);
-  CanvasGradient createRadialGradient(double x0, double y0, double r0, double x1, double y1, double r1);
-  CanvasPattern createPattern(CanvasImageSource image, [TreatNullAs=EmptyString] DOMString repetition);
+  CanvasGradient createRadialGradient(double x0, double y0, double r0, double x1, 
+                                      double y1, double r1);
+  CanvasPattern createPattern(CanvasImageSource image, 
+                              [TreatNullAs=EmptyString] DOMString repetition);
 
   // shadows
   attribute unrestricted double shadowOffsetX; 
@@ -86,9 +110,12 @@ interface CanvasRenderingContext2D {
   attribute DOMString shadowColor; // (default transparent black)
 
   // rects
-  void clearRect(unrestricted double x, unrestricted double y, unrestricted double w, unrestricted double h);
-  void fillRect(unrestricted double x, unrestricted double y, unrestricted double w, unrestricted double h);
-  void strokeRect(unrestricted double x, unrestricted double y, unrestricted double w, unrestricted double h);
+  void clearRect(unrestricted double x, unrestricted double y, unrestricted double w, 
+                 unrestricted double h);
+  void fillRect(unrestricted double x, unrestricted double y, unrestricted double w, 
+                unrestricted double h);
+  void strokeRect(unrestricted double x, unrestricted double y, unrestricted double w, 
+                  unrestricted double h);
 
   // path API (see also CanvasPathMethods)
   void beginPath();
@@ -107,21 +134,28 @@ interface CanvasRenderingContext2D {
   void clip(optional CanvasFillRule fillRule = "nonzero");
   void clip(Path2D path, optional CanvasFillRule fillRule = "nonzero");
   void resetClip();
-  boolean isPointInPath(unrestricted double x, unrestricted double y, optional CanvasFillRule fillRule = "nonzero");
-  boolean isPointInPath(Path2D path, unrestricted double x, unrestricted double y, optional CanvasFillRule fillRule = "nonzero");
+  boolean isPointInPath(unrestricted double x, unrestricted double y, 
+                        optional CanvasFillRule fillRule = "nonzero");
+  boolean isPointInPath(Path2D path, unrestricted double x, unrestricted double y, 
+                        optional CanvasFillRule fillRule = "nonzero");
   boolean isPointInStroke(unrestricted double x, unrestricted double y);
   boolean isPointInStroke(Path2D path, unrestricted double x, unrestricted double y);
  
   // text (see also the CanvasDrawingStyles< interface)
-  void fillText(DOMString text, unrestricted double x, unrestricted double y, optional unrestricted double maxWidth);
-  void strokeText(DOMString text, unrestricted double x, unrestricted double y, optional unrestricted double maxWidth);
+  void fillText(DOMString text, unrestricted double x, unrestricted double y, 
+                optional unrestricted double maxWidth);
+  void strokeText(DOMString text, unrestricted double x, unrestricted double y, 
+                  optional unrestricted double maxWidth);
   // TextMetrics
   void measureText(DOMString text);
  
   // drawing images
   void drawImage(CanvasImageSource image, unrestricted double dx, unrestricted double dy);
-  void drawImage(CanvasImageSource image, unrestricted double dx, unrestricted double dy, unrestricted double dw, unrestricted double dh);
-  void drawImage(CanvasImageSource image, unrestricted double sx, unrestricted double sy, unrestricted double sw, unrestricted double sh, unrestricted double dx, unrestricted double dy, unrestricted double dw, unrestricted double dh);
+  void drawImage(CanvasImageSource image, unrestricted double dx, unrestricted double dy, 
+                 unrestricted double dw, unrestricted double dh);
+  void drawImage(CanvasImageSource image, unrestricted double sx, unrestricted double sy, 
+                 unrestricted double sw, unrestricted double sh, unrestricted double dx, 
+                 unrestricted double dy, unrestricted double dw, unrestricted double dh);
  
   // hit regions
   void addHitRegion(optional HitRegionOptions options);
@@ -133,7 +167,8 @@ interface CanvasRenderingContext2D {
   ImageData createImageData(ImageData imagedata);
   ImageData getImageData(double sx, double sy, double sw, double sh);
   void putImageData(ImageData imagedata, double dx, double dy);
-  void putImageData(ImageData imagedata, double dx, double dy, double dirtyX, double dirtyY, double dirtyWidth, double dirtyHeight);
+  void putImageData(ImageData imagedata, double dx, double dy, double dirtyX, double dirtyY, 
+                    double dirtyWidth, double dirtyHeight);
 };
 
 [NoInterfaceObject, Exposed=Window,Worker]
@@ -236,11 +271,61 @@ interface Path2D {
 
 Path2D implements CanvasPathMethods;
 </pre>
+  <dl class="domintro">
+
+   <dt><var data-x="">context</var> = <var data-x="">canvas</var>.<code>getContext</code>('2d')</dt>
+
+   <dd>
+
+    <p>Returns a <a interface>CanvasRenderingContext2D</a> object that is permanently bound to a
+    particular <code>canvas</code> element.</p>
+
+   </dd>
+
+   <dt><var data-x="">context</var> = new <a interface>CanvasRenderingContext2D</a>( [ <var data-x="">width</var>, <var data-x="">height</var> ] )</dt>
+
+   <dd>
+
+    <p>Returns an unbound <a interface>CanvasRenderingContext2D</a> object with an implied bitmap with
+    the given dimensions in CSS pixels (300x150, if the arguments are omitted).</p>
+
+   </dd>
+
+   <dt><var data-x="">context</var> . <a link-for=CanvasRenderingContext2D link-type=attribute>canvas</a></dt>
+
+   <dd>
+
+    <p>Returns the <code>canvas</code> element, if the rendering context was obtained using the
+    <code>getContext()</code> method.</p>
+
+   </dd>
+
+   <dt><var data-x="">context</var> . <a>width</a></dt>
+   <dt><var data-x="">context</var> . <a>height</a></dt>
+
+   <dd>
+
+    <p>Return the dimensions of the bitmap, in CSS pixels.</p>
+
+    <p>Can be set, to update the bitmap's dimensions. If the rendering context is bound to a canvas,
+    this will also update the canvas' intrinsic dimensions.</p>
+
+   </dd>
+
+   <dt><var data-x="">context</var> . <a>commit()</a></dt>
+
+   <dd>
+
+    <p>If the rendering context is bound to a <code>canvas</code>, display the current frame.</p>
+
+   </dd>
+
+  </dl>
 
  <div class="impl">
 
   <p>A <a interface>CanvasRenderingContext2D</a> object can be obtained in two ways: the <code
-  data-x="dom-canvas-getContext">getContext()</code> method on a <a>canvas</a> element (which
+  data-x="dom-canvas-getContext">getContext()</code> method on a <a link-for=CanvasRenderingContext2D link-type=attribute>canvas</a> element (which
   invokes the <span>2D context creation algorithm</span>), and the <a>CanvasRenderingContext2D()</a> constructor.</p>
 
   <p>A <a interface>CanvasRenderingContext2D</a> object has a <dfn>scratch bitmap</dfn> and can be bound
@@ -664,7 +749,7 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
    link-for=CanvasDrawingStyles link-type=attribute>textBaseline</a>, <a
    link-for=CanvasDrawingStyles link-type=attribute>direction</a>, <a
    link-for=CanvasRenderingContext2D link-type=attribute>imageSmoothingEnabled</a>.</li>
-   <li>The current <span>dash list</span>.</li>
+   <li>The current <a link-for=CanvasDrawingStyles link-type=attribute>dash list</a>.</li>
   </ul>
 
   <p class="note">The <span>current default path</span> and the rendering context's bitmaps are not
@@ -899,8 +984,8 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
 
   <hr>
 
-  <p>Each <a interface><code>CanvasDrawingStyles</code></a> object has a <dfn>dash list</dfn>, which is either empty
-  or consists of an even number of non-negative numbers. Initially, the <span>dash list</span> must
+  <p>Each <a interface><code>CanvasDrawingStyles</code></a> object has a <dfn dfn-for=CanvasDrawingStyles dfn-type=attribute>dash list</dfn>, which is either empty
+  or consists of an even number of non-negative numbers. Initially, the <a link-for=CanvasDrawingStyles link-type=attribute>dash list</a> must
   be empty.</p>
 
   <p>When the <dfn dfn-for=CanvasDrawingStyles dfn-type=method><code>setLineDash()</code></dfn> method is
@@ -918,7 +1003,7 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
    <li><p>If the number of elements in <var>a</var> is odd, then let <var>a</var>
    be the concatentation of two copies of <var>a</var>.</p></li>
 
-   <li><p>Let the object's <span>dash list</span> be <var>a</var>.</p></li>
+   <li><p>Let the object's <a link-for=CanvasDrawingStyles link-type=attribute>dash list</a> be <var>a</var>.</p></li>
 
   </ol>
 
@@ -938,7 +1023,7 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
 
   <hr>
 
-  <p>When a user agent is to <dfn>trace a <span data-x="concept-path">path</span></dfn>, <!-- <dfn>trace a path</dfn> -->
+  <p>When a user agent is to <dfn>trace a path</dfn>, <!-- <dfn>trace a path</dfn> -->
   given an object <var>style</var> that implements the <a interface><code>CanvasDrawingStyles</code></a>
   interface, it must run the following algorithm. This algorithm returns a new <span
   data-x="concept-path">path</span>.</p>
@@ -967,13 +1052,13 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
    previously last line to the newly added closing line), and change the first point to a join (from
    the newly added closing line to the first line).</p>
 
-   <li><p>If the <var>styles</var> <span>dash list</span> is empty, jump to the step
+   <li><p>If the <var>styles</var> <a link-for=CanvasDrawingStyles link-type=attribute>dash list</a> is empty, jump to the step
    labeled <b>convert</b>.</p></li>
 
    <!-- DASHING -->
 
    <li><p>Let <var>pattern width</var> be the concatenation of all the entries of the <var
-   data-x="">styles</var> <span>dash list</span>, in coordinate space units.</p>
+   data-x="">styles</var> <a link-for=CanvasDrawingStyles link-type=attribute>dash list</a>, in coordinate space units.</p>
 
    <li><p>For each subpath <var>subpath</var> in <var>path</var>, run the
    following substeps. These substeps mutate the subpaths in <var>path</var> <b>in
@@ -984,9 +1069,8 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
      <li><p>Let <var>subpath width</var> be the length of all the lines of <var
      data-x="">subpath</var>, in coordinate space units.</p>
 
-     <li><p>Let <var>offset</var> be the value of the <var>styles</var> <code
-     data-x="dom-context-2d-lineDashOffset">lineDashOffset</code>, in coordinate space
-     units.</p></li>
+     <li><p>Let <var>offset</var> be the value of the <var>styles</var> <a link-for=CanvasDrawingStyles link-type=attribute>lineDashOffset</a>, 
+     in coordinate space units.</p></li>
 
      <li>
 
@@ -1011,8 +1095,8 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
      and <b>zero-on</b>).</p></li>
 
      <li><p><b>Dash on</b>: Let <var>segment length</var> be
-     the value of the <var>styles</var> <span>dash
-     list</span>'s <var>index</var>th entry.</p></li>
+     the value of the <var>styles</var> <a link-for=CanvasDrawingStyles link-type=attribute>dash
+     list</a>'s <var>index</var>th entry.</p></li>
 
      <li><p>Increment <var>position</var> by <var>segment length</var>.</p></li>
 
@@ -1026,7 +1110,7 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
      <li><p>Increment <var>index</var> by one.</p></li>
 
      <li><p><b>Dash off<!-- labeled for consistency only --></b>: Let <var>segment
-     length</var> be the value of the <var>styles</var> <span>dash list</span>'s <var
+     length</var> be the value of the <var>styles</var> <a link-for=CanvasDrawingStyles link-type=attribute>dash list</a>'s <var
      data-x="">index</var>th entry.</p></li>
 
      <li><p>Let <var>start</var> be the offset <var>position</var> on <var
@@ -1106,7 +1190,7 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
      data-x="">positioned-at-on-dash</var> be false.</p></li>
 
      <li><p>Increment <var>index</var> by one. If it is equal to the number of entries in
-     the <var>styles</var> <span>dash list</span>, then let <var>index</var> be
+     the <var>styles</var> <a link-for=CanvasDrawingStyles link-type=attribute>dash list</a>, then let <var>index</var> be
      0.</p></li>
 
      <li><p>Return to the step labeled <b>dash on</b>.</p></li>
@@ -1123,24 +1207,23 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
 
     <p>Create a new <span data-x="concept-path">path</span> that describes the edge of the areas
     that would be covered if a straight line of length equal to the <var>styles</var>
-    <code data-x="dom-context-2d-lineWidth">lineWidth</code> was swept along each subpath in <var
+    <a link-for=CanvasDrawingStyles link-type=attribute>lineWidth</a> was swept along each subpath in <var
     data-x="">path</var> while being kept at an angle such that the line is orthogonal to the path
     being swept, replacing each point with the end cap necessary to satisfy the <var
-    data-x="">styles</var> <code data-x="dom-context-2d-lineCap">lineCap</code> attribute as
+    data-x="">styles</var> <a link-for=CanvasDrawingStyles link-type=attribute>lineCap</a> attribute as
     described previously and elaborated below, and replacing each join with the join necessary to
-    satisfy the <var>styles</var> <code data-x="dom-context-2d-lineJoin">lineJoin</code>
-    type, as defined below.</p>
+    satisfy the <var>styles</var> <a link-for=CanvasDrawingStyles link-type=attribute>lineJoin</a> type, as defined below.</p>
 
     <p><strong>Caps</strong>: Each point has a flat edge perpendicular to the direction of the line
     coming out of it. This is them augmented according to the value of the <var
-    data-x="">styles</var> <code data-x="dom-context-2d-lineCap">lineCap</code>. The
+    data-x="">styles</var> <a link-for=CanvasDrawingStyles link-type=attribute>lineCap</a>. The
     <code>butt</code> value means that no additional line cap is added. The <code>round</code> value
-    means that a semi-circle with the diameter equal to the <var>styles</var> <code
-    data-x="dom-context-2d-lineWidth">lineWidth</code> width must additionally be placed on to the
+    means that a semi-circle with the diameter equal to the <var>styles</var> <a link-for=CanvasDrawingStyles 
+    link-type=attribute>lineWidth</a> width must additionally be placed on to the
     line coming out of each point. The <code>square</code> value means that a rectangle with the
-    length of the <var>styles</var> <code
-    data-x="dom-context-2d-lineWidth">lineWidth</code> width and the width of half the <var
-    data-x="">styles</var> <code data-x="dom-context-2d-lineWidth">lineWidth</code> width, placed
+    length of the <var>styles</var> <a link-for=CanvasDrawingStyles link-type=attribute>lineWidth</a> 
+    width and the width of half the <var data-x="">styles</var> <a link-for=CanvasDrawingStyles 
+    link-type=attribute>lineWidth</a> width, placed
     flat against the edge perpendicular to the direction of the line coming out of the point, must
     be added at each point.</p>
 
@@ -1154,8 +1237,8 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
     line.</p>
 
     <p>A triangle connecting these two opposite corners with a straight line, with the third point
-    of the triangle being the join point, must be added at all joins. The <code
-    data-x="dom-context-2d-lineJoin">lineJoin</code> attribute controls whether anything else is
+    of the triangle being the join point, must be added at all joins. The <a 
+    link-for=CanvasDrawingStyles link-type=attribute>lineJoin</a> attribute controls whether anything else is
     rendered. The three aforementioned values have the following meanings:</p>
 
     <p>The <code>bevel</code> value means that this is all that is rendered at joins.</p>
@@ -1173,9 +1256,8 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
     <p>The miter length is the distance from the point where the join occurs to the intersection of
     the line edges on the outside of the join. The miter limit ratio is the maximum allowed ratio of
     the miter length to half the line width. If the miter length would cause the miter limit ratio
-    (as set by the <var>style</var> <code
-    data-x="dom-context-2d-miterLimit">miterLimit</code> attribute) to be exceeded, this second
-    triangle must not be added.</p> <!-- the actual ratio can't possibly be less than 1.0 -->
+    (as set by the <var>style</var> <a link-for=CanvasDrawingStyles link-type=attribute>miterLimit</a> 
+    attribute) to be exceeded, this second triangle must not be added.</p> <!-- the actual ratio can't possibly be less than 1.0 -->
 
 
     <p>The subpaths in the newly created path must be oriented such that for any point, the number
