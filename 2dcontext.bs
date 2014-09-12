@@ -13,7 +13,11 @@ Editor: Rik Cabanier, Adobe Systems Inc., cabanier@adobe.com
 Editor: Jatinder Mann, Microsoft Corporation, jmann@microsoft.com
 Editor: Jay Munro, Microsoft Corporation, jaymunro@microsoft.com
 Editor: Tom Wiltzius, Google Inc., wiltzius@google.com
+Former Editor: Ian Hickson, Google Inc., ian@hixie.ch
 Abstract: This specification defines the 2D Context for the HTML canvas element. The 2D Context provides objects, methods, and properties to draw and manipulate graphics on a canvas drawing surface.
+Mailing List: public-canvas-api@w3.org
+Mailing List Archives: http://lists.w3.org/Archives/Public/public-canvas-api/
+
 </pre>
 
 <script src=http://resources.whatwg.org/file-bug.js async></script>
