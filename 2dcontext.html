@@ -540,9 +540,6 @@ span.issue, span.note {
   border-right-style: solid;
 }
   </style>
-<script async src=http://resources.whatwg.org/file-bug.js></script>
-<script src="../shared/MathJax/MathJax.js?config=MML_SVGorMML,local/local"></script>
-
 <style type=text/css>
 a[data-link-type=element]::before,span[data-link-type=element]::before {
   content: '<';
@@ -578,7 +575,7 @@ font-size: .9em;
   <p data-fill-with=logo></p>
   <h1 class="p-name no-ref" id=title>The 2D rendering context</h1>
   <h2 class="no-num no-toc no-ref heading settled" id=subtitle><span class=content>Editor’s Draft,
-    <span class=dt-updated><span class=value-title title=20140912>12 September 2014</span></span></span></h2>
+    <span class=dt-updated><span class=value-title title=20140913>13 September 2014</span></span></span></h2>
   <div data-fill-with=spec-metadata><dl>
 	<dt>This version:
 	<dd><a class=u-url href=http://www.w3.org/html/wg/drafts/2dcontext/master/>http://www.w3.org/html/wg/drafts/2dcontext/master/</a>
@@ -603,7 +600,7 @@ font-size: .9em;
   <p class=copyright data-fill-with=copyright><a href=http://creativecommons.org/publicdomain/zero/1.0/ rel=license><img alt=CC0 src=https://i.creativecommons.org/p/zero/1.0/80x15.png></a>
 To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 12 September 2014,
+In addition, as of 13 September 2014,
 the editors have made this specification available under the
 <a href=http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0 rel=license>Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
@@ -625,6 +622,7 @@ Parts of this work may be from another specification document.  If so, those par
 	<li><a href=#canvas-state><span class=secno>3</span> The canvas state</a>
 	<li><a href=#drawingstyle-id><span class=secno>4</span> <code>DrawingStyle</code> objects</a>
 	<li><a href=#line-styles><span class=secno>5</span> Line styles</a>
+	<li><a href=#text-styles><span class=secno>6</span> Text styles</a>
 	<li><a href=#conformance><span class=secno></span>  Conformance</a>
 	<li><a href=#references><span class=secno></span>  References</a>
 		<ul class=toc>
@@ -709,11 +707,11 @@ interface <dfn class=idl-code data-dfn-type=interface data-export="" data-global
   void <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D data-dfn-type=method data-export="" data-global-name="CanvasRenderingContext2D<interface>/stroke()<method>" id=dom-canvasrenderingcontext2d-stroke0 title=stroke()>stroke<a class=self-link href=#dom-canvasrenderingcontext2d-stroke0></a></dfn>();
   void <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D data-dfn-type=method data-export="" data-global-name="CanvasRenderingContext2D<interface>/stroke()<method>" id=dom-canvasrenderingcontext2d-stroke title=stroke()>stroke<a class=self-link href=#dom-canvasrenderingcontext2d-stroke></a></dfn>(<a data-link-type=idl href=#dom-path2d title=Path2D>Path2D</a> <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/stroke() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/stroke()<method>/path<argument>" id=dom-canvasrenderingcontext2d-stroke-path>path<a class=self-link href=#dom-canvasrenderingcontext2d-stroke-path></a></dfn>);
 
-  void <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D data-dfn-type=method data-export="" data-global-name="CanvasRenderingContext2D<interface>/drawfocusifneeded()<method>" id=dom-canvasrenderingcontext2d-drawfocusifneeded0 title=drawFocusIfNeeded()>drawFocusIfNeeded<a class=self-link href=#dom-canvasrenderingcontext2d-drawfocusifneeded0></a></dfn>(<a data-link-type=idl href=#dom-canvasrenderingcontext2d-drawfocusifneeded-element0 title=Element>Element</a> <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/drawFocusIfNeeded() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/drawFocusIfNeeded()<method>/element<argument>" id=dom-canvasrenderingcontext2d-drawfocusifneeded-element0>element<a class=self-link href=#dom-canvasrenderingcontext2d-drawfocusifneeded-element0></a></dfn>);
-  void <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D data-dfn-type=method data-export="" data-global-name="CanvasRenderingContext2D<interface>/drawfocusifneeded()<method>" id=dom-canvasrenderingcontext2d-drawfocusifneeded title=drawFocusIfNeeded()>drawFocusIfNeeded<a class=self-link href=#dom-canvasrenderingcontext2d-drawfocusifneeded></a></dfn>(<a data-link-type=idl href=#dom-path2d title=Path2D>Path2D</a> <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/drawFocusIfNeeded() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/drawFocusIfNeeded()<method>/path<argument>" id=dom-canvasrenderingcontext2d-drawfocusifneeded-path>path<a class=self-link href=#dom-canvasrenderingcontext2d-drawfocusifneeded-path></a></dfn>, <a data-link-type=idl href=#dom-canvasrenderingcontext2d-drawfocusifneeded-element0 title=Element>Element</a> <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/drawFocusIfNeeded() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/drawFocusIfNeeded()<method>/element<argument>" id=dom-canvasrenderingcontext2d-drawfocusifneeded-element>element<a class=self-link href=#dom-canvasrenderingcontext2d-drawfocusifneeded-element></a></dfn>);
+  void <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D data-dfn-type=method data-export="" data-global-name="CanvasRenderingContext2D<interface>/drawfocusifneeded()<method>" id=dom-canvasrenderingcontext2d-drawfocusifneeded0 title=drawFocusIfNeeded()>drawFocusIfNeeded<a class=self-link href=#dom-canvasrenderingcontext2d-drawfocusifneeded0></a></dfn>(<a data-link-type=idl href=#dom-canvasrenderingcontext2d-drawcustomfocusring-element0 title=Element>Element</a> <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/drawFocusIfNeeded() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/drawFocusIfNeeded()<method>/elem<argument>" id=dom-canvasrenderingcontext2d-drawfocusifneeded-elem0>elem<a class=self-link href=#dom-canvasrenderingcontext2d-drawfocusifneeded-elem0></a></dfn>);
+  void <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D data-dfn-type=method data-export="" data-global-name="CanvasRenderingContext2D<interface>/drawfocusifneeded()<method>" id=dom-canvasrenderingcontext2d-drawfocusifneeded title=drawFocusIfNeeded()>drawFocusIfNeeded<a class=self-link href=#dom-canvasrenderingcontext2d-drawfocusifneeded></a></dfn>(<a data-link-type=idl href=#dom-path2d title=Path2D>Path2D</a> <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/drawFocusIfNeeded() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/drawFocusIfNeeded()<method>/path<argument>" id=dom-canvasrenderingcontext2d-drawfocusifneeded-path>path<a class=self-link href=#dom-canvasrenderingcontext2d-drawfocusifneeded-path></a></dfn>, <a data-link-type=idl href=#dom-canvasrenderingcontext2d-drawcustomfocusring-element0 title=Element>Element</a> <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/drawFocusIfNeeded() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/drawFocusIfNeeded()<method>/elem<argument>" id=dom-canvasrenderingcontext2d-drawfocusifneeded-elem>elem<a class=self-link href=#dom-canvasrenderingcontext2d-drawfocusifneeded-elem></a></dfn>);
  
-  boolean <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D data-dfn-type=method data-export="" data-global-name="CanvasRenderingContext2D<interface>/drawcustomfocusring()<method>" id=dom-canvasrenderingcontext2d-drawcustomfocusring0 title=drawCustomFocusRing()>drawCustomFocusRing<a class=self-link href=#dom-canvasrenderingcontext2d-drawcustomfocusring0></a></dfn>(<a data-link-type=idl href=#dom-canvasrenderingcontext2d-drawfocusifneeded-element0 title=Element>Element</a> <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/drawCustomFocusRing() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/drawCustomFocusRing()<method>/element<argument>" id=dom-canvasrenderingcontext2d-drawcustomfocusring-element0>element<a class=self-link href=#dom-canvasrenderingcontext2d-drawcustomfocusring-element0></a></dfn>);
-  boolean <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D data-dfn-type=method data-export="" data-global-name="CanvasRenderingContext2D<interface>/drawcustomfocusring()<method>" id=dom-canvasrenderingcontext2d-drawcustomfocusring title=drawCustomFocusRing()>drawCustomFocusRing<a class=self-link href=#dom-canvasrenderingcontext2d-drawcustomfocusring></a></dfn>(<a data-link-type=idl href=#dom-path2d title=Path2D>Path2D</a> <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/drawCustomFocusRing() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/drawCustomFocusRing()<method>/path<argument>" id=dom-canvasrenderingcontext2d-drawcustomfocusring-path>path<a class=self-link href=#dom-canvasrenderingcontext2d-drawcustomfocusring-path></a></dfn>, <a data-link-type=idl href=#dom-canvasrenderingcontext2d-drawfocusifneeded-element0 title=Element>Element</a> <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/drawCustomFocusRing() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/drawCustomFocusRing()<method>/element<argument>" id=dom-canvasrenderingcontext2d-drawcustomfocusring-element>element<a class=self-link href=#dom-canvasrenderingcontext2d-drawcustomfocusring-element></a></dfn>);
+  boolean <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D data-dfn-type=method data-export="" data-global-name="CanvasRenderingContext2D<interface>/drawcustomfocusring()<method>" id=dom-canvasrenderingcontext2d-drawcustomfocusring0 title=drawCustomFocusRing()>drawCustomFocusRing<a class=self-link href=#dom-canvasrenderingcontext2d-drawcustomfocusring0></a></dfn>(<a data-link-type=idl href=#dom-canvasrenderingcontext2d-drawcustomfocusring-element0 title=Element>Element</a> <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/drawCustomFocusRing() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/drawCustomFocusRing()<method>/element<argument>" id=dom-canvasrenderingcontext2d-drawcustomfocusring-element0>element<a class=self-link href=#dom-canvasrenderingcontext2d-drawcustomfocusring-element0></a></dfn>);
+  boolean <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D data-dfn-type=method data-export="" data-global-name="CanvasRenderingContext2D<interface>/drawcustomfocusring()<method>" id=dom-canvasrenderingcontext2d-drawcustomfocusring title=drawCustomFocusRing()>drawCustomFocusRing<a class=self-link href=#dom-canvasrenderingcontext2d-drawcustomfocusring></a></dfn>(<a data-link-type=idl href=#dom-path2d title=Path2D>Path2D</a> <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/drawCustomFocusRing() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/drawCustomFocusRing()<method>/path<argument>" id=dom-canvasrenderingcontext2d-drawcustomfocusring-path>path<a class=self-link href=#dom-canvasrenderingcontext2d-drawcustomfocusring-path></a></dfn>, <a data-link-type=idl href=#dom-canvasrenderingcontext2d-drawcustomfocusring-element0 title=Element>Element</a> <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/drawCustomFocusRing() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/drawCustomFocusRing()<method>/element<argument>" id=dom-canvasrenderingcontext2d-drawcustomfocusring-element>element<a class=self-link href=#dom-canvasrenderingcontext2d-drawcustomfocusring-element></a></dfn>);
   void <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D data-dfn-type=method data-export="" data-global-name="CanvasRenderingContext2D<interface>/scrollpathintoview()<method>" id=dom-canvasrenderingcontext2d-scrollpathintoview0 title=scrollPathIntoView()>scrollPathIntoView<a class=self-link href=#dom-canvasrenderingcontext2d-scrollpathintoview0></a></dfn>();
   void <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D data-dfn-type=method data-export="" data-global-name="CanvasRenderingContext2D<interface>/scrollpathintoview()<method>" id=dom-canvasrenderingcontext2d-scrollpathintoview title=scrollPathIntoView()>scrollPathIntoView<a class=self-link href=#dom-canvasrenderingcontext2d-scrollpathintoview></a></dfn>(<a data-link-type=idl href=#dom-path2d title=Path2D>Path2D</a> <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/scrollPathIntoView() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/scrollPathIntoView()<method>/path<argument>" id=dom-canvasrenderingcontext2d-scrollpathintoview-path>path<a class=self-link href=#dom-canvasrenderingcontext2d-scrollpathintoview-path></a></dfn>);
   void <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D data-dfn-type=method data-export="" data-global-name="CanvasRenderingContext2D<interface>/clip()<method>" id=dom-canvasrenderingcontext2d-clip0 title=clip()>clip<a class=self-link href=#dom-canvasrenderingcontext2d-clip0></a></dfn>(optional <a data-link-type=idl href=#enumdef-canvasfillrule title=CanvasFillRule>CanvasFillRule</a> <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/clip() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/clip()<method>/fillrule<argument>" id=dom-canvasrenderingcontext2d-clip-fillrule0>fillRule<a class=self-link href=#dom-canvasrenderingcontext2d-clip-fillrule0></a></dfn> = "nonzero");
@@ -748,11 +746,11 @@ interface <dfn class=idl-code data-dfn-type=interface data-export="" data-global
   void <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D data-dfn-type=method data-export="" data-global-name="CanvasRenderingContext2D<interface>/clearhitregions()<method>" id=dom-canvasrenderingcontext2d-clearhitregions title=clearHitRegions()>clearHitRegions<a class=self-link href=#dom-canvasrenderingcontext2d-clearhitregions></a></dfn>();
   
   // pixel manipulation
-  <a data-link-type=idl href=#dom-canvasrenderingcontext2d-createimagedata-imagedata title=ImageData>ImageData</a> <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D data-dfn-type=method data-export="" data-global-name="CanvasRenderingContext2D<interface>/createimagedata()<method>" id=dom-canvasrenderingcontext2d-createimagedata0 title=createImageData()>createImageData<a class=self-link href=#dom-canvasrenderingcontext2d-createimagedata0></a></dfn>(double <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/createImageData() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/createImageData()<method>/sw<argument>" id=dom-canvasrenderingcontext2d-createimagedata-sw>sw<a class=self-link href=#dom-canvasrenderingcontext2d-createimagedata-sw></a></dfn>, double <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/createImageData() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/createImageData()<method>/sh<argument>" id=dom-canvasrenderingcontext2d-createimagedata-sh>sh<a class=self-link href=#dom-canvasrenderingcontext2d-createimagedata-sh></a></dfn>);
-  <a data-link-type=idl href=#dom-canvasrenderingcontext2d-createimagedata-imagedata title=ImageData>ImageData</a> <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D data-dfn-type=method data-export="" data-global-name="CanvasRenderingContext2D<interface>/createimagedata()<method>" id=dom-canvasrenderingcontext2d-createimagedata title=createImageData()>createImageData<a class=self-link href=#dom-canvasrenderingcontext2d-createimagedata></a></dfn>(<a data-link-type=idl href=#dom-canvasrenderingcontext2d-createimagedata-imagedata title=ImageData>ImageData</a> <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/createImageData() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/createImageData()<method>/imagedata<argument>" id=dom-canvasrenderingcontext2d-createimagedata-imagedata>imagedata<a class=self-link href=#dom-canvasrenderingcontext2d-createimagedata-imagedata></a></dfn>);
-  <a data-link-type=idl href=#dom-canvasrenderingcontext2d-createimagedata-imagedata title=ImageData>ImageData</a> <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D data-dfn-type=method data-export="" data-global-name="CanvasRenderingContext2D<interface>/getimagedata()<method>" id=dom-canvasrenderingcontext2d-getimagedata title=getImageData()>getImageData<a class=self-link href=#dom-canvasrenderingcontext2d-getimagedata></a></dfn>(double <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/getImageData() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/getImageData()<method>/sx<argument>" id=dom-canvasrenderingcontext2d-getimagedata-sx>sx<a class=self-link href=#dom-canvasrenderingcontext2d-getimagedata-sx></a></dfn>, double <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/getImageData() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/getImageData()<method>/sy<argument>" id=dom-canvasrenderingcontext2d-getimagedata-sy>sy<a class=self-link href=#dom-canvasrenderingcontext2d-getimagedata-sy></a></dfn>, double <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/getImageData() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/getImageData()<method>/sw<argument>" id=dom-canvasrenderingcontext2d-getimagedata-sw>sw<a class=self-link href=#dom-canvasrenderingcontext2d-getimagedata-sw></a></dfn>, double <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/getImageData() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/getImageData()<method>/sh<argument>" id=dom-canvasrenderingcontext2d-getimagedata-sh>sh<a class=self-link href=#dom-canvasrenderingcontext2d-getimagedata-sh></a></dfn>);
-  void <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D data-dfn-type=method data-export="" data-global-name="CanvasRenderingContext2D<interface>/putimagedata()<method>" id=dom-canvasrenderingcontext2d-putimagedata0 title=putImageData()>putImageData<a class=self-link href=#dom-canvasrenderingcontext2d-putimagedata0></a></dfn>(<a data-link-type=idl href=#dom-canvasrenderingcontext2d-createimagedata-imagedata title=ImageData>ImageData</a> <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/putImageData() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/putImageData()<method>/imagedata<argument>" id=dom-canvasrenderingcontext2d-putimagedata-imagedata0>imagedata<a class=self-link href=#dom-canvasrenderingcontext2d-putimagedata-imagedata0></a></dfn>, double <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/putImageData() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/putImageData()<method>/dx<argument>" id=dom-canvasrenderingcontext2d-putimagedata-dx0>dx<a class=self-link href=#dom-canvasrenderingcontext2d-putimagedata-dx0></a></dfn>, double <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/putImageData() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/putImageData()<method>/dy<argument>" id=dom-canvasrenderingcontext2d-putimagedata-dy0>dy<a class=self-link href=#dom-canvasrenderingcontext2d-putimagedata-dy0></a></dfn>);
-  void <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D data-dfn-type=method data-export="" data-global-name="CanvasRenderingContext2D<interface>/putimagedata()<method>" id=dom-canvasrenderingcontext2d-putimagedata title=putImageData()>putImageData<a class=self-link href=#dom-canvasrenderingcontext2d-putimagedata></a></dfn>(<a data-link-type=idl href=#dom-canvasrenderingcontext2d-createimagedata-imagedata title=ImageData>ImageData</a> <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/putImageData() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/putImageData()<method>/imagedata<argument>" id=dom-canvasrenderingcontext2d-putimagedata-imagedata>imagedata<a class=self-link href=#dom-canvasrenderingcontext2d-putimagedata-imagedata></a></dfn>, double <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/putImageData() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/putImageData()<method>/dx<argument>" id=dom-canvasrenderingcontext2d-putimagedata-dx>dx<a class=self-link href=#dom-canvasrenderingcontext2d-putimagedata-dx></a></dfn>, double <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/putImageData() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/putImageData()<method>/dy<argument>" id=dom-canvasrenderingcontext2d-putimagedata-dy>dy<a class=self-link href=#dom-canvasrenderingcontext2d-putimagedata-dy></a></dfn>, double <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/putImageData() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/putImageData()<method>/dirtyx<argument>" id=dom-canvasrenderingcontext2d-putimagedata-dirtyx>dirtyX<a class=self-link href=#dom-canvasrenderingcontext2d-putimagedata-dirtyx></a></dfn>, double <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/putImageData() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/putImageData()<method>/dirtyy<argument>" id=dom-canvasrenderingcontext2d-putimagedata-dirtyy>dirtyY<a class=self-link href=#dom-canvasrenderingcontext2d-putimagedata-dirtyy></a></dfn>, 
+  <a data-link-type=idl href=#dom-imagedata title=ImageData>ImageData</a> <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D data-dfn-type=method data-export="" data-global-name="CanvasRenderingContext2D<interface>/createimagedata()<method>" id=dom-canvasrenderingcontext2d-createimagedata0 title=createImageData()>createImageData<a class=self-link href=#dom-canvasrenderingcontext2d-createimagedata0></a></dfn>(double <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/createImageData() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/createImageData()<method>/sw<argument>" id=dom-canvasrenderingcontext2d-createimagedata-sw>sw<a class=self-link href=#dom-canvasrenderingcontext2d-createimagedata-sw></a></dfn>, double <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/createImageData() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/createImageData()<method>/sh<argument>" id=dom-canvasrenderingcontext2d-createimagedata-sh>sh<a class=self-link href=#dom-canvasrenderingcontext2d-createimagedata-sh></a></dfn>);
+  <a data-link-type=idl href=#dom-imagedata title=ImageData>ImageData</a> <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D data-dfn-type=method data-export="" data-global-name="CanvasRenderingContext2D<interface>/createimagedata()<method>" id=dom-canvasrenderingcontext2d-createimagedata title=createImageData()>createImageData<a class=self-link href=#dom-canvasrenderingcontext2d-createimagedata></a></dfn>(<a data-link-type=idl href=#dom-imagedata title=ImageData>ImageData</a> <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/createImageData() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/createImageData()<method>/sdata<argument>" id=dom-canvasrenderingcontext2d-createimagedata-sdata>sdata<a class=self-link href=#dom-canvasrenderingcontext2d-createimagedata-sdata></a></dfn>);
+  <a data-link-type=idl href=#dom-imagedata title=ImageData>ImageData</a> <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D data-dfn-type=method data-export="" data-global-name="CanvasRenderingContext2D<interface>/getimagedata()<method>" id=dom-canvasrenderingcontext2d-getimagedata title=getImageData()>getImageData<a class=self-link href=#dom-canvasrenderingcontext2d-getimagedata></a></dfn>(double <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/getImageData() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/getImageData()<method>/sx<argument>" id=dom-canvasrenderingcontext2d-getimagedata-sx>sx<a class=self-link href=#dom-canvasrenderingcontext2d-getimagedata-sx></a></dfn>, double <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/getImageData() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/getImageData()<method>/sy<argument>" id=dom-canvasrenderingcontext2d-getimagedata-sy>sy<a class=self-link href=#dom-canvasrenderingcontext2d-getimagedata-sy></a></dfn>, double <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/getImageData() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/getImageData()<method>/sw<argument>" id=dom-canvasrenderingcontext2d-getimagedata-sw>sw<a class=self-link href=#dom-canvasrenderingcontext2d-getimagedata-sw></a></dfn>, double <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/getImageData() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/getImageData()<method>/sh<argument>" id=dom-canvasrenderingcontext2d-getimagedata-sh>sh<a class=self-link href=#dom-canvasrenderingcontext2d-getimagedata-sh></a></dfn>);
+  void <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D data-dfn-type=method data-export="" data-global-name="CanvasRenderingContext2D<interface>/putimagedata()<method>" id=dom-canvasrenderingcontext2d-putimagedata0 title=putImageData()>putImageData<a class=self-link href=#dom-canvasrenderingcontext2d-putimagedata0></a></dfn>(<a data-link-type=idl href=#dom-imagedata title=ImageData>ImageData</a> <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/putImageData() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/putImageData()<method>/sdata<argument>" id=dom-canvasrenderingcontext2d-putimagedata-sdata0>sdata<a class=self-link href=#dom-canvasrenderingcontext2d-putimagedata-sdata0></a></dfn>, double <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/putImageData() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/putImageData()<method>/dx<argument>" id=dom-canvasrenderingcontext2d-putimagedata-dx0>dx<a class=self-link href=#dom-canvasrenderingcontext2d-putimagedata-dx0></a></dfn>, double <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/putImageData() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/putImageData()<method>/dy<argument>" id=dom-canvasrenderingcontext2d-putimagedata-dy0>dy<a class=self-link href=#dom-canvasrenderingcontext2d-putimagedata-dy0></a></dfn>);
+  void <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D data-dfn-type=method data-export="" data-global-name="CanvasRenderingContext2D<interface>/putimagedata()<method>" id=dom-canvasrenderingcontext2d-putimagedata title=putImageData()>putImageData<a class=self-link href=#dom-canvasrenderingcontext2d-putimagedata></a></dfn>(<a data-link-type=idl href=#dom-imagedata title=ImageData>ImageData</a> <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/putImageData() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/putImageData()<method>/sdata<argument>" id=dom-canvasrenderingcontext2d-putimagedata-sdata>sdata<a class=self-link href=#dom-canvasrenderingcontext2d-putimagedata-sdata></a></dfn>, double <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/putImageData() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/putImageData()<method>/dx<argument>" id=dom-canvasrenderingcontext2d-putimagedata-dx>dx<a class=self-link href=#dom-canvasrenderingcontext2d-putimagedata-dx></a></dfn>, double <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/putImageData() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/putImageData()<method>/dy<argument>" id=dom-canvasrenderingcontext2d-putimagedata-dy>dy<a class=self-link href=#dom-canvasrenderingcontext2d-putimagedata-dy></a></dfn>, double <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/putImageData() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/putImageData()<method>/dirtyx<argument>" id=dom-canvasrenderingcontext2d-putimagedata-dirtyx>dirtyX<a class=self-link href=#dom-canvasrenderingcontext2d-putimagedata-dirtyx></a></dfn>, double <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/putImageData() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/putImageData()<method>/dirtyy<argument>" id=dom-canvasrenderingcontext2d-putimagedata-dirtyy>dirtyY<a class=self-link href=#dom-canvasrenderingcontext2d-putimagedata-dirtyy></a></dfn>, 
                     double <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/putImageData() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/putImageData()<method>/dirtywidth<argument>" id=dom-canvasrenderingcontext2d-putimagedata-dirtywidth>dirtyWidth<a class=self-link href=#dom-canvasrenderingcontext2d-putimagedata-dirtywidth></a></dfn>, double <dfn class=idl-code data-dfn-for=CanvasRenderingContext2D/putImageData() data-dfn-type=argument data-export="" data-global-name="CanvasRenderingContext2D<interface>/putImageData()<method>/dirtyheight<argument>" id=dom-canvasrenderingcontext2d-putimagedata-dirtyheight>dirtyHeight<a class=self-link href=#dom-canvasrenderingcontext2d-putimagedata-dirtyheight></a></dfn>);
 };
 
@@ -770,10 +768,10 @@ interface <dfn class=idl-code data-dfn-type=interface data-export="" data-global
   attribute unrestricted double <a class=idl-code data-global-name="CanvasDrawingStyles<interface>/linedashoffset<attribute>" data-link-for=CanvasDrawingStyles data-link-type=attribute data-type="unrestricted double " href=#dom-canvasdrawingstyles-linedashoffset title=lineDashOffset>lineDashOffset</a>;
 
   // text
-  attribute DOMString <dfn class=idl-code data-dfn-for=CanvasDrawingStyles data-dfn-type=attribute data-export="" data-global-name="CanvasDrawingStyles<interface>/font<attribute>" data-type="DOMString " id=dom-canvasdrawingstyles-font>font<a class=self-link href=#dom-canvasdrawingstyles-font></a></dfn>; // (default 10px sans-serif)
-  attribute DOMString <dfn class=idl-code data-dfn-for=CanvasDrawingStyles data-dfn-type=attribute data-export="" data-global-name="CanvasDrawingStyles<interface>/textalign<attribute>" data-type="DOMString " id=dom-canvasdrawingstyles-textalign>textAlign<a class=self-link href=#dom-canvasdrawingstyles-textalign></a></dfn>; // "start", "end", "left", "right", "center" (default: "start")
-  attribute DOMString <dfn class=idl-code data-dfn-for=CanvasDrawingStyles data-dfn-type=attribute data-export="" data-global-name="CanvasDrawingStyles<interface>/textbaseline<attribute>" data-type="DOMString " id=dom-canvasdrawingstyles-textbaseline>textBaseline<a class=self-link href=#dom-canvasdrawingstyles-textbaseline></a></dfn>; // "top", "hanging", "middle", "alphabetic", "ideographic", "bottom" (default: "alphabetic")
-  attribute DOMString <dfn class=idl-code data-dfn-for=CanvasDrawingStyles data-dfn-type=attribute data-export="" data-global-name="CanvasDrawingStyles<interface>/direction<attribute>" data-type="DOMString " id=dom-canvasdrawingstyles-direction>direction<a class=self-link href=#dom-canvasdrawingstyles-direction></a></dfn>; // "ltr", "rtl", "inherit" (default: "inherit")
+  attribute DOMString <a class=idl-code data-global-name="CanvasDrawingStyles<interface>/font<attribute>" data-link-for=CanvasDrawingStyles data-link-type=attribute data-type="DOMString " href=#dom-canvasdrawingstyles-font title=font>font</a>; // (default 10px sans-serif)
+  attribute DOMString <a class=idl-code data-global-name="CanvasDrawingStyles<interface>/textalign<attribute>" data-link-for=CanvasDrawingStyles data-link-type=attribute data-type="DOMString " href=#dom-canvasdrawingstyles-textalign title=textAlign>textAlign</a>; // "start", "end", "left", "right", "center" (default: "start")
+  attribute DOMString <a class=idl-code data-global-name="CanvasDrawingStyles<interface>/textbaseline<attribute>" data-link-for=CanvasDrawingStyles data-link-type=attribute data-type="DOMString " href=#dom-canvasdrawingstyles-textbaseline title=textBaseline>textBaseline</a>; // "top", "hanging", "middle", "alphabetic", "ideographic", "bottom" (default: "alphabetic")
+  attribute DOMString <a class=idl-code data-global-name="CanvasDrawingStyles<interface>/direction<attribute>" data-link-for=CanvasDrawingStyles data-link-type=attribute data-type="DOMString " href=#dom-canvasdrawingstyles-direction title=direction>direction</a>; // "ltr", "rtl", "inherit" (default: "inherit")
 };
 
 [NoInterfaceObject, Exposed=Window,Worker]
@@ -829,7 +827,7 @@ dictionary <dfn class=idl-code data-dfn-type=dictionary data-export="" data-glob
   DOMString? <dfn class=idl-code data-default=null data-dfn-for=HitRegionOptions data-dfn-type=attribute data-export="" data-global-name="HitRegionOptions<interface>/parentid<attribute>" data-type="DOMString? " id=dom-hitregionoptions-parentid>parentID<a class=self-link href=#dom-hitregionoptions-parentid></a></dfn> = null;
   DOMString <dfn class=idl-code data-default='"inherit"' data-dfn-for=HitRegionOptions data-dfn-type=attribute data-export="" data-global-name="HitRegionOptions<interface>/cursor<attribute>" data-type="DOMString " id=dom-hitregionoptions-cursor>cursor<a class=self-link href=#dom-hitregionoptions-cursor></a></dfn> = "inherit";
   // for control-backed regions:
-  <a data-link-type=idl href=#dom-canvasrenderingcontext2d-drawfocusifneeded-element0 title=Element>Element</a>? <dfn class=idl-code data-default=null data-dfn-for=HitRegionOptions data-dfn-type=attribute data-export="" data-global-name="HitRegionOptions<interface>/control<attribute>" data-type="Element? " id=dom-hitregionoptions-control>control<a class=self-link href=#dom-hitregionoptions-control></a></dfn> = null;
+  <a data-link-type=idl href=#dom-canvasrenderingcontext2d-drawcustomfocusring-element0 title=Element>Element</a>? <dfn class=idl-code data-default=null data-dfn-for=HitRegionOptions data-dfn-type=attribute data-export="" data-global-name="HitRegionOptions<interface>/control<attribute>" data-type="Element? " id=dom-hitregionoptions-control>control<a class=self-link href=#dom-hitregionoptions-control></a></dfn> = null;
 };
 
 [Constructor(unsigned long <dfn class=idl-code data-dfn-for=ImageData/ImageData() data-dfn-type=argument data-export="" data-global-name="ImageData<interface>/ImageData()<method>/sw<argument>" id=dom-imagedata-imagedata-sw>sw<a class=self-link href=#dom-imagedata-imagedata-sw></a></dfn>, unsigned long <dfn class=idl-code data-dfn-for=ImageData/ImageData() data-dfn-type=argument data-export="" data-global-name="ImageData<interface>/ImageData()<method>/sh<argument>" id=dom-imagedata-imagedata-sh>sh<a class=self-link href=#dom-imagedata-imagedata-sh></a></dfn>),
@@ -841,7 +839,7 @@ interface <dfn class=idl-code data-dfn-type=interface data-export="" data-global
   readonly attribute <a data-link-type=idl href=http://www.khronos.org/registry/typedarray/specs/latest/#Uint8ClampedArray title=Uint8ClampedArray>Uint8ClampedArray</a> <dfn class=idl-code data-dfn-for=ImageData data-dfn-type=attribute data-export="" data-global-name="ImageData<interface>/data<attribute>" data-readonly="" data-type="Uint8ClampedArray " id=dom-imagedata-data>data<a class=self-link href=#dom-imagedata-data></a></dfn>;
 };
 
-[Constructor(optional <a data-link-type=idl href=#dom-canvasrenderingcontext2d-drawfocusifneeded-element0 title=Element>Element</a> <dfn class=idl-code data-dfn-for=DrawingStyle/DrawingStyle() data-dfn-type=argument data-export="" data-global-name="DrawingStyle<interface>/DrawingStyle()<method>/scope<argument>" id=dom-drawingstyle-drawingstyle-scope>scope<a class=self-link href=#dom-drawingstyle-drawingstyle-scope></a></dfn>), Exposed=Window,Worker]
+[Constructor(optional <a data-link-type=idl href=#dom-canvasrenderingcontext2d-drawcustomfocusring-element0 title=Element>Element</a> <dfn class=idl-code data-dfn-for=DrawingStyle/DrawingStyle() data-dfn-type=argument data-export="" data-global-name="DrawingStyle<interface>/DrawingStyle()<method>/scope<argument>" id=dom-drawingstyle-drawingstyle-scope>scope<a class=self-link href=#dom-drawingstyle-drawingstyle-scope></a></dfn>), Exposed=Window,Worker]
 interface <dfn class=idl-code data-dfn-type=interface data-export="" data-global-name="" id=dom-drawingstyle>DrawingStyle<a class=self-link href=#dom-drawingstyle></a></dfn> 
 { };
 <a data-link-type=idl href=#dom-drawingstyle title=DrawingStyle>DrawingStyle</a> implements <a data-link-type=idl href=#dom-canvasdrawingstyles title=CanvasDrawingStyles>CanvasDrawingStyles</a>;
@@ -858,7 +856,7 @@ interface <dfn class=idl-code data-dfn-type=interface data-export="" data-global
 </pre>
   <dl class=domintro>
 
-   <dt><var data-x="">context</var> = <var data-x="">canvas</var>.<code>getContext</code>(<a class=property data-link-type=propdesc title=2d>2d</a>)</dt>
+   <dt><var data-x="">context</var> = <var data-x="">canvas</var>.<code>getContext</code>('<span>2d</span>')</dt>
 
    <dd>
 
@@ -876,7 +874,7 @@ interface <dfn class=idl-code data-dfn-type=interface data-export="" data-global
 
    </dd>
 
-   <dt><var data-x="">context</var> . <a class=idl-code data-link-for=CanvasRenderingContext2D data-link-type=attribute href=#dom-canvasrenderingcontext2d-canvas title=canvas>canvas</a></dt>
+   <dt><var data-x="">context</var>.<a class=idl-code data-link-for=CanvasRenderingContext2D data-link-type=attribute href=#dom-canvasrenderingcontext2d-canvas title=canvas>canvas</a></dt>
 
    <dd>
 
@@ -885,8 +883,8 @@ interface <dfn class=idl-code data-dfn-type=interface data-export="" data-global
 
    </dd>
 
-   <dt><var data-x="">context</var> . <a data-link-type=dfn href=http://dev.w3.org/csswg/css-writing-modes-3/#width title=width>width</a></dt>
-   <dt><var data-x="">context</var> . <a data-link-type=dfn href=http://dev.w3.org/csswg/css-writing-modes-3/#height title=height>height</a></dt>
+   <dt><var data-x="">context</var>.<a data-link-type=dfn href=http://dev.w3.org/csswg/css-writing-modes-3/#width title=width>width</a></dt>
+   <dt><var data-x="">context</var>.<a data-link-type=dfn href=http://dev.w3.org/csswg/css-writing-modes-3/#height title=height>height</a></dt>
 
    <dd>
 
@@ -897,7 +895,7 @@ interface <dfn class=idl-code data-dfn-type=interface data-export="" data-global
 
    </dd>
 
-   <dt><var data-x="">context</var> . <a data-link-type=functionish href=#dom-canvasrenderingcontext2d-commit title=commit()>commit()</a></dt>
+   <dt><var data-x="">context</var>.<a data-link-type=functionish href=#dom-canvasrenderingcontext2d-commit title=commit()>commit()</a></dt>
 
    <dd>
 
@@ -920,7 +918,7 @@ interface <dfn class=idl-code data-dfn-type=interface data-export="" data-global
   dimensions.</p>
 
 
-  <p>Each such bitmap has an <span data-x=concept-canvas-origin-clean>origin-clean</span> flag,
+  <p>Each such bitmap has an <dfn data-dfn-type=dfn data-noexport="" id=origin-clean>origin-clean<a class=self-link href=#origin-clean></a></dfn> flag,
   which can be set to true or false. Initially, when one of these bitmaps is created, its <span data-x=concept-canvas-origin-clean>origin-clean</span> flag must be set to true.</p>
 
 
@@ -1139,7 +1137,7 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
 
   <hr>
 
-  <p>When the user agent is to run the <dfn data-dfn-type=dfn data-noexport="" data-x=concept-canvas-unbinding-steps id=unbinding-steps>unbinding
+  <p>When the user agent is to run the <dfn data-dfn-type=dfn data-noexport="" id=unbinding-steps>unbinding
   steps<a class=self-link href=#unbinding-steps></a></dfn> for a rendering context, it must run the following steps:</p>
 
   <ol>
@@ -1153,7 +1151,8 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
    transparent black.</li>
 
 
-   <li><p>Set the <a class=idl-code data-link-type=interface href=#dom-canvasrenderingcontext2d title=CanvasRenderingContext2D>CanvasRenderingContext2D</a> object’s <span>scratch bitmap</span>’s <span data-x=concept-canvas-origin-clean>origin-clean</span> flag to true.</li>
+   <li><p>Set the <a class=idl-code data-link-type=interface href=#dom-canvasrenderingcontext2d title=CanvasRenderingContext2D>CanvasRenderingContext2D</a> object’s <span>scratch bitmap</span>’s 
+   <a data-link-type=dfn href=#origin-clean title=origin-clean>origin-clean</a> flag to true.</li>
 
 
    <li><p>Let the <a class=idl-code data-link-type=interface href=#dom-canvasrenderingcontext2d title=CanvasRenderingContext2D>CanvasRenderingContext2D</a> object have no <span>output
@@ -1161,7 +1160,7 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
 
   </ol>
 
-  <p>When the user agent is to run the <dfn data-dfn-type=dfn data-noexport="" data-x=concept-canvas-binding-steps id=binding-steps>binding steps<a class=self-link href=#binding-steps></a></dfn>
+  <p>When the user agent is to run the <dfn data-dfn-type=dfn data-noexport="" id=binding-steps>binding steps<a class=self-link href=#binding-steps></a></dfn>
   to bind the rendering context to the <code>canvas</code> element <var>target</var>, it
   must run the following steps:</p>
 
@@ -1177,10 +1176,12 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
    black.</li>
 
 
-   <li><p>Set the <a class=idl-code data-link-type=interface href=#dom-canvasrenderingcontext2d title=CanvasRenderingContext2D>CanvasRenderingContext2D</a> object’s <span>scratch bitmap</span>’s <span data-x=concept-canvas-origin-clean>origin-clean</span> flag to true.</li>
+   <li><p>Set the <a class=idl-code data-link-type=interface href=#dom-canvasrenderingcontext2d title=CanvasRenderingContext2D>CanvasRenderingContext2D</a> object’s <span>scratch bitmap</span>’s 
+   <a data-link-type=dfn href=#origin-clean title=origin-clean>origin-clean</a> flag to true.</li>
 
 
-   <li><p>Let the <a class=idl-code data-link-type=interface href=#dom-canvasrenderingcontext2d title=CanvasRenderingContext2D>CanvasRenderingContext2D</a> object’s <span>output bitmap</span> be <var data-x="">target</var>’s bitmap.</li>
+   <li><p>Let the <a class=idl-code data-link-type=interface href=#dom-canvasrenderingcontext2d title=CanvasRenderingContext2D>CanvasRenderingContext2D</a> object’s <span>output bitmap</span> be 
+   <var>target</var>’s bitmap.</li>
 
   </ol>
 
@@ -1206,19 +1207,18 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
   <p>Except where otherwise specified, for the 2D context interface, <strong>any method call with a
   numeric argument whose value is infinite or a NaN value must be ignored</strong>.</p>
 
-  <p>Whenever the CSS value <code data-x="">currentColor</code> is used as a color in the
+  <p>Whenever the CSS value <span class=css>currentColor</span> is used as a color in the
   <a class=idl-code data-link-type=interface href=#dom-canvasrenderingcontext2d title=CanvasRenderingContext2D>CanvasRenderingContext2D</a> API, the "computed value of the <a class=property data-link-type=propdesc href=http://dev.w3.org/csswg/css-color-3/#color0 title=color>color</a> property" for the
-  purposes of determining the computed value of the <code data-x="">currentColor</code> keyword is
+  purposes of determining the computed value of the <span class=css>currentColor</span> keyword is
   the value described by the appropriate entry in the following list:</p>
 
   <dl>
 
-   <dt>If the rendering context’s <span data-x=concept-canvas-context-bitmap-mode>context bitmap
-   mode</span> is <span data-x=concept-canvas-fixed>fixed</span> and the <code>canvas</code>
+   <dt>If the rendering context’s <span>context bitmap mode</span> is <span>fixed</span> and the <code>canvas</code>
    element is <span>being rendered</span></dt>
 
    <dd><p>The "computed value of the <a class=property data-link-type=propdesc href=http://dev.w3.org/csswg/css-color-3/#color0 title=color>color</a> property" for the purposes of determining the computed
-   value of the <code data-x="">currentColor</code> keyword is the computed value of the <a class=property data-link-type=propdesc href=http://dev.w3.org/csswg/css-color-3/#color0 title=color>color</a>
+   value of the <span class=css>currentColor</span> keyword is the computed value of the <a class=property data-link-type=propdesc href=http://dev.w3.org/csswg/css-color-3/#color0 title=color>color</a>
    property on the <code>canvas</code> element at the time that the color is specified (e.g. when
    the appropriate attribute is set, or when the method is called; not when the color is rendered or
    otherwise used). <a href=#refsCSSCOLOR>[CSSCOLOR]</a></dd>
@@ -1226,7 +1226,7 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
    <dt>In all other cases</dt>
 
    <dd><p>The "computed value of the <a class=property data-link-type=propdesc href=http://dev.w3.org/csswg/css-color-3/#color0 title=color>color</a> property" for the purposes of determining the computed
-   value of the <code data-x="">currentColor</code> keyword is fully opaque black. <a href=#refsCSSCOLOR>[CSSCOLOR]</a></dd>
+   value of the <span class=css>currentColor</span> keyword is fully opaque black.</dd>
 
   </dl>
 
@@ -1391,8 +1391,8 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
 
   <dl class=domintro>
 
-   <dt><var>context</var> . <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-linewidth title=lineWidth><code>lineWidth</code></a> [ = <var>value</var> ]</dt>
-   <dt><var>styles</var> . <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-linewidth title=lineWidth><code>lineWidth</code></a> [ = <var>value</var> ]</dt>
+   <dt><var>context</var>.<a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-linewidth title=lineWidth><code>lineWidth</code></a> [ = <var>value</var> ]</dt>
+   <dt><var>styles</var>.<a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-linewidth title=lineWidth><code>lineWidth</code></a> [ = <var>value</var> ]</dt>
 
    <dd>
 
@@ -1403,8 +1403,8 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
 
    </dd>
 
-   <dt><var>context</var> . <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-linecap title=lineCap><code>lineCap</code></a> [ = <var>value</var> ]</dt>
-   <dt><var>styles</var> . <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-linecap title=lineCap><code>lineCap</code></a> [ = <var>value</var> ]</dt>
+   <dt><var>context</var>.<a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-linecap title=lineCap><code>lineCap</code></a> [ = <var>value</var> ]</dt>
+   <dt><var>styles</var>.<a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-linecap title=lineCap><code>lineCap</code></a> [ = <var>value</var> ]</dt>
 
    <dd>
 
@@ -1417,8 +1417,8 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
 
    </dd>
 
-   <dt><var>context</var> . <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-linejoin title=lineJoin><code>lineJoin</code></a> [ = <var>value</var> ]</dt>
-   <dt><var>styles</var> . <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-linejoin title=lineJoin><code>lineJoin</code></a> [ = <var>value</var> ]</dt>
+   <dt><var>context</var>.<a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-linejoin title=lineJoin><code>lineJoin</code></a> [ = <var>value</var> ]</dt>
+   <dt><var>styles</var>.<a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-linejoin title=lineJoin><code>lineJoin</code></a> [ = <var>value</var> ]</dt>
 
    <dd>
 
@@ -1431,8 +1431,8 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
 
    </dd>
 
-   <dt><var>context</var> . <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-miterlimit title=miterLimit><code>miterLimit</code></a> [ = <var>value</var> ]</dt>
-   <dt><var>styles</var> . <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-miterlimit title=miterLimit><code>miterLimit</code></a> [ = <var>value</var> ]</dt>
+   <dt><var>context</var>.<a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-miterlimit title=miterLimit><code>miterLimit</code></a> [ = <var>value</var> ]</dt>
+   <dt><var>styles</var>.<a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-miterlimit title=miterLimit><code>miterLimit</code></a> [ = <var>value</var> ]</dt>
 
    <dd>
 
@@ -1444,8 +1444,8 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
    </dd>
 
 
-   <dt><var>context</var> . <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=method href=#dom-canvasdrawingstyles-setlinedash title=setLineDash()><code>setLineDash(<var>segments</var>)</code></a></dt>
-   <dt><var>styles</var> . <a data-link-for=CanvasDrawingStyles data-link-type=functionish href=#dom-canvasdrawingstyles-setlinedash miethd="" title=setLineDash()><code>setLineDash(<var>segments</var>)</code></a></dt>
+   <dt><var>context</var>.<a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=method href=#dom-canvasdrawingstyles-setlinedash title=setLineDash()><code>setLineDash(<var>segments</var>)</code></a></dt>
+   <dt><var>styles</var>.<a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=method href=#dom-canvasdrawingstyles-setlinedash title=setLineDash()><code>setLineDash(<var>segments</var>)</code></a></dt>
 
    <dd>
 
@@ -1455,8 +1455,8 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
    </dd>
 
 
-   <dt><var>segments</var> = <var>context</var> . <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=method href=#dom-canvasdrawingstyles-getlinedash title=getLineDash()><code>getLineDash()</code></a></dt>
-   <dt><var>segments</var> = <var>styles</var> . <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=method href=#dom-canvasdrawingstyles-getlinedash title=getLineDash()><code>getLineDash()</code></a></dt>
+   <dt><var>segments</var> = <var>context</var>.<a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=method href=#dom-canvasdrawingstyles-getlinedash title=getLineDash()><code>getLineDash()</code></a></dt>
+   <dt><var>segments</var> = <var>styles</var>.<a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=method href=#dom-canvasdrawingstyles-getlinedash title=getLineDash()><code>getLineDash()</code></a></dt>
 
    <dd>
 
@@ -1466,8 +1466,8 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
    </dd>
 
 
-   <dt><var>context</var> . <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-linedashoffset title=lineDashOffset><code>lineDashOffset</code></a></dt>
-   <dt><var>styles</var> . <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-linedashoffset title=lineDashOffset><code>lineDashOffset</code></a></dt>
+   <dt><var>context</var>.<a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-linedashoffset title=lineDashOffset><code>lineDashOffset</code></a></dt>
+   <dt><var>styles</var>.<a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-linedashoffset title=lineDashOffset><code>lineDashOffset</code></a></dt>
 
    <dd>
 
@@ -1804,11 +1804,389 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
 
   </div>
 
+  <h2 class="heading settled" data-level=6 id=text-styles title="description of canvas text styles"><span class=secno>6 </span><span class=content>Text styles</span><a class=self-link href=#text-styles></a></h2>
+
+  <dl class=domintro>
+
+   <dt><var>context</var>.<a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-font title=font>font</a> [ = <var>value</var> ]</dt>
+   <dt><var>styles</var>.<a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-font title=font>font</a> [ = <var>value</var> ]</dt>
+
+   <dd>
+
+    <p>Returns the current font settings.</p>
+
+    <p>Can be set, to change the font. The syntax is the same as for the CSS <a class=property data-link-type=propdesc href=http://dev.w3.org/csswg/css-fonts-3/#propdef-font title=font>font</a> property; values
+    that cannot be parsed as CSS font values are ignored.</p>
+
+    <p>Relative keywords and lengths are computed relative to the font of the <code>canvas</code>
+    element.</p>
+
+   </dd>
+
+   <dt><var>context</var>.<a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-textalign title=textAlign>textAlign</a> [ = <var>value</var> ]</dt>
+   <dt><var>styles</var>.<a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-textalign title=textAlign>textAlign</a> [ = <var>value</var> ]</dt>
+
+   <dd>
+
+    <p>Returns the current text alignment settings.</p>
+
+    <p>Can be set, to change the alignment. The possible values are and their meanings are given
+    below. Other values are ignored. The default is <a class=css data-link-for=textAlign data-link-type=value href=#valdef-textalign-start title=start><code>start</code></a>.</p>
+
+   </dd>
+
+   <dt><var>context</var>.<a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-textbaseline title=textBaseline>textBaseline</a> [ = <var>value</var> ]</dt>
+   <dt><var>styles</var>.<a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-textbaseline title=textBaseline>textBaseline</a> [ = <var>value</var> ]</dt>
+
+   <dd>
+
+    <p>Returns the current baseline alignment settings.</p>
+
+    <p>Can be set, to change the baseline alignment. The possible values and their meanings are
+    given below. Other values are ignored. The default is <a class=css data-link-for=textBaseline data-link-type=value href=#valdef-textbaseline-alphabetic title=alphabetic><code>alphabetic</code></a>.</p>
+
+   </dd>
+
+   <dt><var>context</var>.<a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-direction title=direction>direction</a> [ = <var>value</var> ]</dt>
+   <dt><var>styles</var>.<a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-direction title=direction>direction</a> [ = <var>value</var> ]</dt>
+
+   <dd>
+
+    <p>Returns the current directionality.</p>
+
+    <p>Can be set, to change the directionality. The possible values and their meanings are given
+    below. Other values are ignored. The default is <code>inherit</code>.</p>
+
+   </dd>
+
+  </dl>
+
+
+  <div class=impl>
+
+  <p>Objects that implement the <a class=idl-code data-link-type=interface href=#dom-canvasdrawingstyles title=CanvasDrawingStyles>CanvasDrawingStyles</a> interface have attributes (defined
+  in this section) that control how text is laid out (rasterised or outlined) by the object. Such
+  objects can also have a <dfn data-dfn-type=dfn data-noexport="" id=font-style-source-object>font style source object<a class=self-link href=#font-style-source-object></a></dfn>. For
+  <a class=idl-code data-link-type=interface href=#dom-canvasrenderingcontext2d title=CanvasRenderingContext2D>CanvasRenderingContext2D</a> objects whose <span>context bitmap mode</span> is <span>
+  fixed</span>, this is their <code>canvas</code> element; for other
+  <a class=idl-code data-link-type=interface href=#dom-canvasrenderingcontext2d title=CanvasRenderingContext2D>CanvasRenderingContext2D</a> objects, if the <span>JavaScript global environment</span>
+  is a <span>document environment</span>, the object’s <span>font style source object</span> is the
+  <code>Document</code> object of the <span>active document</span> of the <span>browsing
+  context</span> of the <code>Window</code> object on which the interface object of the
+  <a class=idl-code data-link-type=interface href=#dom-canvasrenderingcontext2d title=CanvasRenderingContext2D>CanvasRenderingContext2D</a> object is found; otherwise the <span>JavaScript global
+  environment</span> is a <span>worker environment</span> and the <span>font style source
+  object</span> is the worker. For <code>DrawingStyle</code> objects, it’s the <span>styles scope
+  object</span>.</p>
+
+  <p>The <dfn class=idl-code data-dfn-for=CanvasDrawingStyles data-dfn-type=attribute data-export="" id=dom-canvasdrawingstyles-font><code>font</code><a class=self-link href=#dom-canvasdrawingstyles-font></a></dfn> IDL attribute, on setting, must
+  be parsed the same way as the <a class=property data-link-type=propdesc href=http://dev.w3.org/csswg/css-fonts-3/#propdef-font title=font>font</a> property of CSS (but without supporting property-independent
+  style sheet syntax like <code class=property>inherit</code>), and the resulting font must be assigned to the context, with
+  the <a class=property data-link-type=propdesc href=http://dev.w3.org/csswg/css2/visudet.html#propdef-line-height title=line-height>line-height</a> component forced to <code class=property>normal</code>, 
+  with the <a class=property data-link-type=propdesc href=http://dev.w3.org/csswg/css-fonts-3/#propdef-font-size title=font-size>font-size</a> component converted to CSS
+  pixels, and with system fonts being computed to explicit values. If the new value is syntactically
+  incorrect (including using property-independent style sheet syntax like <code class=property>inherit</code> or <code class=property>initial</code>),
+  then it must be ignored, without assigning a new font value. <a href=#refsCSS>[CSS]</a></p>
+
+  <p>Font family names must be interpreted in the context of the <span>font style source
+  object</span> when the font is to be used; any fonts embedded using <code>@font-face</code> 
+  or loaded using the <code>FontLoader</code> that are visible to the
+  <span>font style source object</span> must therefore be available once they are loaded. If a font
+  is used before it is fully loaded, or if the <span>font style source object</span> does not have
+  that font in scope at the time the font is to be used, then it must be treated as if it was an
+  unknown font, falling back to another as described by the relevant CSS specifications. <a href=#refsCSSFONTS>[CSSFONTS]</a> <a href=#refsCSSFONTLOAD>[CSSFONTLOAD]</a></p>
+
+  <p>On getting, the <code data-x=dom-context-2d-font>font</code> attribute must return the <span data-x="serializing a CSS value">serialised form</span> of the current font of the context (with
+  no <a class=property data-link-type=propdesc href=http://dev.w3.org/csswg/css2/visudet.html#propdef-line-height title=line-height>line-height</a> component). <a href=#refsCSSOM>[CSSOM]</a></p>
+
+  <div class=example>
+
+   <p>For example, after the following statement:</p>
+
+<pre>context.font = 'italic 400 12px/2 Unknown Font, sans-serif';</pre>
+
+   <p>...the expression <code data-x="">context.font</code> would evaluate to the string "<code data-x="">italic 12px "Unknown Font", sans-serif</code>". The "400"
+   font-weight doesn’t appear because that is the default value. The line-height doesn’t appear
+   because it is forced to "normal", the default value.</p>
+
+  </div>
+
+  <p>When the object implementing the <a class=idl-code data-link-type=interface href=#dom-canvasdrawingstyles title=CanvasDrawingStyles>CanvasDrawingStyles</a> interface is created, the
+  font of the context must be set to 10px sans-serif. When the <a class=property data-link-type=propdesc href=http://dev.w3.org/csswg/css-fonts-3/#propdef-font-size title=font-size>font-size</a> component is set to
+  lengths using percentages, <code class=property>em</code> or <code class=property>ex</code> units, 
+  or the <code class=property>larger</code> or <code class=property>smaller</code> keywords, these must
+  be interpreted relative to the computed value of the <a class=property data-link-type=propdesc href=http://dev.w3.org/csswg/css-fonts-3/#propdef-font-size title=font-size>font-size</a> property of the <span>font style
+  source object</span> at the time that the attribute is set, if it is an element. When the
+  <code class=property>font-weight</code> component is set to the relative values 
+  <code class=property>bolder</code> and <code class=property>lighter</code>, these must be
+  interpreted relative to the computed value of the <code class=property>font-weight</code> property of the <span>font style
+  source object</span> at the time that the attribute is set, if it is an element. If the computed
+  values are undefined for a particular case (e.g. because the <span>font style source object</span>
+  is not an element or is not <span>being rendered</span>), then the relative keywords must be
+  interpreted relative to the normal-weight 10px sans-serif default.</p>
+
+  <p>The <dfn class=idl-code data-dfn-for=CanvasDrawingStyles data-dfn-type=attribute data-export="" id=dom-canvasdrawingstyles-textalign><code>textAlign</code><a class=self-link href=#dom-canvasdrawingstyles-textalign></a></dfn> IDL attribute, on
+  getting, must return the current value. On setting, if the value is one of <a class=css data-link-for=textAlign data-link-type=value href=#valdef-textalign-start title=start>start</a>, 
+  <a class=css data-link-for=textAlign data-link-type=value href=#valdef-textalign-end title=end>end</a>, <a class=css data-link-for=textAlign data-link-type=value href=#valdef-textalign-left title=left>left</a>, 
+  <a class=css data-link-for=textAlign data-link-type=value href=#valdef-textalign-right title=right>right</a>, or <a class=css data-link-for=textAlign data-link-type=value href=#valdef-textalign-center title=center>center</a>, then the value must be changed to the new
+  value. Otherwise, the new value must be ignored. When the object implementing the
+  <a class=idl-code data-link-type=interface href=#dom-canvasdrawingstyles title=CanvasDrawingStyles>CanvasDrawingStyles</a> interface is created, the <code>textAlign</code> attribute 
+  must initially have the value <a data-dfn-for=direction data-dfn-type=value data-link-type=dfn href=http://dev.w3.org/csswg/css-writing-modes-3/#start title=start><code>start</code></a>.</p>
+
+  <p>The <dfn class=idl-code data-dfn-for=CanvasDrawingStyles data-dfn-type=attribute data-export="" id=dom-canvasdrawingstyles-textbaseline><code>textBaseline</code><a class=self-link href=#dom-canvasdrawingstyles-textbaseline></a></dfn> IDL attribute, on
+  getting, must return the current value. On setting, if the value is one of <a class=css data-link-for=textBaseline data-link-type=value href=#valdef-textbaseline-top title=top>top</a>, 
+  <a class=css data-link-for=textBaseline data-link-type=value href=#valdef-textbaseline-hanging title=hanging>hanging</a>, <a class=css data-link-for=textBaseline data-link-type=value href=#valdef-textbaseline-middle title=middle>middle</a>, 
+  <a class=css data-link-for=textBaseline data-link-type=value href=#valdef-textbaseline-alphabetic title=alphabetic>alphabetic</a>, <a class=css data-link-for=textBaseline data-link-type=value href=#valdef-textbaseline-ideographic title=ideographic>ideographic</a>, 
+  or <a class=css data-link-for=textBaseline data-link-type=value href=#valdef-textbaseline-bottom title=bottom>bottom</a>, then the value must be changed to the
+  new value. Otherwise, the new value must be ignored. When the object implementing the
+  <a class=idl-code data-link-type=interface href=#dom-canvasdrawingstyles title=CanvasDrawingStyles>CanvasDrawingStyles</a> interface is created, the 
+  <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-textbaseline title=textBaseline><code>textBaseline</code></a> attribute must initially have the value
+  <a class=css data-link-for=textBaseline data-link-type=value href=#valdef-textbaseline-alphabetic title=alphabetic><code>alphabetic</code></a>.</p>
+
+  <p>The <dfn class=idl-code data-dfn-for=CanvasDrawingStyles data-dfn-type=attribute data-export="" id=dom-canvasdrawingstyles-direction><code>direction</code><a class=self-link href=#dom-canvasdrawingstyles-direction></a></dfn> IDL attribute, on
+  getting, must return the current value. On setting, if the value is one of <a class=css data-link-for=direction data-link-type=value href=#valdef-direction-ltr title=ltr>ltr</a>, 
+  <a class=css data-link-for=direction data-link-type=value href=#valdef-direction-rtl title=rtl>rtl</a>, or <a class=css data-link-for=direction data-link-type=value href=#valdef-direction-inherit title=inherit>inherit</a>, 
+  then the value must be changed to the new value. Otherwise, the new value must be ignored. When the object implementing the
+  <a class=idl-code data-link-type=interface href=#dom-canvasdrawingstyles title=CanvasDrawingStyles>CanvasDrawingStyles</a> interface is created, the <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-direction title=direction><code>direction</code></a> attribute must 
+  initially have the value <a class=css data-link-for=direction data-link-type=value href=#valdef-direction-inherit title=inherit>inherit</a>.</p>
+
+  <p>The <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-textalign title=textAlign><code>textAlign</code></a> attribute’s allowed keywords are
+  as follows:</p>
+
+  <dl>
+
+   <dt><dfn class=css data-dfn-for=textAlign data-dfn-type=value data-export="" id=valdef-textalign-start><code>start</code><a class=self-link href=#valdef-textalign-start></a></dfn>
+   <dd><p>Align to the start edge of the text (left side in left-to-right text, right side in
+   right-to-left text).</dd>
+
+   <dt><dfn class=css data-dfn-for=textAlign data-dfn-type=value data-export="" id=valdef-textalign-end><code>end</code><a class=self-link href=#valdef-textalign-end></a></dfn>
+   <dd><p>Align to the end edge of the text (right side in left-to-right text, left side in
+   right-to-left text).</dd>
+
+   <dt><dfn class=css data-dfn-for=textAlign data-dfn-type=value data-export="" id=valdef-textalign-left><code>left</code><a class=self-link href=#valdef-textalign-left></a></dfn>
+   <dd><p>Align to the left.</dd>
+
+   <dt><dfn class=css data-dfn-for=textAlign data-dfn-type=value data-export="" id=valdef-textalign-right><code>right</code><a class=self-link href=#valdef-textalign-right></a></dfn>
+   <dd><p>Align to the right.</dd>
+
+   <dt><dfn class=css data-dfn-for=textAlign data-dfn-type=value data-export="" id=valdef-textalign-center><code>center</code><a class=self-link href=#valdef-textalign-center></a></dfn>
+   <dd><p>Align to the center.</dd>
+
+  </dl>
+
+  <p>The <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-textbaseline title=textBaseline>textBaseline</a>
+  attribute’s allowed keywords correspond to alignment points in the
+  font:</p>
+
+  <p><img alt="The top of the em square is roughly at the top of the glyphs in a font, the hanging baseline is where some glyphs like आ are anchored, the middle is half-way between the top of the em square and the bottom of the em square, the 
+  <a link-for=textBaseline link-type=value><code>alphabetic</code></a> baseline is where characters like Á, ÿ, f, and Ω are anchored, the ideographic baseline is where glyphs like 私 and 達 are anchored, and the bottom of the em square is roughly at the bottom of the glyphs in a font. The top and bottom of the bounding box can be far from these baselines, due to glyphs extending far outside the em square." height=300 src=images/baselines.png width=738></p>
+
+  <p>The keywords map to these alignment points as follows:</p>
+
+  <dl>
+
+   <dt><dfn class=css data-dfn-for=textBaseline data-dfn-type=value data-export="" id=valdef-textbaseline-top><code>top</code><a class=self-link href=#valdef-textbaseline-top></a></dfn>
+   <dd>The top of the em square</dd>
+
+   <dt><dfn class=css data-dfn-for=textBaseline data-dfn-type=value data-export="" id=valdef-textbaseline-hanging><code>hanging</code><a class=self-link href=#valdef-textbaseline-hanging></a></dfn>
+   <dd>The hanging baseline</dd>
+
+   <dt><dfn class=css data-dfn-for=textBaseline data-dfn-type=value data-export="" id=valdef-textbaseline-middle><code>middle</code><a class=self-link href=#valdef-textbaseline-middle></a></dfn>
+   <dd>The middle of the em square</dd>
+
+   <dt><dfn class=css data-dfn-for=textBaseline data-dfn-type=value data-export="" id=valdef-textbaseline-alphabetic><code>alphabetic</code><a class=self-link href=#valdef-textbaseline-alphabetic></a></dfn>
+   <dd>The alphabetic baseline</dd>
+
+   <dt><dfn class=css data-dfn-for=textBaseline data-dfn-type=value data-export="" id=valdef-textbaseline-ideographic><code>ideographic</code><a class=self-link href=#valdef-textbaseline-ideographic></a></dfn>
+   <dd>The ideographic baseline</dd>
+
+   <dt><dfn class=css data-dfn-for=textBaseline data-dfn-type=value data-export="" id=valdef-textbaseline-bottom><code>bottom</code><a class=self-link href=#valdef-textbaseline-bottom></a></dfn>
+   <dd>The bottom of the em square</dd>
+
+  </dl>
+
+  <p>The <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-direction title=direction>direction</a> attribute’s allowed keywords are
+  as follows:</p>
+
+  <dl>
+
+   <dt><dfn class=css data-dfn-for=direction data-dfn-type=value data-export="" id=valdef-direction-ltr><code>ltr</code><a class=self-link href=#valdef-direction-ltr></a></dfn>
+
+   <dd><p>Treat input to the <span>text preparation algorithm</span> as left-to-right text.</dd>
+
+   <dt><dfn class=css data-dfn-for=direction data-dfn-type=value data-export="" id=valdef-direction-rtl><code>rtl</code><a class=self-link href=#valdef-direction-rtl></a></dfn>
+
+   <dd><p>Treat input to the <span>text preparation algorithm</span> as right-to-left text.</dd>
 
 
 
+   <dt><dfn class=css data-dfn-for=direction data-dfn-type=value data-export="" id=valdef-direction-inherit><code>inherit</code><a class=self-link href=#valdef-direction-inherit></a></dfn>
+
+   <dd><p>Default to the directionality of the <code>canvas</code> element or <code>Document</code>
+   as appropriate.</dd>
+
+  </dl>
+
+  <p>The <dfn data-dfn-type=dfn data-noexport="" id=text-preparation-algorithm>text preparation algorithm<a class=self-link href=#text-preparation-algorithm></a></dfn> is as follows. It takes as input a string <var data-x="">text</var>, a <a class=idl-code data-link-type=interface href=#dom-canvasdrawingstyles title=CanvasDrawingStyles>CanvasDrawingStyles</a> object <var>target</var>, and an
+  optional length <dfn data-dfn-type=dfn data-noexport="" id=maxwidth><var>maxWidth</var><a class=self-link href=#maxwidth></a></dfn>. It returns an array of glyph shapes, each positioned
+  on a common coordinate space, a <var>physical alignment</var> whose value is one of
+  <a class=css data-link-for=textAlign data-link-type=value href=#valdef-textalign-left title=left>left</a>, <a class=css data-link-for=textAlign data-link-type=value href=#valdef-textalign-right title=right>right</a>, 
+  and <a class=css data-link-for=textAlign data-link-type=value href=#valdef-textalign-center title=center>center</a>, and an inline box. (Most callers of this
+  algorithm ignore the <var>physical alignment</var> and the inline box.)</p>
+
+  <ol>
+
+   <li><p>If <var>maxWidth</var> was provided but is less than or equal to zero, return an
+   empty array.</li>
+
+   <li><p>Replace all the <span data-x="space character">space characters</span> in <var data-x="">text</var> with U+0020 SPACE characters.</li>
+
+   <li><p>Let <var>font</var> be the current font of <var>target</var>, as given
+   by that object’s <code data-x=dom-context-2d-font>font</code> attribute.</li>
+
+   <li>
+
+    <p>Apply the appropriate step from the following list to determine the value of <var data-x="">direction</var>:</p>
+
+    <dl class=switch>
+
+     <dt>If the <var>target</var> object’s <code data-x=dom-context-2d-direction>direction</code> attribute has the value 
+     "<a a="" class=css data-link-for=direction data-link-type=value href=#valdef-direction-ltr title=ltr><code>ltr</code></a>"</dt>
+     <dd>Let <var>direction</var> be '<span>ltr</span>'.</dd>
+
+     <dt>If the <var>target</var> object’s <code>direction</code> attribute has the value 
+     "<a class=css data-link-for=direction data-link-type=value href=#valdef-direction-rtl title=rtl><code>rtl</code></a>"</dt>
+     <dd>Let <var>direction</var> be '<a a="" class=css data-link-for=direction data-link-type=value href=#valdef-direction-rtl title=rtl>rtl</a>'.</dd>
+
+     <dt>If the <var>target</var> object’s <span>font style source object</span> is an
+     element</dt>
+
+     <dd>Let <var>direction</var> be <span>the directionality</span> of the <var>target</var> object’s <span>font style source object</span>.</dd>
+
+     <dt>If the <var>target</var> object’s <span>font style source object</span> is a
+     <code>Document</code> and that <code>Document</code> has a root element child</dt>
+
+     <dd>Let <var>direction</var> be <span>the directionality</span> of the <var data-x="">target</var> object’s <span>font style source object</span>’s root element child.</dd>
+
+     <dt>Otherwise</dt>
+
+     <dd>Let <var>direction</var> be '<a class=css data-link-for=direction data-link-type=value href=#valdef-direction-ltr title=ltr><code>ltr</code></a>'.</dd>
+
+    </dl>
+
+   </li>
+
+   <li><p>Form a hypothetical infinitely-wide CSS line box containing a single inline box containing
+   the text <var>text</var>, with all the properties at their initial values except the
+   <a class=property data-link-type=propdesc href=http://dev.w3.org/csswg/css-fonts-3/#propdef-font title=font>font</a> property of the inline box set to <var>font</var>, the <code class=property>direction</code> property of
+   the inline box set to <var>direction</var>, and the <code class=property>white-space</code> property set to <code class=property>pre</code>.
+   <a href=#refsCSS>[CSS]</a></li>
+
+   
+
+   <li><p>If <a data-link-type=dfn href=#maxwidth title=maxWidth><var>maxWidth</var></a> was provided and the hypothetical width of the inline box
+   in the hypothetical line box is greater than <a data-link-type=dfn href=#maxwidth title=maxWidth><var>maxWidth</var></a> CSS pixels, then change
+   <var>font</var> to have a more condensed font (if one is available or if a reasonably
+   readable one can be synthesized by applying a horizontal scale factor to the font) or a smaller
+   font, and return to the previous step.</li>
+
+   <li>
+
+    <p>The <var>anchor point</var> is a point on the inline box, and the <var>physical alignment</var>
+    is one of the values <b>left</b>, <b>right</b>, and <b>center</b>. These variables 
+    are determined by the <code>textAlign</code> and <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-textbaseline title=textBaseline><code>textBaseline</code></a> values as follows:</p>
+
+    <p>Horizontal position:</p>
+
+    <dl>
+
+     <dt>If <code data-x=dom-context-2d-textAlign>textAlign</code> is <code data-x=dom-concept-2d-textAlign-left>left</code></dt>
+
+     <dt>If <code data-x=dom-context-2d-textAlign>textAlign</code> is <code data-x=dom-concept-2d-textAlign-start>start</code> and <var>direction</var> is
+     <code class=property>ltr</code></dt>
+
+     <dt>If <code data-x=dom-context-2d-textAlign>textAlign</code> is <code data-x=dom-concept-2d-textAlign-end>end</code> and <var>direction</var> is '<a a="" class=css data-link-for=direction data-link-type=value href=#valdef-direction-rtl title=rtl>rtl</a>'</dt>
+
+     <dd>Let the <var>anchor point</var>’s horizontal position be the left edge of the
+     inline box, and let <var>physical alignment</var> be <b>left</b>.</dd>
 
 
+     <dt>If <code data-x=dom-context-2d-textAlign>textAlign</code> is <code data-x=dom-concept-2d-textAlign-right>right</code></dt>
+
+     <dt>If <code data-x=dom-context-2d-textAlign>textAlign</code> is <code data-x=dom-concept-2d-textAlign-end>end</code> and <var>direction</var> is '<a a="" class=css data-link-for=direction data-link-type=value href=#valdef-direction-ltr title=ltr>ltr</a>'</dt>
+
+     <dt>If <code data-x=dom-context-2d-textAlign>textAlign</code> is <code data-x=dom-concept-2d-textAlign-start>start</code> and <var>direction</var> is
+     '<a a="" class=css data-link-for=direction data-link-type=value href=#valdef-direction-rtl title=rtl>rtl</a>'</dt>
+
+     <dd>Let the <var>anchor point</var>’s horizontal position be the right edge of the
+     inline box, and let <var>physical alignment</var> be <b>right</b>.</dd>
+
+
+     <dt>If <code data-x=dom-context-2d-textAlign>textAlign</code> is <code>center</code></dt>
+
+     <dd>Let the <var>anchor point</var>’s horizontal position be half way between the left
+     and right edges of the inline box, and let <var>physical alignment</var> be <b>center</b>.</dd>
+
+    </dl>
+
+    <p>Vertical position:</p>
+
+    <dl>
+
+     <dt>If <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-textbaseline title=textBaseline><code>textBaseline</code></a> is <code data-x=dom-context-2d-textBaseline-top>top</code></dt>
+
+     <dd>Let the <var>anchor point</var>’s vertical position be the top of the em box of
+     the first available font of the inline box.</dd>
+
+
+     <dt>If <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-textbaseline title=textBaseline><code>textBaseline</code></a> is <code data-x=dom-context-2d-textBaseline-hanging>hanging</code></dt>
+
+     <dd>Let the <var>anchor point</var>’s vertical position be the hanging baseline of the
+     first available font of the inline box.</dd>
+
+
+     <dt>If <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-textbaseline title=textBaseline><code>textBaseline</code></a> is <code data-x=dom-context-2d-textBaseline-middle>middle</code></dt>
+
+     <dd>Let the <var>anchor point</var>’s vertical position be half way between the bottom
+     and the top of the em box of the first available font of the inline box.</dd>
+
+
+     <dt>If <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-textbaseline title=textBaseline><code>textBaseline</code></a> is 
+     <a class=css data-link-for=textBaseline data-link-type=value href=#valdef-textbaseline-alphabetic title=alphabetic><code>alphabetic</code></a></dt>
+
+     <dd>Let the <var>anchor point</var>’s vertical position be the alphabetic baseline of
+     the first available font of the inline box.</dd>
+
+
+     <dt>If <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-textbaseline title=textBaseline><code>textBaseline</code></a> is <code data-x=dom-context-2d-textBaseline-ideographic>ideographic</code></dt>
+
+     <dd>Let the <var>anchor point</var>’s vertical position be the ideographic baseline of
+     the first available font of the inline box.</dd>
+
+
+     <dt>If <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-textbaseline title=textBaseline><code>textBaseline</code></a> is <code data-x=dom-context-2d-textBaseline-bottom>bottom</code></dt>
+
+     <dd>Let the <var>anchor point</var>’s vertical position be the bottom of the em box of
+     the first available font of the inline box.</dd>
+
+    </dl>
+
+   </li>
+
+   <li>
+
+    <p>Let <var>result</var> be an array constructed by iterating over each glyph in the
+    inline box from left to right (if any), adding to the array, for each glyph, the shape of the
+    glyph as it is in the inline box, positioned on a coordinate space using CSS pixels with its
+    origin is at the <var>anchor point</var>.</p>
+
+   </li>
+
+   <li><p>Return <var>result</var>, <var>physical alignment</var>, and the inline
+   box.</li>
+
+  </ol>
+
+  </div>
 <h2 class="no-ref no-num heading settled" id=conformance><span class=content>
 Conformance</span><a class=self-link href=#conformance></a></h2>
 
@@ -1866,6 +2244,7 @@ Index</span><a class=self-link href=#index></a></h2>
 <li>addColorStop(), <a href=#dom-canvasgradient-addcolorstop title="section 1">1</a>
 <li>addHitRegion(), <a href=#dom-canvasrenderingcontext2d-addhitregion title="section 1">1</a>
 <li>addPath(), <a href=#dom-path2d-addpath title="section 1">1</a>
+<li>alphabetic, <a href=#valdef-textbaseline-alphabetic title="section 6">6</a>
 <li>alphabeticBaseline, <a href=#dom-textmetrics-alphabeticbaseline title="section 1">1</a>
 <li>angle, <a href=#dom-canvasrenderingcontext2d-rotate-angle title="section 1">1</a>
 <li>anticlockwise<ul><li>argument for CanvasPathMethods/arc(), <a href=#dom-canvaspathmethods-arc-anticlockwise title="section 1">1</a>
@@ -1877,6 +2256,7 @@ Index</span><a class=self-link href=#index></a></h2>
 </ul><li>beginPath(), <a href=#dom-canvasrenderingcontext2d-beginpath title="section 1">1</a>
 <li>bezierCurveTo(), <a href=#dom-canvaspathmethods-beziercurveto title="section 1">1</a>
 <li>binding steps, <a href=#binding-steps title="section 1">1</a>
+<li>bottom, <a href=#valdef-textbaseline-bottom title="section 6">6</a>
 <li>c<ul><li>argument for CanvasRenderingContext2D/transform(), <a href=#dom-canvasrenderingcontext2d-transform-c title="section 1">1</a>
 <li>argument for CanvasRenderingContext2D/setTransform(), <a href=#dom-canvasrenderingcontext2d-settransform-c title="section 1">1</a>
 </ul><li>canvas, <a href=#dom-canvasrenderingcontext2d-canvas title="section 1">1</a>
@@ -1889,6 +2269,7 @@ Index</span><a class=self-link href=#index></a></h2>
 <li>CanvasRenderingContext2D, <a href=#dom-canvasrenderingcontext2d title="section 1">1</a>
 <li>CanvasRenderingContext2D(), <a href=#dom-canvasrenderingcontext2d-canvasrenderingcontext2d title="section 1">1</a>
 <li>canvas updating task source, <a href=#canvas-updating-task-source title="section 1">1</a>
+<li>center, <a href=#valdef-textalign-center title="section 6">6</a>
 <li>clearHitRegions(), <a href=#dom-canvasrenderingcontext2d-clearhitregions title="section 1">1</a>
 <li>clearRect(), <a href=#dom-canvasrenderingcontext2d-clearrect title="section 1">1</a>
 <li>clip()<ul><li>method for CanvasRenderingContext2D, <a href=#dom-canvasrenderingcontext2d-clip0 title="section 1">1</a>
@@ -1919,7 +2300,7 @@ Index</span><a class=self-link href=#index></a></h2>
 <li>attribute for ImageData, <a href=#dom-imagedata-data title="section 1">1</a>
 </ul><li>dh<ul><li>argument for CanvasRenderingContext2D/drawImage(), <a href=#dom-canvasrenderingcontext2d-drawimage-dh0 title="section 1">1</a>
 <li>argument for CanvasRenderingContext2D/drawImage(), <a href=#dom-canvasrenderingcontext2d-drawimage-dh title="section 1">1</a>
-</ul><li>direction, <a href=#dom-canvasdrawingstyles-direction title="section 1">1</a>
+</ul><li>direction, <a href=#dom-canvasdrawingstyles-direction title="section 6">6</a>
 <li>dirtyHeight, <a href=#dom-canvasrenderingcontext2d-putimagedata-dirtyheight title="section 1">1</a>
 <li>dirtyWidth, <a href=#dom-canvasrenderingcontext2d-putimagedata-dirtywidth title="section 1">1</a>
 <li>dirtyX, <a href=#dom-canvasrenderingcontext2d-putimagedata-dirtyx title="section 1">1</a>
@@ -1948,13 +2329,14 @@ Index</span><a class=self-link href=#index></a></h2>
 <li>argument for CanvasRenderingContext2D/putImageData(), <a href=#dom-canvasrenderingcontext2d-putimagedata-dy title="section 1">1</a>
 </ul><li>e<ul><li>argument for CanvasRenderingContext2D/transform(), <a href=#dom-canvasrenderingcontext2d-transform-e title="section 1">1</a>
 <li>argument for CanvasRenderingContext2D/setTransform(), <a href=#dom-canvasrenderingcontext2d-settransform-e title="section 1">1</a>
-</ul><li>element<ul><li>argument for CanvasRenderingContext2D/drawFocusIfNeeded(), <a href=#dom-canvasrenderingcontext2d-drawfocusifneeded-element0 title="section 1">1</a>
-<li>argument for CanvasRenderingContext2D/drawFocusIfNeeded(), <a href=#dom-canvasrenderingcontext2d-drawfocusifneeded-element title="section 1">1</a>
-<li>argument for CanvasRenderingContext2D/drawCustomFocusRing(), <a href=#dom-canvasrenderingcontext2d-drawcustomfocusring-element0 title="section 1">1</a>
+</ul><li>elem<ul><li>argument for CanvasRenderingContext2D/drawFocusIfNeeded(), <a href=#dom-canvasrenderingcontext2d-drawfocusifneeded-elem0 title="section 1">1</a>
+<li>argument for CanvasRenderingContext2D/drawFocusIfNeeded(), <a href=#dom-canvasrenderingcontext2d-drawfocusifneeded-elem title="section 1">1</a>
+</ul><li>element<ul><li>argument for CanvasRenderingContext2D/drawCustomFocusRing(), <a href=#dom-canvasrenderingcontext2d-drawcustomfocusring-element0 title="section 1">1</a>
 <li>argument for CanvasRenderingContext2D/drawCustomFocusRing(), <a href=#dom-canvasrenderingcontext2d-drawcustomfocusring-element title="section 1">1</a>
 </ul><li>ellipse(), <a href=#dom-canvaspathmethods-ellipse title="section 1">1</a>
 <li>emHeightAscent, <a href=#dom-textmetrics-emheightascent title="section 1">1</a>
 <li>emHeightDescent, <a href=#dom-textmetrics-emheightdescent title="section 1">1</a>
+<li>end, <a href=#valdef-textalign-end title="section 6">6</a>
 <li>endAngle<ul><li>argument for CanvasPathMethods/arc(), <a href=#dom-canvaspathmethods-arc-endangle title="section 1">1</a>
 <li>argument for CanvasPathMethods/ellipse(), <a href=#dom-canvaspathmethods-ellipse-endangle title="section 1">1</a>
 </ul><li>evenodd, <a href=#valdef-canvasfillrule-evenodd title="section 1">1</a>
@@ -1974,9 +2356,10 @@ Index</span><a class=self-link href=#index></a></h2>
 </ul><li>fill rule, <a href=#fill-rule title="section 1">1</a>
 <li>fillStyle, <a href=#dom-canvasrenderingcontext2d-fillstyle title="section 1">1</a>
 <li>fillText(), <a href=#dom-canvasrenderingcontext2d-filltext title="section 1">1</a>
-<li>font, <a href=#dom-canvasdrawingstyles-font title="section 1">1</a>
+<li>font, <a href=#dom-canvasdrawingstyles-font title="section 6">6</a>
 <li>fontBoundingBoxAscent, <a href=#dom-textmetrics-fontboundingboxascent title="section 1">1</a>
 <li>fontBoundingBoxDescent, <a href=#dom-textmetrics-fontboundingboxdescent title="section 1">1</a>
+<li>font style source object, <a href=#font-style-source-object title="section 6">6</a>
 <li>getImageData(), <a href=#dom-canvasrenderingcontext2d-getimagedata title="section 1">1</a>
 <li>getLineDash(), <a href=#dom-canvasdrawingstyles-getlinedash title="section 5">5</a>
 <li>globalAlpha, <a href=#dom-canvasrenderingcontext2d-globalalpha title="section 1">1</a>
@@ -1985,41 +2368,46 @@ Index</span><a class=self-link href=#index></a></h2>
 <li>argument for CanvasRenderingContext2D/fillRect(), <a href=#dom-canvasrenderingcontext2d-fillrect-h title="section 1">1</a>
 <li>argument for CanvasRenderingContext2D/strokeRect(), <a href=#dom-canvasrenderingcontext2d-strokerect-h title="section 1">1</a>
 <li>argument for CanvasPathMethods/rect(), <a href=#dom-canvaspathmethods-rect-h title="section 1">1</a>
-</ul><li>hangingBaseline, <a href=#dom-textmetrics-hangingbaseline title="section 1">1</a>
+</ul><li>hanging, <a href=#valdef-textbaseline-hanging title="section 6">6</a>
+<li>hangingBaseline, <a href=#dom-textmetrics-hangingbaseline title="section 1">1</a>
 <li>height<ul><li>argument for CanvasRenderingContext2D/CanvasRenderingContext2D(), <a href=#dom-canvasrenderingcontext2d-canvasrenderingcontext2d-height title="section 1">1</a>
 <li>attribute for ImageData, <a href=#dom-imagedata-height title="section 1">1</a>
 <li>attribute for CanvasRenderingContext2D, <a href=#dom-canvasrenderingcontext2d-height title="section 1">1</a>
 </ul><li>HitRegionOptions, <a href=#dictdef-hitregionoptions title="section 1">1</a>
 <li>id<ul><li>argument for CanvasRenderingContext2D/removeHitRegion(), <a href=#dom-canvasrenderingcontext2d-removehitregion-id title="section 1">1</a>
 <li>attribute for HitRegionOptions, <a href=#dom-hitregionoptions-id title="section 1">1</a>
-</ul><li>ideographicBaseline, <a href=#dom-textmetrics-ideographicbaseline title="section 1">1</a>
+</ul><li>ideographic, <a href=#valdef-textbaseline-ideographic title="section 6">6</a>
+<li>ideographicBaseline, <a href=#dom-textmetrics-ideographicbaseline title="section 1">1</a>
 <li>image<ul><li>argument for CanvasRenderingContext2D/createPattern(), <a href=#dom-canvasrenderingcontext2d-createpattern-image title="section 1">1</a>
 <li>argument for CanvasRenderingContext2D/drawImage(), <a href=#dom-canvasrenderingcontext2d-drawimage-image0 title="section 1">1</a>
 <li>argument for CanvasRenderingContext2D/drawImage(), <a href=#dom-canvasrenderingcontext2d-drawimage-image1 title="section 1">1</a>
 <li>argument for CanvasRenderingContext2D/drawImage(), <a href=#dom-canvasrenderingcontext2d-drawimage-image title="section 1">1</a>
-</ul><li>imagedata<ul><li>argument for CanvasRenderingContext2D/createImageData(), <a href=#dom-canvasrenderingcontext2d-createimagedata-imagedata title="section 1">1</a>
-<li>argument for CanvasRenderingContext2D/putImageData(), <a href=#dom-canvasrenderingcontext2d-putimagedata-imagedata0 title="section 1">1</a>
-<li>argument for CanvasRenderingContext2D/putImageData(), <a href=#dom-canvasrenderingcontext2d-putimagedata-imagedata title="section 1">1</a>
 </ul><li>ImageData, <a href=#dom-imagedata title="section 1">1</a>
 <li>imageSmoothingEnabled, <a href=#dom-canvasrenderingcontext2d-imagesmoothingenabled title="section 1">1</a>
+<li>inherit, <a href=#valdef-direction-inherit title="section 6">6</a>
 <li>isPointInPath()<ul><li>method for CanvasRenderingContext2D, <a href=#dom-canvasrenderingcontext2d-ispointinpath0 title="section 1">1</a>
 <li>method for CanvasRenderingContext2D, <a href=#dom-canvasrenderingcontext2d-ispointinpath title="section 1">1</a>
 </ul><li>isPointInStroke()<ul><li>method for CanvasRenderingContext2D, <a href=#dom-canvasrenderingcontext2d-ispointinstroke0 title="section 1">1</a>
 <li>method for CanvasRenderingContext2D, <a href=#dom-canvasrenderingcontext2d-ispointinstroke title="section 1">1</a>
-</ul><li>lineCap, <a href=#dom-canvasdrawingstyles-linecap title="section 5">5</a>
+</ul><li>left, <a href=#valdef-textalign-left title="section 6">6</a>
+<li>lineCap, <a href=#dom-canvasdrawingstyles-linecap title="section 5">5</a>
 <li>lineDashOffset, <a href=#dom-canvasdrawingstyles-linedashoffset title="section 5">5</a>
 <li>lineJoin, <a href=#dom-canvasdrawingstyles-linejoin title="section 5">5</a>
 <li>lineTo(), <a href=#dom-canvaspathmethods-lineto title="section 1">1</a>
 <li>lineWidth, <a href=#dom-canvasdrawingstyles-linewidth title="section 5">5</a>
 <li>list of pending interface actions, <a href=#list-of-pending-interface-actions title="section 1">1</a>
+<li>ltr, <a href=#valdef-direction-ltr title="section 6">6</a>
 <li>maxWidth<ul><li>argument for CanvasRenderingContext2D/fillText(), <a href=#dom-canvasrenderingcontext2d-filltext-maxwidth title="section 1">1</a>
 <li>argument for CanvasRenderingContext2D/strokeText(), <a href=#dom-canvasrenderingcontext2d-stroketext-maxwidth title="section 1">1</a>
+<li>definition of, <a href=#maxwidth title="section 6">6</a>
 </ul><li>measureText(), <a href=#dom-canvasrenderingcontext2d-measuretext title="section 1">1</a>
+<li>middle, <a href=#valdef-textbaseline-middle title="section 6">6</a>
 <li>miterLimit, <a href=#dom-canvasdrawingstyles-miterlimit title="section 5">5</a>
 <li>moveTo(), <a href=#dom-canvaspathmethods-moveto title="section 1">1</a>
 <li>nonzero, <a href=#valdef-canvasfillrule-nonzero title="section 1">1</a>
 <li>offset, <a href=#dom-canvasgradient-addcolorstop-offset title="section 1">1</a>
 <li>options, <a href=#dom-canvasrenderingcontext2d-addhitregion-options title="section 1">1</a>
+<li>origin-clean, <a href=#origin-clean title="section 1">1</a>
 <li>output bitmap, <a href=#output-bitmap title="section 1">1</a>
 <li>parentID, <a href=#dom-hitregionoptions-parentid title="section 1">1</a>
 <li>path<ul><li>argument for CanvasRenderingContext2D/fill(), <a href=#dom-canvasrenderingcontext2d-fill-path title="section 1">1</a>
@@ -2050,14 +2438,19 @@ Index</span><a class=self-link href=#index></a></h2>
 <li>reset the rendering context to its default state, <a href=#reset-the-rendering-context-to-its-default-state title="section 3">3</a>
 <li>resetTransform(), <a href=#dom-canvasrenderingcontext2d-resettransform title="section 1">1</a>
 <li>restore(), <a href=#dom-canvasrenderingcontext2d-restore title="section 3">3</a>
+<li>right, <a href=#valdef-textalign-right title="section 6">6</a>
 <li>rotate(), <a href=#dom-canvasrenderingcontext2d-rotate title="section 1">1</a>
 <li>rotation, <a href=#dom-canvaspathmethods-ellipse-rotation title="section 1">1</a>
+<li>rtl, <a href=#valdef-direction-rtl title="section 6">6</a>
 <li>save(), <a href=#dom-canvasrenderingcontext2d-save title="section 3">3</a>
 <li>scale(), <a href=#dom-canvasrenderingcontext2d-scale title="section 1">1</a>
 <li>scope, <a href=#dom-drawingstyle-drawingstyle-scope title="section 1">1</a>
 <li>scratch bitmap, <a href=#scratch-bitmap title="section 1">1</a>
 <li>scrollPathIntoView()<ul><li>method for CanvasRenderingContext2D, <a href=#dom-canvasrenderingcontext2d-scrollpathintoview0 title="section 1">1</a>
 <li>method for CanvasRenderingContext2D, <a href=#dom-canvasrenderingcontext2d-scrollpathintoview title="section 1">1</a>
+</ul><li>sdata<ul><li>argument for CanvasRenderingContext2D/createImageData(), <a href=#dom-canvasrenderingcontext2d-createimagedata-sdata title="section 1">1</a>
+<li>argument for CanvasRenderingContext2D/putImageData(), <a href=#dom-canvasrenderingcontext2d-putimagedata-sdata0 title="section 1">1</a>
+<li>argument for CanvasRenderingContext2D/putImageData(), <a href=#dom-canvasrenderingcontext2d-putimagedata-sdata title="section 1">1</a>
 </ul><li>segments, <a href=#dom-canvasdrawingstyles-setlinedash-segments title="section 1">1</a>
 <li>set bitmap dimensions, <a href=#set-bitmap-dimensions title="section 1">1</a>
 <li>setLineDash(), <a href=#dom-canvasdrawingstyles-setlinedash title="section 5">5</a>
@@ -2072,6 +2465,7 @@ Index</span><a class=self-link href=#index></a></h2>
 <li>shadowColor, <a href=#dom-canvasrenderingcontext2d-shadowcolor title="section 1">1</a>
 <li>shadowOffsetX, <a href=#dom-canvasrenderingcontext2d-shadowoffsetx title="section 1">1</a>
 <li>shadowOffsetY, <a href=#dom-canvasrenderingcontext2d-shadowoffsety title="section 1">1</a>
+<li>start, <a href=#valdef-textalign-start title="section 6">6</a>
 <li>startAngle<ul><li>argument for CanvasPathMethods/arc(), <a href=#dom-canvaspathmethods-arc-startangle title="section 1">1</a>
 <li>argument for CanvasPathMethods/ellipse(), <a href=#dom-canvaspathmethods-ellipse-startangle title="section 1">1</a>
 </ul><li>stroke()<ul><li>method for CanvasRenderingContext2D, <a href=#dom-canvasrenderingcontext2d-stroke0 title="section 1">1</a>
@@ -2092,9 +2486,11 @@ Index</span><a class=self-link href=#index></a></h2>
 </ul><li>text<ul><li>argument for CanvasRenderingContext2D/fillText(), <a href=#dom-canvasrenderingcontext2d-filltext-text title="section 1">1</a>
 <li>argument for CanvasRenderingContext2D/strokeText(), <a href=#dom-canvasrenderingcontext2d-stroketext-text title="section 1">1</a>
 <li>argument for CanvasRenderingContext2D/measureText(), <a href=#dom-canvasrenderingcontext2d-measuretext-text title="section 1">1</a>
-</ul><li>textAlign, <a href=#dom-canvasdrawingstyles-textalign title="section 1">1</a>
-<li>textBaseline, <a href=#dom-canvasdrawingstyles-textbaseline title="section 1">1</a>
+</ul><li>textAlign, <a href=#dom-canvasdrawingstyles-textalign title="section 6">6</a>
+<li>textBaseline, <a href=#dom-canvasdrawingstyles-textbaseline title="section 6">6</a>
 <li>TextMetrics, <a href=#dom-textmetrics title="section 1">1</a>
+<li>text preparation algorithm, <a href=#text-preparation-algorithm title="section 6">6</a>
+<li>top, <a href=#valdef-textbaseline-top title="section 6">6</a>
 <li>trace a path, <a href=#trace-a-path title="section 5">5</a>
 <li>transform<ul><li>argument for CanvasPattern/setTransform(), <a href=#dom-canvaspattern-settransform-transform title="section 1">1</a>
 <li>attribute for HitRegionOptions, <a href=#dom-hitregionoptions-transform title="section 1">1</a>

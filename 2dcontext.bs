@@ -8,7 +8,7 @@ TR: http://www.w3.org/TR/2dcontext2/
 Previous Version: http://www.w3.org/TR/2013/WD-2dcontext2-20131029/
 Group: HTML
 Ignored Terms: float32array, float64array, indexsizeerror, DOMString, SVGMatrix
-Link Defaults: css-color-3 (property) color
+Link Defaults: css-color-3 (property) color, css-fonts-3 (descriptor) font-weight
 Editor: Rik Cabanier, Adobe Systems Inc., cabanier@adobe.com
 Editor: Jatinder Mann, Microsoft Corporation, jmann@microsoft.com
 Editor: Jay Munro, Microsoft Corporation, jaymunro@microsoft.com
@@ -19,9 +19,6 @@ Mailing List: public-canvas-api@w3.org
 Mailing List Archives: http://lists.w3.org/Archives/Public/public-canvas-api/
 
 </pre>
-
-<script src=http://resources.whatwg.org/file-bug.js async></script>
-<script src="../shared/MathJax/MathJax.js?config=MML_SVGorMML,local/local"></script>
 
 <style type="text/css">
 a[data-link-type=element]::before,span[data-link-type=element]::before {
@@ -128,8 +125,8 @@ interface CanvasRenderingContext2D {
   void stroke();
   void stroke(Path2D path);
 
-  void drawFocusIfNeeded(Element element);
-  void drawFocusIfNeeded(Path2D path, Element element);
+  void drawFocusIfNeeded(Element elem);
+  void drawFocusIfNeeded(Path2D path, Element elem);
  
   boolean drawCustomFocusRing(Element element);
   boolean drawCustomFocusRing(Path2D path, Element element);
@@ -168,10 +165,10 @@ interface CanvasRenderingContext2D {
   
   // pixel manipulation
   ImageData createImageData(double sw, double sh);
-  ImageData createImageData(ImageData imagedata);
+  ImageData createImageData(ImageData sdata);
   ImageData getImageData(double sx, double sy, double sw, double sh);
-  void putImageData(ImageData imagedata, double dx, double dy);
-  void putImageData(ImageData imagedata, double dx, double dy, double dirtyX, double dirtyY, 
+  void putImageData(ImageData sdata, double dx, double dy);
+  void putImageData(ImageData sdata, double dx, double dy, double dirtyX, double dirtyY, 
                     double dirtyWidth, double dirtyHeight);
 };
 
@@ -277,7 +274,7 @@ Path2D implements CanvasPathMethods;
 </pre>
   <dl class="domintro">
 
-   <dt><var data-x="">context</var> = <var data-x="">canvas</var>.<code>getContext</code>('2d')</dt>
+   <dt><var data-x="">context</var> = <var data-x="">canvas</var>.<code>getContext</code>('<span>2d</span>')</dt>
 
    <dd>
 
@@ -295,7 +292,7 @@ Path2D implements CanvasPathMethods;
 
    </dd>
 
-   <dt><var data-x="">context</var> . <a link-for=CanvasRenderingContext2D link-type=attribute>canvas</a></dt>
+   <dt><var data-x="">context</var>.<a link-for=CanvasRenderingContext2D link-type=attribute>canvas</a></dt>
 
    <dd>
 
@@ -304,8 +301,8 @@ Path2D implements CanvasPathMethods;
 
    </dd>
 
-   <dt><var data-x="">context</var> . <a>width</a></dt>
-   <dt><var data-x="">context</var> . <a>height</a></dt>
+   <dt><var data-x="">context</var>.<a>width</a></dt>
+   <dt><var data-x="">context</var>.<a>height</a></dt>
 
    <dd>
 
@@ -316,7 +313,7 @@ Path2D implements CanvasPathMethods;
 
    </dd>
 
-   <dt><var data-x="">context</var> . <a>commit()</a></dt>
+   <dt><var data-x="">context</var>.<a>commit()</a></dt>
 
    <dd>
 
@@ -342,7 +339,7 @@ Path2D implements CanvasPathMethods;
   dimensions.</p>
 
 <!--ADD-TOPIC:Security-->
-  <p>Each such bitmap has an <span data-x="concept-canvas-origin-clean">origin-clean</span> flag,
+  <p>Each such bitmap has an <dfn>origin-clean</dfn> flag,
   which can be set to true or false. Initially, when one of these bitmaps is created, its <span
   data-x="concept-canvas-origin-clean">origin-clean</span> flag must be set to true.</p>
 <!--REMOVE-TOPIC:Security-->
@@ -566,7 +563,7 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
 
   <hr>
 
-  <p>When the user agent is to run the <dfn data-x="concept-canvas-unbinding-steps">unbinding
+  <p>When the user agent is to run the <dfn>unbinding
   steps</dfn> for a rendering context, it must run the following steps:</p>
 
   <ol>
@@ -580,8 +577,8 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
    transparent black.</p></li>
 
 <!--ADD-TOPIC:Security-->
-   <li><p>Set the <a interface>CanvasRenderingContext2D</a> object's <span>scratch bitmap</span>'s <span
-   data-x="concept-canvas-origin-clean">origin-clean</span> flag to true.</p></li>
+   <li><p>Set the <a interface>CanvasRenderingContext2D</a> object's <span>scratch bitmap</span>'s 
+   <a>origin-clean</a> flag to true.</p></li>
 <!--REMOVE-TOPIC:Security-->
 
    <li><p>Let the <a interface>CanvasRenderingContext2D</a> object have no <span>output
@@ -589,7 +586,7 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
 
   </ol>
 
-  <p>When the user agent is to run the <dfn data-x="concept-canvas-binding-steps">binding steps</dfn>
+  <p>When the user agent is to run the <dfn>binding steps</dfn>
   to bind the rendering context to the <code>canvas</code> element <var>target</var>, it
   must run the following steps:</p>
 
@@ -605,12 +602,12 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
    black.</p></li>
 
 <!--ADD-TOPIC:Security-->
-   <li><p>Set the <a interface>CanvasRenderingContext2D</a> object's <span>scratch bitmap</span>'s <span
-   data-x="concept-canvas-origin-clean">origin-clean</span> flag to true.</p></li>
+   <li><p>Set the <a interface>CanvasRenderingContext2D</a> object's <span>scratch bitmap</span>'s 
+   <a>origin-clean</a> flag to true.</p></li>
 <!--REMOVE-TOPIC:Security-->
 
-   <li><p>Let the <a interface>CanvasRenderingContext2D</a> object's <span>output bitmap</span> be <var
-   data-x="">target</var>'s bitmap.</p></li>
+   <li><p>Let the <a interface>CanvasRenderingContext2D</a> object's <span>output bitmap</span> be 
+   <var>target</var>'s bitmap.</p></li>
 
   </ol>
 
@@ -636,19 +633,18 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
   <p>Except where otherwise specified, for the 2D context interface, <strong>any method call with a
   numeric argument whose value is infinite or a NaN value must be ignored</strong>.</p>
 
-  <p>Whenever the CSS value <code data-x="">currentColor</code> is used as a color in the
+  <p>Whenever the CSS value ''currentColor'' is used as a color in the
   <a interface>CanvasRenderingContext2D</a> API, the "computed value of the 'color' property" for the
-  purposes of determining the computed value of the <code data-x="">currentColor</code> keyword is
+  purposes of determining the computed value of the ''currentColor'' keyword is
   the value described by the appropriate entry in the following list:</p>
 
   <dl>
 
-   <dt>If the rendering context's <span data-x="concept-canvas-context-bitmap-mode">context bitmap
-   mode</span> is <span data-x="concept-canvas-fixed">fixed</span> and the <code>canvas</code>
+   <dt>If the rendering context's <span>context bitmap mode</span> is <span>fixed</span> and the <code>canvas</code>
    element is <span>being rendered</span></dt>
 
    <dd><p>The "computed value of the 'color' property" for the purposes of determining the computed
-   value of the <code data-x="">currentColor</code> keyword is the computed value of the 'color'
+   value of the ''currentColor'' keyword is the computed value of the 'color'
    property on the <code>canvas</code> element at the time that the color is specified (e.g. when
    the appropriate attribute is set, or when the method is called; not when the color is rendered or
    otherwise used). <a href="#refsCSSCOLOR">[CSSCOLOR]</a></p></dd>
@@ -656,8 +652,7 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
    <dt>In all other cases</dt>
 
    <dd><p>The "computed value of the 'color' property" for the purposes of determining the computed
-   value of the <code data-x="">currentColor</code> keyword is fully opaque black. <a
-   href="#refsCSSCOLOR">[CSSCOLOR]</a></p></dd>
+   value of the ''currentColor'' keyword is fully opaque black.</p></dd>
 
   </dl>
 
@@ -839,8 +834,8 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
 
   <dl class="domintro">
 
-   <dt><var>context</var> . <a link-for=CanvasDrawingStyles attribute><code>lineWidth</code></a> [ = <var>value</var> ]</dt>
-   <dt><var>styles</var> . <a link-for=CanvasDrawingStyles attribute><code>lineWidth</code></a> [ = <var>value</var> ]</dt>
+   <dt><var>context</var>.<a link-for=CanvasDrawingStyles attribute><code>lineWidth</code></a> [ = <var>value</var> ]</dt>
+   <dt><var>styles</var>.<a link-for=CanvasDrawingStyles attribute><code>lineWidth</code></a> [ = <var>value</var> ]</dt>
 
    <dd>
 
@@ -851,8 +846,8 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
 
    </dd>
 
-   <dt><var>context</var> . <a link-for=CanvasDrawingStyles attribute><code>lineCap</code></a> [ = <var>value</var> ]</dt>
-   <dt><var>styles</var> . <a link-for=CanvasDrawingStyles attribute><code>lineCap</code></a> [ = <var>value</var> ]</dt>
+   <dt><var>context</var>.<a link-for=CanvasDrawingStyles attribute><code>lineCap</code></a> [ = <var>value</var> ]</dt>
+   <dt><var>styles</var>.<a link-for=CanvasDrawingStyles attribute><code>lineCap</code></a> [ = <var>value</var> ]</dt>
 
    <dd>
 
@@ -865,8 +860,8 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
 
    </dd>
 
-   <dt><var>context</var> . <a link-for=CanvasDrawingStyles attribute><code>lineJoin</code></a> [ = <var>value</var> ]</dt>
-   <dt><var>styles</var> . <a link-for=CanvasDrawingStyles attribute><code>lineJoin</code></a> [ = <var>value</var> ]</dt>
+   <dt><var>context</var>.<a link-for=CanvasDrawingStyles attribute><code>lineJoin</code></a> [ = <var>value</var> ]</dt>
+   <dt><var>styles</var>.<a link-for=CanvasDrawingStyles attribute><code>lineJoin</code></a> [ = <var>value</var> ]</dt>
 
    <dd>
 
@@ -879,8 +874,8 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
 
    </dd>
 
-   <dt><var>context</var> . <a link-for=CanvasDrawingStyles attribute><code>miterLimit</code></a> [ = <var>value</var> ]</dt>
-   <dt><var>styles</var> . <a link-for=CanvasDrawingStyles attribute><code>miterLimit</code></a> [ = <var>value</var> ]</dt>
+   <dt><var>context</var>.<a link-for=CanvasDrawingStyles attribute><code>miterLimit</code></a> [ = <var>value</var> ]</dt>
+   <dt><var>styles</var>.<a link-for=CanvasDrawingStyles attribute><code>miterLimit</code></a> [ = <var>value</var> ]</dt>
 
    <dd>
 
@@ -892,8 +887,8 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
    </dd>
 
 
-   <dt><var>context</var> . <a link-for=CanvasDrawingStyles method><code>setLineDash(<var>segments</var>)</code></a></dt>
-   <dt><var>styles</var> . <a link-for=CanvasDrawingStyles miethd><code>setLineDash(<var>segments</var>)</code></a></dt>
+   <dt><var>context</var>.<a link-for=CanvasDrawingStyles method><code>setLineDash(<var>segments</var>)</code></a></dt>
+   <dt><var>styles</var>.<a link-for=CanvasDrawingStyles method><code>setLineDash(<var>segments</var>)</code></a></dt>
 
    <dd>
 
@@ -903,8 +898,8 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
    </dd>
 
 
-   <dt><var>segments</var> = <var>context</var> . <a link-for=CanvasDrawingStyles method><code>getLineDash()</code></a></dt>
-   <dt><var>segments</var> = <var>styles</var> . <a link-for=CanvasDrawingStyles method><code>getLineDash()</code></a></dt>
+   <dt><var>segments</var> = <var>context</var>.<a link-for=CanvasDrawingStyles method><code>getLineDash()</code></a></dt>
+   <dt><var>segments</var> = <var>styles</var>.<a link-for=CanvasDrawingStyles method><code>getLineDash()</code></a></dt>
 
    <dd>
 
@@ -914,8 +909,8 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
    </dd>
 
 
-   <dt><var>context</var> . <a link-for=CanvasDrawingStyles attribute><code>lineDashOffset</code></a></dt>
-   <dt><var>styles</var> . <a link-for=CanvasDrawingStyles attribute><code>lineDashOffset</code></a></dt>
+   <dt><var>context</var>.<a link-for=CanvasDrawingStyles attribute><code>lineDashOffset</code></a></dt>
+   <dt><var>styles</var>.<a link-for=CanvasDrawingStyles attribute><code>lineDashOffset</code></a></dt>
 
    <dd>
 
@@ -1278,7 +1273,409 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
 
   </div>
 
+  <h2 id="text-styles" title="description of canvas text styles">Text styles</h2>
 
+  <dl class="domintro">
+
+   <dt><var>context</var>.<a link-for=CanvasDrawingStyles attribute>font</a> [ = <var>value</var> ]</dt>
+   <dt><var>styles</var>.<a link-for=CanvasDrawingStyles attribute>font</a> [ = <var>value</var> ]</dt>
+
+   <dd>
+
+    <p>Returns the current font settings.</p>
+
+    <p>Can be set, to change the font. The syntax is the same as for the CSS 'font' property; values
+    that cannot be parsed as CSS font values are ignored.</p>
+
+    <p>Relative keywords and lengths are computed relative to the font of the <code>canvas</code>
+    element.</p>
+
+   </dd>
+
+   <dt><var>context</var>.<a link-for=CanvasDrawingStyles attribute>textAlign</a> [ = <var>value</var> ]</dt>
+   <dt><var>styles</var>.<a link-for=CanvasDrawingStyles attribute>textAlign</a> [ = <var>value</var> ]</dt>
+
+   <dd>
+
+    <p>Returns the current text alignment settings.</p>
+
+    <p>Can be set, to change the alignment. The possible values are and their meanings are given
+    below. Other values are ignored. The default is <a link-for=textAlign link-type=value><code>start</code></a>.</p>
+
+   </dd>
+
+   <dt><var>context</var>.<a link-for=CanvasDrawingStyles attribute>textBaseline</a> [ = <var>value</var> ]</dt>
+   <dt><var>styles</var>.<a link-for=CanvasDrawingStyles attribute>textBaseline</a> [ = <var>value</var> ]</dt>
+
+   <dd>
+
+    <p>Returns the current baseline alignment settings.</p>
+
+    <p>Can be set, to change the baseline alignment. The possible values and their meanings are
+    given below. Other values are ignored. The default is <a link-for=textBaseline link-type=value><code>alphabetic</code></a>.</p>
+
+   </dd>
+
+   <dt><var>context</var>.<a link-for=CanvasDrawingStyles attribute>direction</a> [ = <var>value</var> ]</dt>
+   <dt><var>styles</var>.<a link-for=CanvasDrawingStyles attribute>direction</a> [ = <var>value</var> ]</dt>
+
+   <dd>
+
+    <p>Returns the current directionality.</p>
+
+    <p>Can be set, to change the directionality. The possible values and their meanings are given
+    below. Other values are ignored. The default is <code>inherit</code>.</p>
+
+   </dd>
+
+  </dl>
  
+  
+  <div class="impl">
+
+  <p>Objects that implement the <a interface>CanvasDrawingStyles</a> interface have attributes (defined
+  in this section) that control how text is laid out (rasterised or outlined) by the object. Such
+  objects can also have a <dfn>font style source object</dfn>. For
+  <a interface>CanvasRenderingContext2D</a> objects whose <span>context bitmap mode</span> is <span>
+  fixed</span>, this is their <code>canvas</code> element; for other
+  <a interface>CanvasRenderingContext2D</a> objects, if the <span>JavaScript global environment</span>
+  is a <span>document environment</span>, the object's <span>font style source object</span> is the
+  <code>Document</code> object of the <span>active document</span> of the <span>browsing
+  context</span> of the <code>Window</code> object on which the interface object of the
+  <a interface>CanvasRenderingContext2D</a> object is found; otherwise the <span>JavaScript global
+  environment</span> is a <span>worker environment</span> and the <span>font style source
+  object</span> is the worker. For <code>DrawingStyle</code> objects, it's the <span>styles scope
+  object</span>.</p>
+
+  <p>The <dfn dfn-for=CanvasDrawingStyles dfn-type=attribute><code>font</code></dfn> IDL attribute, on setting, must
+  be parsed the same way as the 'font' property of CSS (but without supporting property-independent
+  style sheet syntax like <code class="property">inherit</code>), and the resulting font must be assigned to the context, with
+  the 'line-height' component forced to <code class="property">normal</code>, 
+  with the 'font-size' component converted to CSS
+  pixels, and with system fonts being computed to explicit values. If the new value is syntactically
+  incorrect (including using property-independent style sheet syntax like <code class="property">inherit</code> or <code class="property">initial</code>),
+  then it must be ignored, without assigning a new font value. <a href="#refsCSS">[CSS]</a></p>
+
+  <p>Font family names must be interpreted in the context of the <span>font style source
+  object</span> when the font is to be used; any fonts embedded using <code>@font-face</code> 
+  or loaded using the <code>FontLoader</code> that are visible to the
+  <span>font style source object</span> must therefore be available once they are loaded. If a font
+  is used before it is fully loaded, or if the <span>font style source object</span> does not have
+  that font in scope at the time the font is to be used, then it must be treated as if it was an
+  unknown font, falling back to another as described by the relevant CSS specifications. <a
+  href="#refsCSSFONTS">[CSSFONTS]</a> <a href="#refsCSSFONTLOAD">[CSSFONTLOAD]</a></p>
+
+  <p>On getting, the <code data-x="dom-context-2d-font">font</code> attribute must return the <span
+  data-x="serializing a CSS value">serialised form</span> of the current font of the context (with
+  no 'line-height' component). <a href="#refsCSSOM">[CSSOM]</a></p>
+
+  <div class="example">
+
+   <p>For example, after the following statement:</p>
+
+   <pre>context.font = 'italic 400 12px/2 Unknown Font, sans-serif';</pre>
+
+   <p>...the expression <code data-x="">context.font</code> would evaluate to the string "<code
+   data-x="">italic&nbsp;12px&nbsp;&quot;Unknown&nbsp;Font&quot;,&nbsp;sans-serif</code>". The "400"
+   font-weight doesn't appear because that is the default value. The line-height doesn't appear
+   because it is forced to "normal", the default value.</p>
+
+  </div>
+
+  <p>When the object implementing the <a interface>CanvasDrawingStyles</a> interface is created, the
+  font of the context must be set to 10px sans-serif. When the 'font-size' component is set to
+  lengths using percentages, <code class="property">em</code> or <code class="property">ex</code> units, 
+  or the <code class="property">larger</code> or <code class="property">smaller</code> keywords, these must
+  be interpreted relative to the computed value of the 'font-size' property of the <span>font style
+  source object</span> at the time that the attribute is set, if it is an element. When the
+  <code class="property">font-weight</code> component is set to the relative values 
+  <code class="property">bolder</code> and <code class="property">lighter</code>, these must be
+  interpreted relative to the computed value of the <code class="property">font-weight</code> property of the <span>font style
+  source object</span> at the time that the attribute is set, if it is an element. If the computed
+  values are undefined for a particular case (e.g. because the <span>font style source object</span>
+  is not an element or is not <span>being rendered</span>), then the relative keywords must be
+  interpreted relative to the normal-weight 10px sans-serif default.</p>
+
+  <p>The <dfn dfn-for=CanvasDrawingStyles dfn-type=attribute><code>textAlign</code></dfn> IDL attribute, on
+  getting, must return the current value. On setting, if the value is one of <a link-for=textAlign link-type=value>start</a>, 
+  <a link-for=textAlign link-type=value>end</a>, <a link-for=textAlign link-type=value>left</a>, 
+  <a link-for=textAlign link-type=value>right</a>, or <a link-for=textAlign link-type=value>center</a>, then the value must be changed to the new
+  value. Otherwise, the new value must be ignored. When the object implementing the
+  <a interface>CanvasDrawingStyles</a> interface is created, the <code>textAlign</code> attribute 
+  must initially have the value <a dfn-for=direction dfn-type=value><code>start</code></a>.</p>
+
+  <p>The <dfn dfn-for=CanvasDrawingStyles dfn-type=attribute><code>textBaseline</code></dfn> IDL attribute, on
+  getting, must return the current value. On setting, if the value is one of <a link-for=textBaseline link-type=value>top</a>, 
+  <a link-for=textBaseline link-type=value>hanging</a>, <a link-for=textBaseline link-type=value>middle</a>, 
+  <a link-for=textBaseline link-type=value>alphabetic</a>, <a link-for=textBaseline link-type=value>ideographic</a>, 
+  or <a link-for=textBaseline link-type=value>bottom</a>, then the value must be changed to the
+  new value. Otherwise, the new value must be ignored. When the object implementing the
+  <a interface>CanvasDrawingStyles</a> interface is created, the 
+  <a link-for=CanvasDrawingStyles link-type=attribute><code>textBaseline</code></a> attribute must initially have the value
+  <a link-for=textBaseline link-type=value><code>alphabetic</code></a>.</p>
+
+  <p>The <dfn dfn-for=CanvasDrawingStyles dfn-type=attribute><code>direction</code></dfn> IDL attribute, on
+  getting, must return the current value. On setting, if the value is one of <a link-for=direction link-type=value>ltr</a>, 
+  <a link-for=direction link-type=value>rtl</a>, or <a link-for=direction link-type=value>inherit</a>, 
+  then the value must be changed to the new value. Otherwise, the new value must be ignored. When the object implementing the
+  <a interface>CanvasDrawingStyles</a> interface is created, the <a link-for=CanvasDrawingStyles link-type=attribute><code>direction</code></a> attribute must 
+  initially have the value <a link-for=direction link-type=value>inherit</a link-for=direction link-type=value>.</p>
+
+  <p>The <a link-for=CanvasDrawingStyles link-type=attribute><code>textAlign</code></a> attribute's allowed keywords are
+  as follows:</p>
+
+  <dl>
+
+   <dt><dfn dfn-for=textAlign dfn-type=value><code>start</code></dfn>
+   <dd><p>Align to the start edge of the text (left side in left-to-right text, right side in
+   right-to-left text).</p></dd>
+
+   <dt><dfn dfn-for=textAlign dfn-type=value><code>end</code></dfn>
+   <dd><p>Align to the end edge of the text (right side in left-to-right text, left side in
+   right-to-left text).</p></dd>
+
+   <dt><dfn dfn-for=textAlign dfn-type=value><code>left</code></dfn>
+   <dd><p>Align to the left.</p></dd>
+
+   <dt><dfn dfn-for=textAlign dfn-type=value><code>right</code></dfn>
+   <dd><p>Align to the right.</p></dd>
+
+   <dt><dfn dfn-for=textAlign dfn-type=value><code>center</code></dfn>
+   <dd><p>Align to the center.</p></dd>
+
+  </dl>
+
+  <p>The <a link-for=CanvasDrawingStyles link-type=attribute>textBaseline</a>
+  attribute's allowed keywords correspond to alignment points in the
+  font:</p>
+
+  <p><img src="images/baselines.png" width="738" height="300" alt="The top of the em square is roughly at the top of the glyphs in a font, the hanging baseline is where some glyphs like &#x0906; are anchored, the middle is half-way between the top of the em square and the bottom of the em square, the 
+  <a link-for=textBaseline link-type=value><code>alphabetic</code></a> baseline is where characters like &#x00C1;, &#x00FF;, &#x0066;, and &#x03A9; are anchored, the ideographic baseline is where glyphs like &#x79C1; and &#x9054; are anchored, and the bottom of the em square is roughly at the bottom of the glyphs in a font. The top and bottom of the bounding box can be far from these baselines, due to glyphs extending far outside the em square."></p>
+
+  <p>The keywords map to these alignment points as follows:</p>
+
+  <dl>
+
+   <dt><dfn dfn-for=textBaseline dfn-type=value><code>top</code></dfn>
+   <dd>The top of the em square</dd>
+
+   <dt><dfn dfn-for=textBaseline dfn-type=value><code>hanging</code></dfn>
+   <dd>The hanging baseline</dd>
+
+   <dt><dfn dfn-for=textBaseline dfn-type=value><code>middle</code></dfn>
+   <dd>The middle of the em square</dd>
+
+   <dt><dfn dfn-for=textBaseline dfn-type=value><code>alphabetic</code></dfn>
+   <dd>The alphabetic baseline</dd>
+
+   <dt><dfn dfn-for=textBaseline dfn-type=value><code>ideographic</code></dfn>
+   <dd>The ideographic baseline</dd>
+
+   <dt><dfn dfn-for=textBaseline dfn-type=value><code>bottom</code></dfn>
+   <dd>The bottom of the em square</dd>
+
+  </dl>
+
+  <p>The <a link-for=CanvasDrawingStyles link-type=attribute>direction</a> attribute's allowed keywords are
+  as follows:</p>
+
+  <dl>
+
+   <dt><dfn dfn-for=direction dfn-type=value><code>ltr</code></dfn>
+
+   <dd><p>Treat input to the <span>text preparation algorithm</span> as left-to-right text.</p></dd>
+
+   <dt><dfn dfn-for=direction dfn-type=value><code>rtl</code></dfn>
+
+   <dd><p>Treat input to the <span>text preparation algorithm</span> as right-to-left text.</p></dd>
+
+<!--
+   <dt><dfn dfn-for=direction dfn-type=value><code>auto</code></dfn>
+
+   <dd><p>Determine the direction from the input to the <span>text preparation algorithm</span>.</p></dd>
+-->
+
+   <dt><dfn dfn-for=direction dfn-type=value><code>inherit</code></dfn>
+
+   <dd><p>Default to the directionality of the <code>canvas</code> element or <code>Document</code>
+   as appropriate.</p></dd>
+
+  </dl>
+
+  <p>The <dfn>text preparation algorithm</dfn> is as follows. It takes as input a string <var
+  data-x="">text</var>, a <a interface>CanvasDrawingStyles</a> object <var>target</var>, and an
+  optional length <dfn><var>maxWidth</var></dfn>. It returns an array of glyph shapes, each positioned
+  on a common coordinate space, a <var>physical alignment</var> whose value is one of
+  <a link-for=textAlign link-type=value>left</a>, <a link-for=textAlign link-type=value>right</a>, 
+  and <a link-for=textAlign link-type=value>center</a>, and an inline box. (Most callers of this
+  algorithm ignore the <var>physical alignment</var> and the inline box.)</p>
+
+  <ol>
+
+   <li><p>If <var>maxWidth</var> was provided but is less than or equal to zero, return an
+   empty array.</p></li>
+
+   <li><p>Replace all the <span data-x="space character">space characters</span> in <var
+   data-x="">text</var> with U+0020 SPACE characters.</p></li>
+
+   <li><p>Let <var>font</var> be the current font of <var>target</var>, as given
+   by that object's <code data-x="dom-context-2d-font">font</code> attribute.</p></li>
+
+   <li>
+
+    <p>Apply the appropriate step from the following list to determine the value of <var
+    data-x="">direction</var>:</p>
+
+    <dl class="switch">
+
+     <dt>If the <var>target</var> object's <code
+     data-x="dom-context-2d-direction">direction</code> attribute has the value 
+     "<a a link-for=direction link-type=value><code>ltr</code></a>"</dt>
+     <dd>Let <var>direction</var> be '<span>ltr</span>'.</dd>
+
+     <dt>If the <var>target</var> object's <code>direction</code> attribute has the value 
+     "<a link-for=direction link-type=value><code>rtl</code></a>"</dt>
+     <dd>Let <var>direction</var> be '<a a link-for=direction link-type=value>rtl</a>'.</dd>
+
+     <dt>If the <var>target</var> object's <span>font style source object</span> is an
+     element</dt>
+
+     <dd>Let <var>direction</var> be <span>the directionality</span> of the <var>target</var> object's <span>font style source object</span>.</dd>
+
+     <dt>If the <var>target</var> object's <span>font style source object</span> is a
+     <code>Document</code> and that <code>Document</code> has a root element child</dt>
+
+     <dd>Let <var>direction</var> be <span>the directionality</span> of the <var
+     data-x="">target</var> object's <span>font style source object</span>'s root element child.</dd>
+
+     <dt>Otherwise</dt>
+
+     <dd>Let <var>direction</var> be '<a link-for=direction link-type=value><code>ltr</code></a>'.</dd>
+
+    </dl>
+
+   </li>
+
+   <li><p>Form a hypothetical infinitely-wide CSS line box containing a single inline box containing
+   the text <var>text</var>, with all the properties at their initial values except the
+   'font' property of the inline box set to <var>font</var>, the <code class="property">direction</code> property of
+   the inline box set to <var>direction</var>, and the <code class="property">white-space</code> property set to <code class="property">pre</code>.
+   <a href="#refsCSS">[CSS]</a></p></li>
+
+   <!-- if you insert a step here, make sure to adjust the next step's final words -->
+
+   <li><p>If <a><var>maxWidth</var></a> was provided and the hypothetical width of the inline box
+   in the hypothetical line box is greater than <a><var>maxWidth</var></a> CSS pixels, then change
+   <var>font</var> to have a more condensed font (if one is available or if a reasonably
+   readable one can be synthesized by applying a horizontal scale factor to the font) or a smaller
+   font, and return to the previous step.</p></li>
+
+   <li>
+
+    <p>The <var>anchor point</var> is a point on the inline box, and the <var>physical alignment</var>
+    is one of the values <b>left</b>, <b>right</b>, and <b>center</b>. These variables 
+    are determined by the <code>textAlign</code> and <a link-for=CanvasDrawingStyles link-type=attribute><code>textBaseline</code></a> values as follows:</p>
+
+    <p>Horizontal position:</p>
+
+    <dl>
+
+     <dt>If <code data-x="dom-context-2d-textAlign">textAlign</code> is <code
+     data-x="dom-concept-2d-textAlign-left">left</code></dt>
+
+     <dt>If <code data-x="dom-context-2d-textAlign">textAlign</code> is <code
+     data-x="dom-concept-2d-textAlign-start">start</code> and <var>direction</var> is
+     <code class="property">ltr</code></dt>
+
+     <dt>If <code data-x="dom-context-2d-textAlign">textAlign</code> is <code
+     data-x="dom-concept-2d-textAlign-end">end</code> and <var>direction</var> is '<a a link-for=direction link-type=value>rtl</a>'</dt>
+
+     <dd>Let the <var>anchor point</var>'s horizontal position be the left edge of the
+     inline box, and let <var>physical alignment</var> be <b>left</b>.</dd>
 
 
+     <dt>If <code data-x="dom-context-2d-textAlign">textAlign</code> is <code
+     data-x="dom-concept-2d-textAlign-right">right</code></dt>
+
+     <dt>If <code data-x="dom-context-2d-textAlign">textAlign</code> is <code
+     data-x="dom-concept-2d-textAlign-end">end</code> and <var>direction</var> is '<a a link-for=direction link-type=value>ltr</a>'</dt>
+
+     <dt>If <code data-x="dom-context-2d-textAlign">textAlign</code> is <code
+     data-x="dom-concept-2d-textAlign-start">start</code> and <var>direction</var> is
+     '<a a link-for=direction link-type=value>rtl</a>'</dt>
+
+     <dd>Let the <var>anchor point</var>'s horizontal position be the right edge of the
+     inline box, and let <var>physical alignment</var> be <b>right</b>.</dd>
+
+
+     <dt>If <code data-x="dom-context-2d-textAlign">textAlign</code> is <code>center</code></dt>
+
+     <dd>Let the <var>anchor point</var>'s horizontal position be half way between the left
+     and right edges of the inline box, and let <var>physical alignment</var> be <b>center</b>.</dd>
+
+    </dl>
+
+    <p>Vertical position:</p>
+
+    <dl>
+
+     <dt>If <a link-for=CanvasDrawingStyles link-type=attribute><code>textBaseline</code></a> is <code
+     data-x="dom-context-2d-textBaseline-top">top</code></dt>
+
+     <dd>Let the <var>anchor point</var>'s vertical position be the top of the em box of
+     the first available font of the inline box.</dd>
+
+
+     <dt>If <a link-for=CanvasDrawingStyles link-type=attribute><code>textBaseline</code></a> is <code
+     data-x="dom-context-2d-textBaseline-hanging">hanging</code></dt>
+
+     <dd>Let the <var>anchor point</var>'s vertical position be the hanging baseline of the
+     first available font of the inline box.</dd>
+
+
+     <dt>If <a link-for=CanvasDrawingStyles link-type=attribute><code>textBaseline</code></a> is <code
+     data-x="dom-context-2d-textBaseline-middle">middle</code></dt>
+
+     <dd>Let the <var>anchor point</var>'s vertical position be half way between the bottom
+     and the top of the em box of the first available font of the inline box.</dd>
+
+
+     <dt>If <a link-for=CanvasDrawingStyles link-type=attribute><code>textBaseline</code></a> is 
+     <a link-for=textBaseline link-type=value><code>alphabetic</code></a></dt>
+
+     <dd>Let the <var>anchor point</var>'s vertical position be the alphabetic baseline of
+     the first available font of the inline box.</dd>
+
+
+     <dt>If <a link-for=CanvasDrawingStyles link-type=attribute><code>textBaseline</code></a> is <code
+     data-x="dom-context-2d-textBaseline-ideographic">ideographic</code></dt>
+
+     <dd>Let the <var>anchor point</var>'s vertical position be the ideographic baseline of
+     the first available font of the inline box.</dd>
+
+
+     <dt>If <a link-for=CanvasDrawingStyles link-type=attribute><code>textBaseline</code></a> is <code
+     data-x="dom-context-2d-textBaseline-bottom">bottom</code></dt>
+
+     <dd>Let the <var>anchor point</var>'s vertical position be the bottom of the em box of
+     the first available font of the inline box.</dd>
+
+    </dl>
+
+   </li>
+
+   <li>
+
+    <p>Let <var>result</var> be an array constructed by iterating over each glyph in the
+    inline box from left to right (if any), adding to the array, for each glyph, the shape of the
+    glyph as it is in the inline box, positioned on a coordinate space using CSS pixels with its
+    origin is at the <var>anchor point</var>.</p>
+
+   </li>
+
+   <li><p>Return <var>result</var>, <var>physical alignment</var>, and the inline
+   box.</p></li>
+
+  </ol>
+
+  </div>
