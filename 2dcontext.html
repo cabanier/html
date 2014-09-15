@@ -575,7 +575,7 @@ font-size: .9em;
   <p data-fill-with=logo></p>
   <h1 class="p-name no-ref" id=title>The 2D rendering context</h1>
   <h2 class="no-num no-toc no-ref heading settled" id=subtitle><span class=content>Editor’s Draft,
-    <span class=dt-updated><span class=value-title title=20140913>13 September 2014</span></span></span></h2>
+    <span class=dt-updated><span class=value-title title=20140914>14 September 2014</span></span></span></h2>
   <div data-fill-with=spec-metadata><dl>
 	<dt>This version:
 	<dd><a class=u-url href=http://www.w3.org/html/wg/drafts/2dcontext/master/>http://www.w3.org/html/wg/drafts/2dcontext/master/</a>
@@ -600,7 +600,7 @@ font-size: .9em;
   <p class=copyright data-fill-with=copyright><a href=http://creativecommons.org/publicdomain/zero/1.0/ rel=license><img alt=CC0 src=https://i.creativecommons.org/p/zero/1.0/80x15.png></a>
 To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 13 September 2014,
+In addition, as of 14 September 2014,
 the editors have made this specification available under the
 <a href=http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0 rel=license>Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
@@ -1412,8 +1412,8 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
 
     <p>Can be set, to change the line cap style.</p>
 
-    <p>The possible line cap styles are <code>butt</code>, <code>round</code>, and
-    <code>square</code>. Other values are ignored.</p>
+    <p>The possible line cap styles are <a data-link-type=dfn href=#butt title=butt><code>butt</code></a>, <a href=#linecap-round><code>round</code></a>, and
+    <a data-link-type=dfn href=#square title=square><code>square</code></a>. Other values are ignored.</p>
 
    </dd>
 
@@ -1426,8 +1426,8 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
 
     <p>Can be set, to change the line join style.</p>
 
-    <p>The possible line join styles are <code>bevel</code>, <code>round</code>, and
-    <code>miter</code>. Other values are ignored.</p>
+    <p>The possible line join styles are <a data-link-type=dfn href=#bevel title=bevel><code>bevel</code></a>, <a data-link-type=dfn href=#round title=round><code>round</code></a>, and
+    <a data-link-type=dfn href=#miter title=miter><code>miter</code></a>. Other values are ignored.</p>
 
    </dd>
 
@@ -1496,26 +1496,26 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
   <hr>
 
   <p>The <dfn class=idl-code data-dfn-for=CanvasDrawingStyles data-dfn-type=attribute data-export="" id=dom-canvasdrawingstyles-linecap><code>lineCap</code><a class=self-link href=#dom-canvasdrawingstyles-linecap></a></dfn> attribute defines the type
-  of endings that UAs will place on the end of lines. The three valid values are <code>butt</code>,
-  <code>round</code>, and <code>square</code>.</p>
+  of endings that UAs will place on the end of lines. The three valid values are <a data-link-type=dfn href=#butt title=butt><code>butt</code></a>,
+  <a href=#linecap-round><code>round</code></a>, and <a data-link-type=dfn href=#square title=square><code>square</code></a>.</p>
 
   <p>On getting, it must return the current value. On setting, if the new value is one of the
-  literal strings <code>butt</code>, <code>round</code>, and <code>square</code>, then the current
+  literal strings '<code>butt</code>', '<code>round</code>', or '<code>square</code>', then the current
   value must be changed to the new value; other values must ignored, leaving the value
   unchanged.</p>
 
   <p>When the object implementing the <a class=idl-code data-link-type=interface href=#dom-canvasdrawingstyles title=CanvasDrawingStyles><code>CanvasDrawingStyles</code></a> interface is created, the
   <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-linecap title=lineCap><code>lineCap</code></a> attribute must initially have the value
-  <code>butt</code>.</p>
+  <a data-link-type=dfn href=#butt title=butt><code>butt</code></a>.</p>
 
   <hr>
 
   <p>The <dfn class=idl-code data-dfn-for=CanvasDrawingStyles data-dfn-type=attribute data-export="" id=dom-canvasdrawingstyles-linejoin><code>lineJoin</code><a class=self-link href=#dom-canvasdrawingstyles-linejoin></a></dfn> attribute defines the type
   of corners that UAs will place where two lines meet. The three valid values are
-  <code>bevel</code>, <code>round</code>, and <code>miter</code>.</p>
+  <a data-link-type=dfn href=#bevel title=bevel><code>bevel</code></a>, <a data-link-type=dfn href=#round title=round><code>round</code></a>, and <a data-link-type=dfn href=#miter title=miter><code>miter</code></a>.</p>
 
   <p>On getting, it must return the current value. On setting, if the new value is one of the
-  literal strings <code>bevel</code>, <code>round</code>, and <code>miter</code>, then the current
+  literal strings <a data-link-type=dfn href=#bevel title=bevel><code>bevel</code></a>, <a data-link-type=dfn href=#round title=round><code>round</code></a>, and <a data-link-type=dfn href=#miter title=miter><code>miter</code></a>, then the current
   value must be changed to the new value; other values must be ignored, leaving the value
   unchanged.</p>
 
@@ -1749,10 +1749,11 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
     satisfy the <var>styles</var> <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-linejoin title=lineJoin>lineJoin</a> type, as defined below.</p>
 
     <p><strong>Caps</strong>: Each point has a flat edge perpendicular to the direction of the line
-    coming out of it. This is them augmented according to the value of the <var data-x="">styles</var> <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-linecap title=lineCap>lineCap</a>. The
-    <code>butt</code> value means that no additional line cap is added. The <code>round</code> value
+    coming out of it. This is them augmented according to the value of the <var>styles</var> <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-linecap title=lineCap>lineCap</a>. The
+    <dfn data-dfn-for=lineCap data-dfn-type=dfn data-noexport="" id=butt><code>butt</code><a class=self-link href=#butt></a></dfn> value means that no additional line cap is added. 
+    The <dfn data-dfn-for=lineCap data-dfn-type=dfn data-noexport="" id=linecap-round title=linecap-round><code>round</code><a class=self-link href=#linecap-round></a></dfn> value
     means that a semi-circle with the diameter equal to the <var>styles</var> <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-linewidth title=lineWidth>lineWidth</a> width must additionally be placed on to the
-    line coming out of each point. The <code>square</code> value means that a rectangle with the
+    line coming out of each point. The <dfn data-dfn-for=lineCap data-dfn-type=dfn data-noexport="" id=square><code>square</code><a class=self-link href=#square></a></dfn> value means that a rectangle with the
     length of the <var>styles</var> <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-linewidth title=lineWidth>lineWidth</a> 
     width and the width of half the <var data-x="">styles</var> <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-linewidth title=lineWidth>lineWidth</a> width, placed
     flat against the edge perpendicular to the direction of the line coming out of the point, must
@@ -1771,13 +1772,13 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
     of the triangle being the join point, must be added at all joins. The <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-linejoin title=lineJoin>lineJoin</a> attribute controls whether anything else is
     rendered. The three aforementioned values have the following meanings:</p>
 
-    <p>The <code>bevel</code> value means that this is all that is rendered at joins.</p>
+    <p>The <dfn data-dfn-for=lineJoin data-dfn-type=dfn data-noexport="" id=bevel><code>bevel</code><a class=self-link href=#bevel></a></dfn> value means that this is all that is rendered at joins.</p>
 
-    <p>The <code>round</code> value means that an arc connecting the two aforementioned corners of
+    <p>The <dfn data-dfn-for=lineJoin data-dfn-type=dfn data-noexport="" id=round><code>round</code><a class=self-link href=#round></a></dfn> value means that an arc connecting the two aforementioned corners of
     the join, abutting (and not overlapping) the aforementioned triangle, with the diameter equal to
     the line width and the origin at the point of the join, must be added at joins.</p>
 
-    <p>The <code>miter</code> value means that a second triangle must (if it can given the miter
+    <p>The <dfn data-dfn-for=lineJoin data-dfn-type=dfn data-noexport="" id=miter><code>miter</code><a class=self-link href=#miter></a></dfn> value means that a second triangle must (if it can given the miter
     length) be added at the join, with one line being the line between the two aforementioned
     corners, abutting the first triangle, and the other two being continuations of the outside edges
     of the two joining lines, as long as required to intersect without going over the miter
@@ -1855,7 +1856,7 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
     <p>Returns the current directionality.</p>
 
     <p>Can be set, to change the directionality. The possible values and their meanings are given
-    below. Other values are ignored. The default is <code>inherit</code>.</p>
+    below. Other values are ignored. The default is <a class=css data-link-for=direction data-link-type=value href=#valdef-direction-inherit title=inherit><code>inherit</code></a>.</p>
 
    </dd>
 
@@ -1911,8 +1912,8 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
   </div>
 
   <p>When the object implementing the <a class=idl-code data-link-type=interface href=#dom-canvasdrawingstyles title=CanvasDrawingStyles>CanvasDrawingStyles</a> interface is created, the
-  font of the context must be set to 10px sans-serif. When the <a class=property data-link-type=propdesc href=http://dev.w3.org/csswg/css-fonts-3/#propdef-font-size title=font-size>font-size</a> component is set to
-  lengths using percentages, <code class=property>em</code> or <code class=property>ex</code> units, 
+  font of the context must be set to '<span>10px sans-serif</span>'. When the <a class=property data-link-type=propdesc href=http://dev.w3.org/csswg/css-fonts-3/#propdef-font-size title=font-size>font-size</a> component is set to
+  lengths using percentages, <a data-link-type=dfn href=http://dev.w3.org/csswg/css-values-3/#em title=em><code class=property>em</code></a> or <a data-link-type=dfn href=http://dev.w3.org/csswg/css-values-3/#ex title=ex><code class=property>ex</code></a> units, 
   or the <code class=property>larger</code> or <code class=property>smaller</code> keywords, these must
   be interpreted relative to the computed value of the <a class=property data-link-type=propdesc href=http://dev.w3.org/csswg/css-fonts-3/#propdef-font-size title=font-size>font-size</a> property of the <span>font style
   source object</span> at the time that the attribute is set, if it is an element. When the
@@ -1922,7 +1923,7 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
   source object</span> at the time that the attribute is set, if it is an element. If the computed
   values are undefined for a particular case (e.g. because the <span>font style source object</span>
   is not an element or is not <span>being rendered</span>), then the relative keywords must be
-  interpreted relative to the normal-weight 10px sans-serif default.</p>
+  interpreted relative to the '<span>normal-weight 10px sans-serif</span>'' default.</p>
 
   <p>The <dfn class=idl-code data-dfn-for=CanvasDrawingStyles data-dfn-type=attribute data-export="" id=dom-canvasdrawingstyles-textalign><code>textAlign</code><a class=self-link href=#dom-canvasdrawingstyles-textalign></a></dfn> IDL attribute, on
   getting, must return the current value. On setting, if the value is one of <a class=css data-link-for=textAlign data-link-type=value href=#valdef-textalign-start title=start>start</a>, 
@@ -2055,7 +2056,7 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
 
      <dt>If the <var>target</var> object’s <code>direction</code> attribute has the value 
      "<a class=css data-link-for=direction data-link-type=value href=#valdef-direction-rtl title=rtl><code>rtl</code></a>"</dt>
-     <dd>Let <var>direction</var> be '<a a="" class=css data-link-for=direction data-link-type=value href=#valdef-direction-rtl title=rtl>rtl</a>'.</dd>
+     <dd>Let <var>direction</var> be '<span>rtl</span>'.</dd>
 
      <dt>If the <var>target</var> object’s <span>font style source object</span> is an
      element</dt>
@@ -2063,13 +2064,14 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
      <dd>Let <var>direction</var> be <span>the directionality</span> of the <var>target</var> object’s <span>font style source object</span>.</dd>
 
      <dt>If the <var>target</var> object’s <span>font style source object</span> is a
-     <code>Document</code> and that <code>Document</code> has a root element child</dt>
+     <code>document</code> and that <code>Document</code> has a root element child</dt>
 
-     <dd>Let <var>direction</var> be <span>the directionality</span> of the <var data-x="">target</var> object’s <span>font style source object</span>’s root element child.</dd>
+     <dd>Let <var>direction</var> be <span>the directionality</span> of the <var>target</var> 
+     object’s <span>font style source object</span>’s root element child.</dd>
 
      <dt>Otherwise</dt>
 
-     <dd>Let <var>direction</var> be '<a class=css data-link-for=direction data-link-type=value href=#valdef-direction-ltr title=ltr><code>ltr</code></a>'.</dd>
+     <dd>Let <var>direction</var> be '<span>ltr</span>'.</dd>
 
     </dl>
 
@@ -2078,7 +2080,7 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
    <li><p>Form a hypothetical infinitely-wide CSS line box containing a single inline box containing
    the text <var>text</var>, with all the properties at their initial values except the
    <a class=property data-link-type=propdesc href=http://dev.w3.org/csswg/css-fonts-3/#propdef-font title=font>font</a> property of the inline box set to <var>font</var>, the <code class=property>direction</code> property of
-   the inline box set to <var>direction</var>, and the <code class=property>white-space</code> property set to <code class=property>pre</code>.
+   the inline box set to <var>direction</var>, and the <a class=css data-link-type=property href=http://dev.w3.org/csswg/css-text-3/#propdef-white-space title=white-space><code class=property>white-space</code></a> property set to <code class=property>pre</code>.
    <a href=#refsCSS>[CSS]</a></li>
 
    
@@ -2093,38 +2095,41 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
 
     <p>The <var>anchor point</var> is a point on the inline box, and the <var>physical alignment</var>
     is one of the values <b>left</b>, <b>right</b>, and <b>center</b>. These variables 
-    are determined by the <code>textAlign</code> and <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-textbaseline title=textBaseline><code>textBaseline</code></a> values as follows:</p>
+    are determined by the <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-textalign title=textAlign><code>textAlign</code></a>
+    and <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-textbaseline title=textBaseline><code>textBaseline</code></a> values as follows:</p>
 
     <p>Horizontal position:</p>
 
     <dl>
 
-     <dt>If <code data-x=dom-context-2d-textAlign>textAlign</code> is <code data-x=dom-concept-2d-textAlign-left>left</code></dt>
+     <dt>If <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-textalign title=textAlign>textAlign</a> is <a class=css data-link-for=textAlign data-link-type=value href=#valdef-textalign-left title=left><code>left</code></a></dt>
 
-     <dt>If <code data-x=dom-context-2d-textAlign>textAlign</code> is <code data-x=dom-concept-2d-textAlign-start>start</code> and <var>direction</var> is
-     <code class=property>ltr</code></dt>
+     <dt>If <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-textalign title=textAlign>textAlign</a> is <a class=css data-link-for=textAlign data-link-type=value href=#valdef-textalign-start title=start><code>start</code></a> 
+     and <var>direction</var> is '<span>ltr</span>'</dt>
 
-     <dt>If <code data-x=dom-context-2d-textAlign>textAlign</code> is <code data-x=dom-concept-2d-textAlign-end>end</code> and <var>direction</var> is '<a a="" class=css data-link-for=direction data-link-type=value href=#valdef-direction-rtl title=rtl>rtl</a>'</dt>
+     <dt>If <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-textalign title=textAlign>textAlign</a> is <a class=css data-link-for=textAlign data-link-type=value href=#valdef-textalign-end title=end><code>end</code></a> 
+     and <var>direction</var> is '<span>rtl</span>'</dt>
 
      <dd>Let the <var>anchor point</var>’s horizontal position be the left edge of the
-     inline box, and let <var>physical alignment</var> be <b>left</b>.</dd>
+     inline box, and let <var>physical alignment</var> be '<b>left</b>'.</dd>
 
 
-     <dt>If <code data-x=dom-context-2d-textAlign>textAlign</code> is <code data-x=dom-concept-2d-textAlign-right>right</code></dt>
+     <dt>If <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-textalign title=textAlign>textAlign</a> is <a class=css data-link-for=textAlign data-link-type=value href=#valdef-textalign-right title=right><code>right</code></a></dt>
 
-     <dt>If <code data-x=dom-context-2d-textAlign>textAlign</code> is <code data-x=dom-concept-2d-textAlign-end>end</code> and <var>direction</var> is '<a a="" class=css data-link-for=direction data-link-type=value href=#valdef-direction-ltr title=ltr>ltr</a>'</dt>
+     <dt>If <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-textalign title=textAlign>textAlign</a> is <a class=css data-link-for=textAlign data-link-type=value href=#valdef-textalign-end title=end><code>end</code></a> 
+     and <var>direction</var> is '<span>ltr</span>'</dt>
 
-     <dt>If <code data-x=dom-context-2d-textAlign>textAlign</code> is <code data-x=dom-concept-2d-textAlign-start>start</code> and <var>direction</var> is
-     '<a a="" class=css data-link-for=direction data-link-type=value href=#valdef-direction-rtl title=rtl>rtl</a>'</dt>
+     <dt>If <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-textalign title=textAlign>textAlign</a> is <a class=css data-link-for=textAlign data-link-type=value href=#valdef-textalign-start title=start><code>start</code></a> 
+     and <var>direction</var> is '<span>rtl</span>'</dt>
 
      <dd>Let the <var>anchor point</var>’s horizontal position be the right edge of the
-     inline box, and let <var>physical alignment</var> be <b>right</b>.</dd>
+     inline box, and let <var>physical alignment</var> be '<b>right</b>'.</dd>
 
 
-     <dt>If <code data-x=dom-context-2d-textAlign>textAlign</code> is <code>center</code></dt>
+     <dt>If <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-textalign title=textAlign>textAlign</a> is <a class=css data-link-for=textAlign data-link-type=value href=#valdef-textalign-center title=center><code>center</code></a></dt>
 
      <dd>Let the <var>anchor point</var>’s horizontal position be half way between the left
-     and right edges of the inline box, and let <var>physical alignment</var> be <b>center</b>.</dd>
+     and right edges of the inline box, and let <var>physical alignment</var> be '<b>center</b>'.</dd>
 
     </dl>
 
@@ -2132,19 +2137,22 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
 
     <dl>
 
-     <dt>If <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-textbaseline title=textBaseline><code>textBaseline</code></a> is <code data-x=dom-context-2d-textBaseline-top>top</code></dt>
+     <dt>If <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-textbaseline title=textBaseline><code>textBaseline</code></a> is 
+     <a class=css data-link-for=textBaseline data-link-type=value href=#valdef-textbaseline-top title=top><code>top</code></a></dt>
 
      <dd>Let the <var>anchor point</var>’s vertical position be the top of the em box of
      the first available font of the inline box.</dd>
 
 
-     <dt>If <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-textbaseline title=textBaseline><code>textBaseline</code></a> is <code data-x=dom-context-2d-textBaseline-hanging>hanging</code></dt>
+     <dt>If <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-textbaseline title=textBaseline><code>textBaseline</code></a> is 
+     <a class=css data-link-for=textBaseline data-link-type=value href=#valdef-textbaseline-hanging title=hanging><code>hanging</code></a></dt>
 
      <dd>Let the <var>anchor point</var>’s vertical position be the hanging baseline of the
      first available font of the inline box.</dd>
 
 
-     <dt>If <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-textbaseline title=textBaseline><code>textBaseline</code></a> is <code data-x=dom-context-2d-textBaseline-middle>middle</code></dt>
+     <dt>If <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-textbaseline title=textBaseline><code>textBaseline</code></a> is 
+     <a class=css data-link-for=textBaseline data-link-type=value href=#valdef-textbaseline-middle title=middle><code>middle</code></a></dt>
 
      <dd>Let the <var>anchor point</var>’s vertical position be half way between the bottom
      and the top of the em box of the first available font of the inline box.</dd>
@@ -2157,13 +2165,15 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
      the first available font of the inline box.</dd>
 
 
-     <dt>If <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-textbaseline title=textBaseline><code>textBaseline</code></a> is <code data-x=dom-context-2d-textBaseline-ideographic>ideographic</code></dt>
+     <dt>If <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-textbaseline title=textBaseline><code>textBaseline</code></a> is 
+     <a class=css data-link-for=textBaseline data-link-type=value href=#valdef-textbaseline-ideographic title=ideographic><code>ideographic</code></a></dt>
 
      <dd>Let the <var>anchor point</var>’s vertical position be the ideographic baseline of
      the first available font of the inline box.</dd>
 
 
-     <dt>If <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-textbaseline title=textBaseline><code>textBaseline</code></a> is <code data-x=dom-context-2d-textBaseline-bottom>bottom</code></dt>
+     <dt>If <a class=idl-code data-link-for=CanvasDrawingStyles data-link-type=attribute href=#dom-canvasdrawingstyles-textbaseline title=textBaseline><code>textBaseline</code></a> is 
+     <a class=css data-link-for=textBaseline data-link-type=value href=#valdef-textbaseline-bottom title=bottom><code>bottom</code></a></dt>
 
      <dd>Let the <var>anchor point</var>’s vertical position be the bottom of the em box of
      the first available font of the inline box.</dd>
@@ -2254,9 +2264,11 @@ Index</span><a class=self-link href=#index></a></h2>
 <li>b<ul><li>argument for CanvasRenderingContext2D/transform(), <a href=#dom-canvasrenderingcontext2d-transform-b title="section 1">1</a>
 <li>argument for CanvasRenderingContext2D/setTransform(), <a href=#dom-canvasrenderingcontext2d-settransform-b title="section 1">1</a>
 </ul><li>beginPath(), <a href=#dom-canvasrenderingcontext2d-beginpath title="section 1">1</a>
+<li>bevel, <a href=#bevel title="section 5">5</a>
 <li>bezierCurveTo(), <a href=#dom-canvaspathmethods-beziercurveto title="section 1">1</a>
 <li>binding steps, <a href=#binding-steps title="section 1">1</a>
 <li>bottom, <a href=#valdef-textbaseline-bottom title="section 6">6</a>
+<li>butt, <a href=#butt title="section 5">5</a>
 <li>c<ul><li>argument for CanvasRenderingContext2D/transform(), <a href=#dom-canvasrenderingcontext2d-transform-c title="section 1">1</a>
 <li>argument for CanvasRenderingContext2D/setTransform(), <a href=#dom-canvasrenderingcontext2d-settransform-c title="section 1">1</a>
 </ul><li>canvas, <a href=#dom-canvasrenderingcontext2d-canvas title="section 1">1</a>
@@ -2391,6 +2403,7 @@ Index</span><a class=self-link href=#index></a></h2>
 <li>method for CanvasRenderingContext2D, <a href=#dom-canvasrenderingcontext2d-ispointinstroke title="section 1">1</a>
 </ul><li>left, <a href=#valdef-textalign-left title="section 6">6</a>
 <li>lineCap, <a href=#dom-canvasdrawingstyles-linecap title="section 5">5</a>
+<li>linecap-round, <a href=#linecap-round title="section 5">5</a>
 <li>lineDashOffset, <a href=#dom-canvasdrawingstyles-linedashoffset title="section 5">5</a>
 <li>lineJoin, <a href=#dom-canvasdrawingstyles-linejoin title="section 5">5</a>
 <li>lineTo(), <a href=#dom-canvaspathmethods-lineto title="section 1">1</a>
@@ -2402,6 +2415,7 @@ Index</span><a class=self-link href=#index></a></h2>
 <li>definition of, <a href=#maxwidth title="section 6">6</a>
 </ul><li>measureText(), <a href=#dom-canvasrenderingcontext2d-measuretext title="section 1">1</a>
 <li>middle, <a href=#valdef-textbaseline-middle title="section 6">6</a>
+<li>miter, <a href=#miter title="section 5">5</a>
 <li>miterLimit, <a href=#dom-canvasdrawingstyles-miterlimit title="section 5">5</a>
 <li>moveTo(), <a href=#dom-canvaspathmethods-moveto title="section 1">1</a>
 <li>nonzero, <a href=#valdef-canvasfillrule-nonzero title="section 1">1</a>
@@ -2441,6 +2455,7 @@ Index</span><a class=self-link href=#index></a></h2>
 <li>right, <a href=#valdef-textalign-right title="section 6">6</a>
 <li>rotate(), <a href=#dom-canvasrenderingcontext2d-rotate title="section 1">1</a>
 <li>rotation, <a href=#dom-canvaspathmethods-ellipse-rotation title="section 1">1</a>
+<li>round, <a href=#round title="section 5">5</a>
 <li>rtl, <a href=#valdef-direction-rtl title="section 6">6</a>
 <li>save(), <a href=#dom-canvasrenderingcontext2d-save title="section 3">3</a>
 <li>scale(), <a href=#dom-canvasrenderingcontext2d-scale title="section 1">1</a>
@@ -2465,6 +2480,7 @@ Index</span><a class=self-link href=#index></a></h2>
 <li>shadowColor, <a href=#dom-canvasrenderingcontext2d-shadowcolor title="section 1">1</a>
 <li>shadowOffsetX, <a href=#dom-canvasrenderingcontext2d-shadowoffsetx title="section 1">1</a>
 <li>shadowOffsetY, <a href=#dom-canvasrenderingcontext2d-shadowoffsety title="section 1">1</a>
+<li>square, <a href=#square title="section 5">5</a>
 <li>start, <a href=#valdef-textalign-start title="section 6">6</a>
 <li>startAngle<ul><li>argument for CanvasPathMethods/arc(), <a href=#dom-canvaspathmethods-arc-startangle title="section 1">1</a>
 <li>argument for CanvasPathMethods/ellipse(), <a href=#dom-canvaspathmethods-ellipse-startangle title="section 1">1</a>
