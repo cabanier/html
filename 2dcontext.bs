@@ -195,15 +195,15 @@ interface CanvasDrawingStyles {
 [NoInterfaceObject, Exposed=Window,Worker]
 interface CanvasPathMethods {
   // shared path API methods
-  void <span data-x="dom-context-2d-closePath">closePath</span>();
-  void <span data-x="dom-context-2d-moveTo">moveTo</span>(unrestricted double x, unrestricted double y);
-  void <span data-x="dom-context-2d-lineTo">lineTo</span>(unrestricted double x, unrestricted double y);
-  void <span data-x="dom-context-2d-quadraticCurveTo">quadraticCurveTo</span>(unrestricted double cpx, unrestricted double cpy, unrestricted double x, unrestricted double y);
-  void <span data-x="dom-context-2d-bezierCurveTo">bezierCurveTo</span>(unrestricted double cp1x, unrestricted double cp1y, unrestricted double cp2x, unrestricted double cp2y, unrestricted double x, unrestricted double y);
-  void <span data-x="dom-context-2d-arcTo">arcTo</span>(unrestricted double x1, unrestricted double y1, unrestricted double x2, unrestricted double y2, unrestricted double radius); 
-  void <span data-x="dom-context-2d-rect">rect</span>(unrestricted double x, unrestricted double y, unrestricted double w, unrestricted double h);
-  void <span data-x="dom-context-2d-arc">arc</span>(unrestricted double x, unrestricted double y, unrestricted double radius, unrestricted double startAngle, unrestricted double endAngle, optional boolean anticlockwise = false); <!-- see ARC-ORDER note below -->
-  void <span data-x="dom-context-2d-ellipse">ellipse</span>(unrestricted double x, unrestricted double y, unrestricted double radiusX, unrestricted double radiusY, unrestricted double rotation, unrestricted double startAngle, unrestricted double endAngle, optional boolean anticlockwise = false); 
+  void closePath</span>();
+  void <a link-type=function link-for=CanvasPathMethods title="moveto(x, y)">moveTo(unrestricted double x, unrestricted double y)</a>;
+  void lineTo(unrestricted double x, unrestricted double y);
+  void quadraticCurveTo(unrestricted double cpx, unrestricted double cpy, unrestricted double x, unrestricted double y);
+  void bezierCurveTo(unrestricted double cp1x, unrestricted double cp1y, unrestricted double cp2x, unrestricted double cp2y, unrestricted double x, unrestricted double y);
+  void arcTo(unrestricted double x1, unrestricted double y1, unrestricted double x2, unrestricted double y2, unrestricted double radius); 
+  void rect(unrestricted double x, unrestricted double y, unrestricted double w, unrestricted double h);
+  void arc(unrestricted double x, unrestricted double y, unrestricted double radius, unrestricted double startAngle, unrestricted double endAngle, optional boolean anticlockwise = false); <!-- see ARC-ORDER note below -->
+  void ellipse(unrestricted double x, unrestricted double y, unrestricted double radiusX, unrestricted double radiusY, unrestricted double rotation, unrestricted double startAngle, unrestricted double endAngle, optional boolean anticlockwise = false); 
 };
 
 [Exposed=Window,Worker]
@@ -274,7 +274,7 @@ Path2D implements CanvasPathMethods;
 </pre>
   <dl class="domintro">
 
-   <dt><var data-x="">context</var> = <var data-x="">canvas</var>.<code>getContext</code>('<span>2d</span>')</dt>
+   <dt><var>context</var> = <var>canvas</var>.<code>getContext</code>('<span>2d</span>')</dt>
 
    <dd>
 
@@ -283,7 +283,7 @@ Path2D implements CanvasPathMethods;
 
    </dd>
 
-   <dt><var data-x="">context</var> = new <a interface>CanvasRenderingContext2D</a>( [ <var data-x="">width</var>, <var data-x="">height</var> ] )</dt>
+   <dt><var>context</var> = new <a interface>CanvasRenderingContext2D</a>( [ <var>width</var>, <var>height</var> ] )</dt>
 
    <dd>
 
@@ -292,7 +292,7 @@ Path2D implements CanvasPathMethods;
 
    </dd>
 
-   <dt><var data-x="">context</var>.<a link-for=CanvasRenderingContext2D link-type=attribute>canvas</a></dt>
+   <dt><var>context</var>.<a link-for=CanvasRenderingContext2D link-type=attribute>canvas</a></dt>
 
    <dd>
 
@@ -301,8 +301,8 @@ Path2D implements CanvasPathMethods;
 
    </dd>
 
-   <dt><var data-x="">context</var>.<a>width</a></dt>
-   <dt><var data-x="">context</var>.<a>height</a></dt>
+   <dt><var>context</var>.<a>width</a></dt>
+   <dt><var>context</var>.<a>height</a></dt>
 
    <dd>
 
@@ -313,7 +313,7 @@ Path2D implements CanvasPathMethods;
 
    </dd>
 
-   <dt><var data-x="">context</var>.<a>commit()</a></dt>
+   <dt><var>context</var>.<a>commit()</a></dt>
 
    <dd>
 
@@ -325,8 +325,8 @@ Path2D implements CanvasPathMethods;
 
  <div class="impl">
 
-  <p>A <a interface>CanvasRenderingContext2D</a> object can be obtained in two ways: the <code
-  data-x="dom-canvas-getContext">getContext()</code> method on a <a link-for=CanvasRenderingContext2D link-type=attribute>canvas</a> element (which
+  <p>A <a interface>CanvasRenderingContext2D</a> object can be obtained in two ways: the <code>getContext()</code> 
+  method on a <a link-for=CanvasRenderingContext2D link-type=attribute>canvas</a> element (which
   invokes the <span>2D context creation algorithm</span>), and the <a>CanvasRenderingContext2D()</a> constructor.</p>
 
   <p>A <a interface>CanvasRenderingContext2D</a> object has a <dfn>scratch bitmap</dfn> and can be bound
@@ -466,7 +466,7 @@ Path2D implements CanvasPathMethods;
 <!--REMOVE-TOPIC:Security-->
 
      <li><p>Overwrite <var>output bitmap</var>'s <a>hit region list</a> with <var
-     data-x="">hit region list copy</var>.</p></li>
+    >hit region list copy</var>.</p></li>
 
      <li><p>Follow the directions in the <var>list of pending interface actions
      copy</var>.</p></li>
@@ -513,7 +513,7 @@ Path2D implements CanvasPathMethods;
    pending interface actions</span>.</p></li>
 
    <li><p>Resize the <span>scratch bitmap</span> to the new <var>width</var> and <var
-   data-x="">height</var> and clear it to fully transparent black.</p></li>
+  >height</var> and clear it to fully transparent black.</p></li>
 
    <li><p>If the rendering context has an <span>output bitmap</span>, and the <span>scratch
    bitmap</span> is a different bitmap than the <span>output bitmap</span>, then resize the
@@ -656,9 +656,9 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
 
   </dl>
 
-  <p>In the case of <code data-x="dom-canvasgradient-addColorStop">addColorStop()</code> on
+  <p>In the case of <code>addColorStop()</code> on
   <code>CanvasGradient</code>, the "computed value of the 'color' property" for the purposes of
-  determining the computed value of the <code data-x="">currentColor</code> keyword is always fully
+  determining the computed value of the <code>currentColor</code> keyword is always fully
   opaque black (there is no associated element). <a href="#refsCSSCOLOR">[CSSCOLOR]</a></p>
 
   <p class="note">This is because <code>CanvasGradient</code> objects are
@@ -705,8 +705,8 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
   bitmap</span>, is only directly observable if it is read, and therefore implementations can,
   instead of updating this bitmap, merely remember the sequence of drawing operations that have been
   applied to it until such time as the bitmap's actual data is needed (for example because of a call
-  to <a link-for=CanvasRenderingContext2D link-type=method>commit()</a>, <code
-  data-x="dom-context-2d-drawImage">drawImage()</code>, or the <code data-x="dom-createImageBitmap">createImageBitmap()</code>
+  to <a link-for=CanvasRenderingContext2D link-type=method>commit()</a>, <code>drawImage()</code>, 
+  or the <code>createImageBitmap()</code>
   factory method). In many cases, this will be more memory efficient.</p>
 
   <p>The bitmap of a <code>canvas</code> element is the one bitmap that's pretty much always going
@@ -727,7 +727,7 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
   states. <dfn data-x="drawing state">Drawing states</dfn> consist of:</p>
 
   <ul class="brief">
-   <li>The current <span data-x="dom-context-2d-transformation">transformation matrix</span>.</li>
+   <li>The current <span>transformation matrix</span>.</li>
    <li>The current <span>clipping region</span>.</li>
    <li>The current values of the following attributes: 
    <a link-for=CanvasRenderingContext2D link-type=attribute>strokeStyle</a>, 
@@ -753,7 +753,7 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
 
   <p class="note">The <span>current default path</span> and the rendering context's bitmaps are not
   part of the drawing state. The <span>current default path</span> is persistent, and can only be
-  reset using the <code data-x="dom-context-2d-beginPath">beginPath()</code> method. The bitmaps
+  reset using the <code>beginPath()</code> method. The bitmaps
   depend on whether and how the rendering context is bound to a <code>canvas</code> element.</p>
 
   <dl class="domintro">
@@ -1057,7 +1057,7 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
    <!-- DASHING -->
 
    <li><p>Let <var>pattern width</var> be the concatenation of all the entries of the <var
-   data-x="">styles</var> <a link-for=CanvasDrawingStyles link-type=attribute>dash list</a>, in coordinate space units.</p>
+  >styles</var> <a link-for=CanvasDrawingStyles link-type=attribute>dash list</a>, in coordinate space units.</p>
 
    <li><p>For each subpath <var>subpath</var> in <var>path</var>, run the
    following substeps. These substeps mutate the subpaths in <var>path</var> <b>in
@@ -1066,7 +1066,7 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
     <ol>
 
      <li><p>Let <var>subpath width</var> be the length of all the lines of <var
-     data-x="">subpath</var>, in coordinate space units.</p>
+    >subpath</var>, in coordinate space units.</p>
 
      <li><p>Let <var>offset</var> be the value of the <var>styles</var> <a link-for=CanvasDrawingStyles link-type=attribute>lineDashOffset</a>, 
      in coordinate space units.</p></li>
@@ -1084,7 +1084,7 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
      <li><p>Define <var>L</var> to be a linear coordinate line defined along all lines in
      <var>subpath</var>, such that the start of the first line in the subpath is defined
      as coordinate 0, and the end of the last line in the subpath is defined as coordinate <var
-     data-x="">subpath width</var>.</p></li>
+    >subpath width</var>.</p></li>
 
      <li><p>Let <var>position</var> be zero minus <var>offset</var>.</p></li>
 
@@ -1104,16 +1104,16 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
      more subpaths, then jump to the step labeled <b>convert</b> instead.</p></li>
 
      <li><p>If <var>segment length</var> is non-zero, let <var
-     data-x="">current state</var> be <b>on</b>.</p></li>
+    >current state</var> be <b>on</b>.</p></li>
 
      <li><p>Increment <var>index</var> by one.</p></li>
 
      <li><p><b>Dash off<!-- labeled for consistency only --></b>: Let <var>segment
      length</var> be the value of the <var>styles</var> <a link-for=CanvasDrawingStyles link-type=attribute>dash list</a>'s <var
-     data-x="">index</var>th entry.</p></li>
+    >index</var>th entry.</p></li>
 
      <li><p>Let <var>start</var> be the offset <var>position</var> on <var
-     data-x="">L</var>.</p></li>
+    >L</var>.</p></li>
 
      <li><p>Increment <var>position</var> by <var>segment length</var>.</p></li>
 
@@ -1125,8 +1125,8 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
 
      <li><p>If <var>position</var> is greater than <var>subpath width</var>, then
      let <var>end</var> be the offset <var>subpath width</var> on <var
-     data-x="">L</var>. Otherwise, let <var>end</var> be the offset <var
-     data-x="">position</var> on <var>L</var>.</p></li>
+    >L</var>. Otherwise, let <var>end</var> be the offset <var
+    >position</var> on <var>L</var>.</p></li>
 
      <li>
 
@@ -1148,14 +1148,14 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
        <dd>
 
         <p>Cut the line on which <var>end</var> finds itself short at <var
-        data-x="">end</var> and place a point there, cutting the subpath that it was in in two;
+       >end</var> and place a point there, cutting the subpath that it was in in two;
         remove all line segments, joins, points, and subpaths that are between <var
-        data-x="">start</var> and <var>end</var>; and finally place a single point at <var
-        data-x="">start</var> with no lines connecting to it.</p>
+       >start</var> and <var>end</var>; and finally place a single point at <var
+       >start</var> with no lines connecting to it.</p>
 
         <p>The point has a <b>directionality</b> for the purposes of drawing line caps (see below).
         The directionality is the direction that the original line had at that point (i.e. when <var
-        data-x="">L</var> was defined above).</p>
+       >L</var> was defined above).</p>
 
        </dd>
 
@@ -1165,11 +1165,11 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
        <dd>
 
         <p>Cut the line on which <var>start</var> finds itself into two at <var
-        data-x="">start</var> and place a point there, cutting the subpath that it was in in two, and
+       >start</var> and place a point there, cutting the subpath that it was in in two, and
         similarly cut the line on which <var>end</var> finds itself short at <var
-        data-x="">end</var> and place a point there, cutting the subpath that <em>it</em> was in in
+       >end</var> and place a point there, cutting the subpath that <em>it</em> was in in
         two, and then remove all line segments, joins, points, and subpaths that are between <var
-        data-x="">start</var> and <var>end</var>.</p>
+       >start</var> and <var>end</var>.</p>
 
         <p>If <var>start</var> and <var>end</var> are the same point, then this
         results in just the line being cut in two and two points being inserted there, with nothing
@@ -1183,10 +1183,10 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
      </li>
 
      <li><p><b>Post-cut</b>: If <var>position</var> is greater than <var
-     data-x="">subpath width</var>, then jump to the step labeled <b>convert</b>.</p></li>
+    >subpath width</var>, then jump to the step labeled <b>convert</b>.</p></li>
 
      <li><p>If <var>segment length</var> is greater than zero, let <var
-     data-x="">positioned-at-on-dash</var> be false.</p></li>
+    >positioned-at-on-dash</var> be false.</p></li>
 
      <li><p>Increment <var>index</var> by one. If it is equal to the number of entries in
      the <var>styles</var> <a link-for=CanvasDrawingStyles link-type=attribute>dash list</a>, then let <var>index</var> be
@@ -1207,9 +1207,9 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
     <p>Create a new <span data-x="concept-path">path</span> that describes the edge of the areas
     that would be covered if a straight line of length equal to the <var>styles</var>
     <a link-for=CanvasDrawingStyles link-type=attribute>lineWidth</a> was swept along each subpath in <var
-    data-x="">path</var> while being kept at an angle such that the line is orthogonal to the path
+   >path</var> while being kept at an angle such that the line is orthogonal to the path
     being swept, replacing each point with the end cap necessary to satisfy the <var
-    data-x="">styles</var> <a link-for=CanvasDrawingStyles link-type=attribute>lineCap</a> attribute as
+   >styles</var> <a link-for=CanvasDrawingStyles link-type=attribute>lineCap</a> attribute as
     described previously and elaborated below, and replacing each join with the join necessary to
     satisfy the <var>styles</var> <a link-for=CanvasDrawingStyles link-type=attribute>lineJoin</a> type, as defined below.</p>
 
@@ -1221,7 +1221,7 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
     link-type=attribute>lineWidth</a> width must additionally be placed on to the
     line coming out of each point. The <dfn dfn dfn-for=lineCap dfn-type=value><code>square</code></dfn> value means that a rectangle with the
     length of the <var>styles</var> <a link-for=CanvasDrawingStyles link-type=attribute>lineWidth</a> 
-    width and the width of half the <var data-x="">styles</var> <a link-for=CanvasDrawingStyles 
+    width and the width of half the <var>styles</var> <a link-for=CanvasDrawingStyles 
     link-type=attribute>lineWidth</a> width, placed
     flat against the edge perpendicular to the direction of the line coming out of the point, must
     be added at each point.</p>
@@ -1365,7 +1365,7 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
   unknown font, falling back to another as described by the relevant CSS specifications. <a
   href="#refsCSSFONTS">[CSSFONTS]</a> <a href="#refsCSSFONTLOAD">[CSSFONTLOAD]</a></p>
 
-  <p>On getting, the <code data-x="dom-context-2d-font">font</code> attribute must return the <span
+  <p>On getting, the <code>font</code> attribute must return the <span
   data-x="serializing a CSS value">serialised form</span> of the current font of the context (with
   no 'line-height' component). <a href="#refsCSSOM">[CSSOM]</a></p>
 
@@ -1375,8 +1375,8 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
 
    <pre>context.font = 'italic 400 12px/2 Unknown Font, sans-serif';</pre>
 
-   <p>...the expression <code data-x="">context.font</code> would evaluate to the string "<code
-   data-x="">italic&nbsp;12px&nbsp;&quot;Unknown&nbsp;Font&quot;,&nbsp;sans-serif</code>". The "400"
+   <p>...the expression <code>context.font</code> would evaluate to the string "<code
+  >italic&nbsp;12px&nbsp;&quot;Unknown&nbsp;Font&quot;,&nbsp;sans-serif</code>". The "400"
    font-weight doesn't appear because that is the default value. The line-height doesn't appear
    because it is forced to "normal", the default value.</p>
 
@@ -1502,8 +1502,7 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
 
   </dl>
 
-  <p>The <dfn>text preparation algorithm</dfn> is as follows. It takes as input a string <var
-  data-x="">text</var>, a <a interface>CanvasDrawingStyles</a> object <var>target</var>, and an
+  <p>The <dfn>text preparation algorithm</dfn> is as follows. It takes as input a string <var>text</var>, a <a interface>CanvasDrawingStyles</a> object <var>target</var>, and an
   optional length <dfn><var>maxWidth</var></dfn>. It returns an array of glyph shapes, each positioned
   on a common coordinate space, a <var>physical alignment</var> whose value is one of
   <a link-for=textAlign link-type=value>left</a>, <a link-for=textAlign link-type=value>right</a>, 
@@ -1516,20 +1515,19 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
    empty array.</p></li>
 
    <li><p>Replace all the <span data-x="space character">space characters</span> in <var
-   data-x="">text</var> with U+0020 SPACE characters.</p></li>
+  >text</var> with U+0020 SPACE characters.</p></li>
 
    <li><p>Let <var>font</var> be the current font of <var>target</var>, as given
-   by that object's <code data-x="dom-context-2d-font">font</code> attribute.</p></li>
+   by that object's <code>font</code> attribute.</p></li>
 
    <li>
 
     <p>Apply the appropriate step from the following list to determine the value of <var
-    data-x="">direction</var>:</p>
+   >direction</var>:</p>
 
     <dl class="switch">
 
-     <dt>If the <var>target</var> object's <code
-     data-x="dom-context-2d-direction">direction</code> attribute has the value 
+     <dt>If the <var>target</var> object's <code>direction</code> attribute has the value 
      "<a a link-for=direction link-type=value><code>ltr</code></a>"</dt>
      <dd>Let <var>direction</var> be '<span>ltr</span>'.</dd>
 
@@ -1674,5 +1672,288 @@ context.fillRect(100,0,50,50); // only this square remains</pre>
    box.</p></li>
 
   </ol>
+
+  </div>
+
+  <h2 id="building-paths" title="description of building a path">Building paths</h2>
+
+  <p>Each object implementing the <a interface>CanvasPathMethods</a> interface has a <span>path</span>. 
+  A <dfn>path</dfn> has a list of zero or
+  more subpaths. Each subpath consists of a list of one or more points, connected by straight or
+  curved <dfn>line segments</dfn>, and a flag indicating whether the subpath is closed or not. A
+  closed subpath is one where the last point of the subpath is connected to the first point of the
+  subpath by a straight line. Subpaths with only one point are ignored when painting the path.</p>
+
+  <p><a title=path>Paths</a> have a <dfn>need new subpath</dfn> flag. When this
+  flag is set, certain APIs create a new subpath rather than extending the previous one. When a
+  <a>path</a> is created, its <a>need new subpath</a> flag must be
+  set.</p>
+
+  <p>When an object implementing the <code><a interface>CanvasPathMethods</a></code> interface is created, 
+  its <a>path</a> must be initialised to zero subpaths.</p>
+
+  <dl class="domintro">
+
+   <dt><var>context</var>.<a link-type=function link-for=CanvasPathMethods>moveTo(x, y)</a></dt>
+   <dt><var>path</var>.<a link-type=function link-for=CanvasPathMethods>moveTo(x, y)</a></dt>
+
+   <dd>
+
+    <p>Creates a new subpath with the given point.</p>
+
+   </dd>
+
+   <dt><var>context</var>.<a link-type=function link-for=CanvasPathMethods>closePath()</a></dt>
+   <dt><var>path</var>.<a link-type=function link-for=CanvasPathMethods>closePath()</a></dt>
+
+   <dd>
+
+    <p>Marks the current subpath as closed, and starts a new subpath with a point the same as the
+    start and end of the newly closed subpath.</p>
+
+   </dd>
+
+   <dt><var>context</var>.<a link-type=function link-for=CanvasPathMethods>lineTo(x, y)</a></dt>
+   <dt><var>path</var>.<a link-type=function link-for=CanvasPathMethods>lineTo(<var>x, y)</a></dt>
+
+   <dd>
+
+    <p>Adds the given point to the current subpath, connected to the previous one by a straight
+    line.</p>
+
+   </dd>
+
+   <dt><var>context</var>.<a link-type=function link-for=CanvasPathMethods>quadraticCurveTo(cpx, cpy, x, y)</a></dt>
+   <dt><var>path</var>.<a link-type=function link-for=CanvasPathMethods>quadraticCurveTo(cpx, cpy, x, y)</a></dt>
+
+   <dd>
+
+    <p>Adds the given point to the current subpath, connected to the previous one by a quadratic
+    B&eacute;zier curve with the given control point.</p>
+
+   </dd>
+
+   <dt><var>context</var>.<a link-type=function link-for=CanvasPathMethods>bezierCurveTo(<var>cp1x</var>, <var>cp1y</var>, <var>cp2x</var>, <var>cp2y</var>, <var>x</var>, <var>y</var>)</a></dt>
+   <dt><var>path</var>.<a link-type=function link-for=CanvasPathMethods>bezierCurveTo(<var>cp1x</var>, <var>cp1y</var>, <var>cp2x</var>, <var>cp2y</var>, <var>x</var>, <var>y</var>)</a></dt>
+
+   <dd>
+
+    <p>Adds the given point to the current subpath, connected to the previous one by a cubic
+    B&eacute;zier curve with the given control points.</p>
+
+   </dd>
+
+   <dt><var>context</var>.<a link-type=function link-for=CanvasPathMethods>arcTo(<var>x1</var>, <var>y1</var>, <var>x2</var>, <var>y2</var>, <var>radiusX</var> [, <var>radiusY</var>, <var>rotation</var>])</a></dt>
+   <dt><var>path</var>.<a link-type=function link-for=CanvasPathMethods>arcTo(<var>x1</var>, <var>y1</var>, <var>x2</var>, <var>y2</var>, <var>radiusX</var> [, <var>radiusY</var>, <var>rotation</var>])</a></dt>
+
+   <dd>
+
+    <p>Adds an arc with the given control points and radius to the current subpath, connected to the
+    previous point by a straight line.</p>
+
+    <p>If two radii are provided, the first controls the width of the arc's ellipse, and the second
+    controls the height. If only one is provided, or if they are the same, the arc is from a circle.
+    In the case of an ellipse, the rotation argument controls the clockwise inclination of the
+    ellipse relative to the x-axis.</p>
+
+    <p>Throws an <code>IndexSizeError</code> exception if the given radius is negative.</p>
+
+    <figure class="diagrams">
+     <!-- if anyone wants to try writing alternative text for these,
+     be my guest. I can't work out how to describe them. -->
+     <img src="images/arcTo1.png" alt="" width=357 height=254>
+     <img src="images/arcTo2.png" alt="" width=468 height=310>
+     <img src="images/arcTo3.png" alt="" width=513 height=233>
+    </figure>
+
+   </dd>
+
+   <dt><var>context</var>.<a link-type=function link-for=CanvasPathMethods>arc(<var>x</var>, <var>y</var>, <var>radius</var>, <var>startAngle</var>, <var>endAngle</var>, <var>anticlockwise</var>)</a></dt>
+   <dt><var>path</var>.<a link-type=function link-for=CanvasPathMethods>arc(<var>x</var>, <var>y</var>, <var>radius</var>, <var>startAngle</var>, <var>endAngle</var>, <var>anticlockwise</var>)</a></dt>
+
+   <dd>
+
+    <p>Adds points to the subpath such that the arc described by the circumference of the circle
+    described by the arguments, starting at the given start angle and ending at the given end angle,
+    going in the given direction (defaulting to clockwise), is added to the path, connected to the
+    previous point by a straight line.</p>
+
+    <p>Throws an <code>IndexSizeError</code> exception if the given radius is negative.</p>
+
+    <figure class="diagrams">
+     <img src="images/arc1.png" alt="" width=590 height=255>
+    </figure>
+
+   </dd>
+
+   <dt><var>context</var>.<a link-type=function link-for=CanvasPathMethods>ellipse(<var>x</var>, <var>y</var>, <var>radiusX</var>, <var>radiusY</var>, <var>rotation</var>, <var>startAngle</var>, <var>endAngle</var>, <var>anticlockwise</var>)</a></dt>
+   <dt><var>path</var>.<a link-type=function link-for=CanvasPathMethods>ellipse(<var>x</var>, <var>y</var>, <var>radiusX</var>, <var>radiusY</var>, <var>rotation</var>, <var>startAngle</var>, <var>endAngle</var>, <var>anticlockwise</var>)</a></dt>
+
+   <dd>
+
+    <p>Adds points to the subpath such that the arc described by the circumference of the ellipse
+    described by the arguments, starting at the given start angle and ending at the given end angle,
+    going in the given direction (defaulting to clockwise), is added to the path, connected to the
+    previous point by a straight line.</p>
+
+    <p>Throws an <code>IndexSizeError</code> exception if the given radius is negative.</p>
+
+   </dd>
+
+   <dt><var>context</var>.<a link-type=function link-for=CanvasPathMethods>rect(<var>x</var>, <var>y</var>, <var>w</var>, <var>h</var>)</a></dt>
+   <dt><var>path</var>.<a link-type=function link-for=CanvasPathMethods>rect(<var>x</var>, <var>y</var>, <var>w</var>, <var>h</var>)</a></dt>
+
+   <dd>
+
+    <p>Adds a new closed subpath to the path, representing the given rectangle.</p>
+
+   </dd>
+
+  </dl>
+
+  <div class="impl">
+
+  <p>The following methods allow authors to manipulate the <a title="path">paths</a>
+  of objects implementing the <code><a interface>CanvasPathMethods</a></code> interface.</p>
+
+  <p>For <a interface>CanvasRenderingContext2D</a> objects, the points passed to the methods, and the
+  resulting lines added to <span>current default path</span> by these methods, must be transformed
+  according to the <span>current transformation matrix</span>
+  before being added to the path.</p>
+
+  <hr>
+
+  <p>The <dfn dfn-type=function dfn-for=CanvasPathMethods><code>moveTo(x, y)</code></dfn> method must create a new subpath with the specified point as its
+  first (and only) point.</p>
+
+  <p>When the user agent is to <dfn>ensure there is a subpath</dfn> for a coordinate (<var>x</var>, <var>y</var>) on a <a>path</a>, the user
+  agent must check to see if the <span data-x="concept-path">path</span> has its <a>need new
+  subpath</a> flag set. If it does, the user agent must create a new subpath with the point (<var>x</var>, <var>y</var>) as its first (and only) 
+  point, as if the <a link-type=function link-for=CanvasPathMethods>moveTo(x, y)</a> method had been called, and must then unset the
+  <a>path</a>'s <span>need new subpath</span> flag.</p>
+
+  <hr>
+
+  <p>The <dfn dfn-type=function dfn-for=CanvasPathMethods><code>closePath()</code></dfn> method must do nothing
+  if the object's path has no subpaths. Otherwise, it must mark the last subpath as closed, create a
+  new subpath whose first point is the same as the previous subpath's first point, and finally add
+  this new subpath to the path.</p>
+
+  <p class="note">If the last subpath had more than one point in its list of points, then this is
+  equivalent to adding a straight line connecting the last point back to the first point, thus
+  "closing" the shape, and then repeating the last (possibly implied) <a link-type=function link-for=CanvasPathMethods>moveTo(x, y)</a> call.</p>
+
+
+  <p>New points and the lines connecting them are added to subpaths using the methods described
+  below. In all cases, the methods only modify the last subpath in the object's path.</p>
+
+  <hr>
+
+  <p>The <dfn dfn-type=function dfn-for=CanvasPathMethods><code>lineTo(<var>x</var>, <var>y</var>)</code></dfn> method must <a>ensure there is a subpath</a> for <span
+ >(<var>x</var>, <var>y</var>)</span> if the object's path has no
+  subpaths. Otherwise, it must connect the last point in the subpath to the given point (<var>x</var>, <var>y</var>) using a straight line, and must then add the given point
+  (<var>x</var>, <var>y</var>) to the subpath.</p>
+
+  <hr>
+
+  <p>The <dfn dfn-type=function dfn-for=CanvasPathMethods><code>quadraticCurveTo(<var>cpx</var>, <var>cpy</var>, <var>x</var>, <var>y</var>)</code></dfn> method must <a>ensure there is a subpath</a> for <span
+ >(<var>cpx</var>, <var>cpy</var>)</span>, and then must connect the last
+  point in the subpath to the given point (<var>x</var>, <var>y</var>) using a
+  quadratic B&eacute;zier curve with control point (<var>cpx</var>, <var>cpy</var>), and must then 
+  add the given point (<var>x</var>, <var>y</var>) to the subpath.</p>
+
+  <hr>
+
+  <p>The <dfn dfn-type=function dfn-for=CanvasPathMethods><code>bezierCurveTo(<var>cp1x</var>, <var>cp1y</var>, <var>cp2x</var>, <var>cp2y</var>, <var>x</var>, <var>y</var>)</code></dfn> method must <a>ensure there is a
+  subpath</a> for <span>(<var>cp1x</var>, <var>cp1y</var>)</span>, and
+  then must connect the last point in the subpath to the given point (<var>x</var>, <var>y</var>) using a cubic B&eacute;zier curve with control points (<var>cp1x</var>,
+  <var>cp1y</var>) and (<var>cp2x</var>, <var>cp2y</var>). Then, it must
+  add the point (<var>x</var>, <var>y</var>) to the subpath. </p>
+
+  <hr>
+
+  <p>The <dfn dfn-type=function dfn-for=CanvasPathMethods><code>arcTo(<var>x1</var>, <var>y1</var>, <var>x2</var>, <var>y2</var>, <var>radiusX</var> [, <var>radiusY</var>, <var>rotation</var>])</code></dfn> method must first
+  <span>ensure there is a subpath</span> for <span>(<var>x1</var>, <var>y1</var>)</span>. Then, the behavior depends on the arguments and the last point in the
+  subpath, as described below.</p>
+
+  <p>Negative values for <var>radiusX</var> or <var>radiusY</var> must cause the
+  implementation to throw an <code>IndexSizeError</code> exception. If <var>radiusY</var>
+  is omitted, user agents must act as if it had the same value as <var>radiusX</var>.</p>
+
+  <p>Let the point (<var>x0</var>, <var>y0</var>) be the last point in the
+  subpath, transformed by the inverse of the <a>current transformation matrix</a> (so that it is in the same 
+  coordinate system as the points passed to the method).</p>
+
+  <p>If the point (<var>x0</var>, <var>y0</var>) is equal to the point (<var>x1</var>, <var>y1</var>), or if the point (<var>x1</var>, <var>y1</var>) is equal to the point (<var>x2</var>, <var>y2</var>), or if
+  both <var>radiusX</var> and <var>radiusY</var> are zero, then the method must
+  add the point (<var>x1</var>, <var>y1</var>) to the subpath, and connect that
+  point to the previous point (<var>x0</var>, <var>y0</var>) by a straight
+  line.</p>
+
+  <p>Otherwise, if the points (<var>x0</var>, <var>y0</var>), (<var>x1</var>, <var>y1</var>), and (<var>x2</var>, <var>y2</var>)
+  all lie on a single straight line, then the method must add the point (<var>x1</var>,
+  <var>y1</var>) to the subpath, and connect that point to the previous point (<var>x0</var>, <var>y0</var>) by a straight line.</p>
+
+  <p>Otherwise, let <var>The Arc</var> be the shortest arc given by circumference of the
+  ellipse that has radius <var>radiusX</var> on the major axis and radius <var>radiusY</var> on the minor axis, and whose semi-major axis is rotated <var>rotation</var> radians clockwise from the positive x-axis, and that has one point tangent
+  to the half-infinite line that crosses the point (<var>x0</var>, <var>y0</var>)
+  and ends at the point (<var>x1</var>, <var>y1</var>), and that has a different
+  point tangent to the half-infinite line that ends at the point (<var>x1</var>, <var>y1</var>) and crosses the point (<var>x2</var>, <var>y2</var>). The
+  points at which this ellipse touches these two lines are called the start and end tangent points
+  respectively. The method must connect the point (<var>x0</var>, <var>y0</var>)
+  to the start tangent point by a straight line, adding the start tangent point to the subpath, and
+  then must connect the start tangent point to the end tangent point by <var>The Arc</var>,
+  adding the end tangent point to the subpath.</p>
+
+  <hr>
+
+  <p>The <dfn dfn-type=function dfn-for=CanvasPathMethods><code>arc(<var>x</var>, <var>y</var>, <var>radius</var>, <var>startAngle</var>, <var>endAngle</var>, <var>anticlockwise</var>)</code></dfn> and 
+  <dfn dfn-type=function dfn-for=CanvasPathMethods><code>ellipse(<var>x</var>, <var>y</var>, <var>radiusX</var>, <var>radiusY</var>, <var>rotation</var>, <var>startAngle</var>, <var>endAngle</var>, <var>anticlockwise</var>)</code></dfn> methods draw arcs.</p>
+
+  <p>The <a link-type=function link-for=CanvasPathMethods>arc(<var>x</var>, <var>y</var>, <var>radius</var>, <var>startAngle</var>, <var>endAngle</var>, <var>anticlockwise</var>)</a> method 
+  is equivalent to the <code>ellipse()</code> method in the case where the two radii are equal.
+  When the <code>arc()</code> method is invoked, it must act as if the
+  <code>ellipse()</code> method had been invoked with the <var>radiusX</var> and <var>radiusY</var> arguments set to the value of the <var>radius</var> argument, the <var>rotation</var> argument set to zero, and the
+  other arguments set to the same values as their identically named arguments on the <code>arc()</code> method.</p>
+
+  <p>When the <a link-type=function link-for=CanvasPathMethods><code>ellipse()</code></a> method is invoked, it must
+  proceed as follows. First, if the object's path has any subpaths, then the method must add a
+  straight line from the last point in the subpath to the start point of the arc. Then, it must add
+  the start and end points of the arc to the subpath, and connect them with an arc. The arc and its
+  start and end points are defined as follows:</p>
+
+  <p>Consider an ellipse that has its origin at (<var>x</var>, <var>y</var>), that
+  has a major-axis radius <var>radiusX</var> and a minor-axis radius <var>radiusY</var>, and that is rotated about its origin such that its semi-major axis is
+  inclined <var>rotation</var> radians clockwise from the x-axis.</p>
+
+  <p>If the <var>anticlockwise</var> argument is false and <span><var>endAngle</var>-<var>startAngle</var></span> is equal to or greater than <span
+ >2&pi;</span>, or, if the <var>anticlockwise</var> argument is <em>true</em>
+  and <span><var>startAngle</var>-<var>endAngle</var></span> is equal
+  to or greater than <span>2&pi;</span>, then the arc is the whole circumference of this
+  ellipse, and the point at <var>startAngle</var> along this circle's circumference,
+  measured in radians clockwise from the ellipse's semi-major axis, acts as both the start point and
+  the end point.</p>
+
+  <p>Otherwise, the points at <var>startAngle</var> and <var>endAngle</var>
+  along this circle's circumference, measured in radians clockwise from the ellipse's semi-major
+  axis, are the start and end points respectively, and the arc is the path along the circumference
+  of this ellipse from the start point to the end point, going anti-clockwise if the <var>anticlockwise</var> argument is true, and clockwise otherwise. Since the points are on
+  the ellipse, as opposed to being simply angles from zero, the arc can never cover an angle greater
+  than <span>2&pi;</span> radians.</p>
+
+  <p class="note">Even if the arc covers the entire circumference of the ellipse and there are no
+  other points in the subpath, the path is not closed unless the <a link-type=function link-for=CanvasPathMethods><code>closePath()</code></a> method is appropriately invoked.</p>
+
+  <p>Negative values for <var>radiusX</var> or <var>radiusY</var> must cause the
+  implementation to throw an <code>IndexSizeError</code> exception.</p>
+
+  <hr>
+
+  <p>The <dfn dfn-type=function dfn-for=CanvasPathMethods><code>rect(<var>x</var>, <var>y</var>, <var>w</var>, <var>h</var>)</code></dfn> method must create
+  a new subpath containing just the four points (<var>x</var>, <var>y</var>),
+  (<var>x</var>+<var>w</var>, <var>y</var>), (<var>x</var>+<var>w</var>, <var>y</var>+<var>h</var>), (<var>x</var>, <var>y</var>+<var>h</var>), in that order, with those four
+  points connected by straight lines, and must then mark the subpath as closed. It must then create
+  a new subpath with the point (<var>x</var>, <var>y</var>) as the only point in
+  the subpath.</p>
 
   </div>
